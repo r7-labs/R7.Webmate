@@ -1,0 +1,11 @@
+{
+  "name": "R7.Webmate",
+  "version": "0.1.0",
+  "repository": "https://github.com/roman-yagodin/R7.Webmate",
+  "author": "roman-yagodin <roman.yagodin@gmail.com>",
+  "license": "GPLv3",
+  "dependencies": {},
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2"
+  }
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Xwt.Gtk3.0.2.198\build\Xwt.Gtk3.props" Condition="Exists('..\packages\Xwt.Gtk3.0.2.198\build\Xwt.Gtk3.props')" />
+  <PropertyGroup>
+    <ProjectGuid>{2505B342-AD1C-46EA-AA9F-BB232CC36CC8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>R7.Webmate.Xwt</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="OSHelper.cs" />
+    <Compile Include="TextCatalogKeeper.cs" />
+    <Compile Include="Icons\FAIconHelper.cs" />
+    <Compile Include="Icons\FAIconStyle.cs" />
+    <Compile Include="TextCleanerWidget.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="locale\ru\LC_MESSAGES\R7.Webmate.Xwt.mo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="locale\ru\LC_MESSAGES\R7.Webmate.Xwt.po" />
+    <None Include="Modules\Text\Text.psm1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="PowerShellRunner.cs" />
+    <None Include="Scripts\text-to-html.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\text-to-text.ps1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Xwt">
+      <HintPath>..\packages\Xwt.0.2.198\lib\net40\Xwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="Xwt.Gtk3">
+      <HintPath>..\packages\Xwt.Gtk3.0.2.198\lib\net40\Xwt.Gtk3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="YamlDotNet">
+      <HintPath>..\packages\YamlDotNet.7.0.0\lib\net45\YamlDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="NGettext">
+      <HintPath>..\packages\NGettext.0.6.4\lib\net46\NGettext.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="locale\" />
+    <Folder Include="Icons\" />
+    <Folder Include="Modules\" />
+    <Folder Include="Modules\Text\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

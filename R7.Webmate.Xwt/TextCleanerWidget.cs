@@ -1,11 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using NGettext;
+using R7.Webmate.Core.Text.Processings;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
 
 namespace R7.Webmate.Xwt
 {
+    public class TextCleanerModel
+    {
+        public string Source { get; set; }
+
+        public IList<string> Results = new List<string> ();
+    }
+
     public class TextCleanerWidget: Widget
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();
@@ -18,8 +27,7 @@ namespace R7.Webmate.Xwt
 
         protected VBox vboxResults = new VBox ();
 
-        // part of the model
-        protected string Src;
+        protected TextCleanerModel Model = new TextCleanerModel ();
 
         public TextCleanerWidget ()
         {
@@ -51,22 +59,25 @@ namespace R7.Webmate.Xwt
 
         void BtnPaste_Clicked (object sender, EventArgs e)
         {
-            Src = Clipboard.GetText ();
-            lblSrc.Text = FormatLabel (Src);
+            Model.Source = Clipboard.GetText ();
+            lblSrc.Text = FormatLabel (Model.Source);
         }
 
         void BtnProcess_Clicked (object sender, EventArgs e)
         {
-            // TODO: Process text here
-            var result = Src;
-
             // clear previos results
             vboxResults.Clear ();
+            Model.Results.Clear ();
 
-            // add new results
+            // process text
+
+            Model.Results.Add (new TextToTextProcessing ().Execute (Model.Source));
+
+            // display new results
             var index = 0;
-            AddResult (++index, T.GetString ("Text"), result);
-            AddResult (++index, T.GetString ("HTML"), "<p>" + result + "</p>");
+            foreach (var result in Model.Results) {
+                AddResult (++index, T.GetString ("Text"), result);
+            }
         }
 
         void AddResult (int index, string format, string result)

@@ -56,6 +56,12 @@
     <Folder Include="locale\" />
     <Folder Include="Icons\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\R7.Webmate.Core\R7.Webmate.Core.csproj">
+      <Project>{C97EAFDF-3190-4A13-B1DC-A033C45228B8}</Project>
+      <Name>R7.Webmate.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
     <MonoDevelop>

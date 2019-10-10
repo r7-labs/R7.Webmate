@@ -34,16 +34,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="locale\ru\LC_MESSAGES\R7.Webmate.Xwt.po" />
-    <None Include="Modules\Text\Text.psm1">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="PowerShellRunner.cs" />
-    <None Include="Scripts\text-to-html.ps1">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Scripts\text-to-text.ps1">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">
@@ -65,9 +55,6 @@
   <ItemGroup>
     <Folder Include="locale\" />
     <Folder Include="Icons\" />
-    <Folder Include="Modules\" />
-    <Folder Include="Modules\Text\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

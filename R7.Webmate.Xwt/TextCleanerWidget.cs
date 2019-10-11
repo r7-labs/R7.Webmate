@@ -29,6 +29,8 @@ namespace R7.Webmate.Xwt
 
         protected TextCleanerModel Model = new TextCleanerModel ();
 
+        protected ITextProcessing TextToTextProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-text.yml");
+
         public TextCleanerWidget ()
         {
             btnPaste = new Button (FAIconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste"));
@@ -70,7 +72,7 @@ namespace R7.Webmate.Xwt
             Model.Results.Clear ();
 
             // process text
-            Model.Results.Add (TextProcessingFactory.CreateTextToTextProcessing ().Execute (Model.Source, null));
+            Model.Results.Add (TextToTextProcessing.Execute (Model.Source));
 
             // display new results
             var index = 0;

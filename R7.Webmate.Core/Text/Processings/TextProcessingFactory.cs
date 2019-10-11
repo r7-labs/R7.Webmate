@@ -1,7 +1,9 @@
-﻿using R7.Webmate.Core.Text.Commands;
+﻿using System;
+using R7.Webmate.Core.Text.Commands;
 
 namespace R7.Webmate.Core.Text.Processings
 {
+    [Obsolete]
     public static class TextProcessingFactory
     {
         public static ITextProcessing CreateTextToTextProcessing ()

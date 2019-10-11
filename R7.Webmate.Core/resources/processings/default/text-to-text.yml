@@ -1,0 +1,68 @@
+---
+commands:
+# normalize endlines
+- !!replace
+  pattern: "\r\n"
+  replacement: "\n"
+# remove excess empty lines
+- !!regex-replace  
+  pattern: "\n{3,}"
+  replacement: "\n\n"
+- !!replace
+  pattern: "\r"
+  replacement: "\n"
+# replace tabs with spaces
+- !!replace
+  pattern: "\t"
+  replacement: " "
+# remove spaces before closing punctuation
+- !!regex-replace
+  pattern: " ([\\.,;:\\)\\}\\]\\?!])"
+  replacement: "$1"
+- !!regex-replace
+  pattern: " +"
+  replacement: " "
+# remove extra punctuation after closing bracket
+- !!replace
+  pattern: ".)."
+  replacement: ".)"
+- !!replace
+  pattern: "!)."
+  replacement: "!)"
+- !!replace
+  pattern: "?)."
+  replacement: "?)"
+# replace figure quotes (for text output)
+- !!replace
+  pattern: "«"
+  replacement: '"'
+- !!replace
+  pattern: "»"
+  replacement: '"'
+# remove hyphens
+- !!replace
+  pattern: "¬"
+  replacement: ""
+# replace double hyphens with en dash
+#- !!replace
+#  pattern: " -- "
+#  replacement: "\\u2013"
+# fix some common typos
+- !!replace
+  pattern: "г.г."
+  replacement: "гг."
+- !!replace
+  pattern: "с\\х"
+  replacement: "с.-х."
+- !!replace
+  pattern: "с/х"
+  replacement: "с.-х."
+- !!replace
+  pattern: "с.х."
+  replacement: "с.-х."
+# remove duplicate spaces
+- !!regex-replace
+  pattern: " +"
+  replacement: " "
+# trim text
+- !!trim {}

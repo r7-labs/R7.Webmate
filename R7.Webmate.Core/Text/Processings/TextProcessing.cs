@@ -2,7 +2,5 @@
 {
 	public class TextProcessing : TextProcessingBase
     {
-        public TextProcessing ()
-        {}
 	}
 }

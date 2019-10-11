@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using YamlDotNet.Serialization;
 
 namespace R7.Webmate.Core.Text.Commands
 {
     public class CompositeCommand: TextCommandBase
     {
+        [YamlIgnore]
         public string Comment { get; set; }
 
         public IList<ITextCommand> Commands { get; set; }

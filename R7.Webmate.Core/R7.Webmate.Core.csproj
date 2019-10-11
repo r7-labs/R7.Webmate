@@ -10,6 +10,14 @@
   <ItemGroup>
     <PackageReference Include="YamlDotNet" Version="7.0.0" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="resources\processings\default\text-to-text.yml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resources\" />
+  </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
       <Properties>

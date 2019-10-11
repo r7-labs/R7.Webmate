@@ -9,10 +9,9 @@ namespace R7.Webmate.Core.Tests.Text.Processings
         public void RoundtripTest ()
         {
             var exception = Record.Exception (() => {
-                var tp = TextProcessingFactory.CreateTextToTextProcessing ();
-                var tpSerializer = new TextProcessingSerializer ();
-                var yaml = tpSerializer.Serialize (tp);
-                var tp2 = tpSerializer.Deserialize (yaml);
+                var tp = TextProcessingLoader.LoadDefaultFromFile ("text-to-text.yml");
+                var serializer = new TextProcessingSerializer ();
+                serializer.Serialize (tp);
             });
             Assert.Null (exception);
         }

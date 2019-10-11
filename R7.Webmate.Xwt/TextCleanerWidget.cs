@@ -70,8 +70,7 @@ namespace R7.Webmate.Xwt
             Model.Results.Clear ();
 
             // process text
-
-            Model.Results.Add (new TextToTextProcessing ().Execute (Model.Source));
+            Model.Results.Add (TextProcessingFactory.CreateTextToTextProcessing ().Execute (Model.Source, null));
 
             // display new results
             var index = 0;

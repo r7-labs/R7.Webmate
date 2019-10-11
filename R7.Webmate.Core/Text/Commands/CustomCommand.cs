@@ -13,7 +13,7 @@
 
 		public override string Execute (string value)
 		{
-            if (IsEnabled && CustomCommandHandler != null) {
+            if (!IsDisabled && CustomCommandHandler != null) {
                 return CustomCommandHandler (value);
             }
 

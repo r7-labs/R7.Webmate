@@ -2,19 +2,22 @@
 {
 	public class ReplaceCommand: TextCommandBase
 	{
-		public ReplaceCommand (string pattern, string replacement)
+        public string Pattern { get; set; }
+
+        public string Replacement { get; set; }
+
+        public ReplaceCommand ()
+        {}
+
+        public ReplaceCommand (string pattern, string replacement)
 		{
 			Pattern = pattern;
 			Replacement = replacement;
 		}
 
-		public string Pattern { get; set; }
-
-		public string Replacement { get; set; }
-
 		public override string Execute (string value)
 		{
-			if (IsEnabled) {
+			if (!IsDisabled) {
 				return value.Replace (Pattern, Replacement);
 			}
 
@@ -24,20 +27,23 @@
 
 	public class TrimCommand: TextCommandBase
 	{
-		public TrimCommand (params char [] trimChars)
+        public TrimCommand ()
+        {}
+
+        public string TrimChars { get; set; }
+
+        public TrimCommand (string trimChars = null)
 		{
-            if (trimChars != null && trimChars.Length > 0) {
+            if (!string.IsNullOrEmpty (trimChars)) {
                 TrimChars = trimChars;
             }
 		}
 
-		public char [] TrimChars { get; set; }
-
 		public override string Execute (string value)
 		{
-			if (IsEnabled) {
-                if (TrimChars != null && TrimChars.Length > 0) {
-                    return value.Trim (TrimChars);
+			if (!IsDisabled) {
+                if (!string.IsNullOrEmpty (TrimChars)) {
+                    return value.Trim (TrimChars.ToCharArray ());
                 }
 
 				return value.Trim ();
@@ -49,16 +55,19 @@
 
 	public class AppendCommand: TextCommandBase
     {
+        public string After { get; set; }
+
+        public AppendCommand ()
+        {}
+
 		public AppendCommand (string after)
 		{
 			After = after;
 		}
 
-		public string After { get; set; }
-
 		public override string Execute (string value)
 		{
-			if (IsEnabled) {
+			if (!IsDisabled) {
 				return value + After;
 			}
 
@@ -68,16 +77,19 @@
 
 	public class PrependCommand: TextCommandBase
     {
+        public string Before { get; set; }
+
+        public PrependCommand ()
+        {}
+
 		public PrependCommand (string before)
 		{
 			Before = before;
 		}
 
-		public string Before { get; set; }
-
 		public override string Execute (string value)
 		{
-			if (IsEnabled) {
+			if (!IsDisabled) {
 				return Before + value;
 			}
 

@@ -1,25 +1,30 @@
-﻿using R7.Webmate.Core.Text.Commands;
+﻿using System.Collections.Generic;
+using R7.Webmate.Core.Text.Commands;
 
 namespace R7.Webmate.Core.Text.Processings
 {
-	public abstract class TextProcessingBase
-	{
-		public TextProcessingBase ()
-		{
-			Build ();
-		}
+    public abstract class TextProcessingBase: ITextProcessing
+    {
+        public ITextProcessingParams Params { get; set; }
 
-		protected ITextProcessingParams Params { get; set; }
+        public IList<ITextCommand> Commands { get; set; } = new List<ITextCommand> ();
 
-		protected ITextCommand Command { get; set; }
-
-		protected abstract void Build ();
+        public void AddCommands (params ITextCommand [] commands)
+        {
+            foreach (var command in commands) {
+                Commands.Add (command);
+            }
+        }
 
 		public virtual string Execute (string text, ITextProcessingParams textProcessingParams = null)
 		{
 			Params = textProcessingParams;
 
-			return Command.Execute (text);
+            foreach (var command in Commands) {
+                text = command.Execute (text);
+            }
+
+            return text;
 		}
 	}
 }

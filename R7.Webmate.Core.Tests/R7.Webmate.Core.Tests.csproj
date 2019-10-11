@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <!-- Fix for CS0017 Program has more than one entry point defined... https://andrewlock.net/fixing-the-error-program-has-more-than-one-entry-point-defined-for-console-apps-containing-xunit-tests/ -->
+    <GenerateProgramFile>false</GenerateProgramFile>
+    <!-- End fix -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="YamlDotNet" Version="7.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\R7.Webmate.Core\R7.Webmate.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Text\" />
+    <Folder Include="Text\Processings\" />
+  </ItemGroup>
+</Project>

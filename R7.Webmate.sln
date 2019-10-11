@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Xwt", "R7.Webmat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Core", "R7.Webmate.Core\R7.Webmate.Core.csproj", "{C97EAFDF-3190-4A13-B1DC-A033C45228B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Core.Tests", "R7.Webmate.Core.Tests\R7.Webmate.Core.Tests.csproj", "{DA075051-D5E0-445D-8826-F683F89494E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{C97EAFDF-3190-4A13-B1DC-A033C45228B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C97EAFDF-3190-4A13-B1DC-A033C45228B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C97EAFDF-3190-4A13-B1DC-A033C45228B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA075051-D5E0-445D-8826-F683F89494E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA075051-D5E0-445D-8826-F683F89494E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA075051-D5E0-445D-8826-F683F89494E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA075051-D5E0-445D-8826-F683F89494E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

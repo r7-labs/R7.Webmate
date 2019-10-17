@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
+using System.Text;
 using NGettext;
 using R7.Webmate.Core.Text.Processings;
 using R7.Webmate.Xwt.Icons;
@@ -8,20 +8,15 @@ using Xwt;
 
 namespace R7.Webmate.Xwt
 {
-    public class TextCleanerModel
-    {
-        public string Source { get; set; }
-
-        public IList<string> Results = new List<string> ();
-    }
-
     public class TextCleanerWidget: Widget
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();
 
         protected Button btnPaste;
 
-        protected Label lblSrc = new Label ();
+        protected Button btnPasteHtml;
+
+        protected TextViewLabel lblSrc = new TextViewLabel ();
 
         protected Button btnProcess;
 
@@ -34,7 +29,9 @@ namespace R7.Webmate.Xwt
         public TextCleanerWidget ()
         {
             btnPaste = new Button (FAIconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste"));
+            btnPasteHtml = new Button (FAIconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
             btnPaste.Clicked += BtnPaste_Clicked;
+            btnPasteHtml.Clicked += BtnPasteHtml_Clicked;
 
             var btnPasteMenu = new MenuButton ();
 
@@ -43,10 +40,7 @@ namespace R7.Webmate.Xwt
 
             var hboxPaste = new HBox ();
             hboxPaste.PackStart (btnPaste, true, true);
-            hboxPaste.PackStart (btnPasteMenu, false, true);
-
-            lblSrc.Ellipsize = EllipsizeMode.End;
-            lblSrc.Selectable = true;
+            hboxPaste.PackStart (btnPasteHtml, true, true);
 
             var vbox = new VBox ();
             vbox.PackStart (hboxPaste, true, true);
@@ -62,7 +56,19 @@ namespace R7.Webmate.Xwt
         void BtnPaste_Clicked (object sender, EventArgs e)
         {
             Model.Source = Clipboard.GetText ();
-            lblSrc.Text = FormatLabel (Model.Source);
+            lblSrc.Text = Model.Source;
+        }
+
+        void BtnPasteHtml_Clicked (object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsData (TransferDataType.Html)) {
+                Model.Source = Encoding.UTF8.GetString ((byte []) Clipboard.GetData (TransferDataType.Html));
+            }
+            else {
+                Model.Source = string.Empty;
+            }
+
+            lblSrc.Text = Model.Source;
         }
 
         void BtnProcess_Clicked (object sender, EventArgs e)
@@ -83,11 +89,9 @@ namespace R7.Webmate.Xwt
 
         void AddResult (int index, string format, string result)
         {
-            var lblResult = new Label ();
-            lblResult.Ellipsize = EllipsizeMode.End;
-            lblResult.Selectable = true;
-            lblResult.Text = FormatLabel (result);
-
+            var lblResult = new TextViewLabel ();
+            lblResult.Text = result;
+           
             var btnCopy = new Button (FAIconHelper.GetIcon ("copy").WithSize (IconSize.Small), T.GetString ("Copy"));
             btnCopy.Clicked += (sender1, e1) => {
                 Clipboard.SetText (result);
@@ -103,10 +107,6 @@ namespace R7.Webmate.Xwt
             frmResult.Content = vboxResult;
             vboxResults.PackStart (frmResult);
         }
-
-        string FormatLabel (string text)
-        {
-            return Regex.Replace (text.Replace ("\r\n", " ").Replace ("\n", " "), @"\s+", " ").TrimStart ();
-        }
     }
 }
+

@@ -27,6 +27,9 @@
     <Compile Include="Icons\FAIconHelper.cs" />
     <Compile Include="Icons\FAIconStyle.cs" />
     <Compile Include="TextCleanerWidget.cs" />
+    <Compile Include="TextViewDialog.cs" />
+    <Compile Include="TextViewLabel.cs" />
+    <Compile Include="TextCleanerModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

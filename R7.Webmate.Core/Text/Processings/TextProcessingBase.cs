@@ -18,7 +18,7 @@ namespace R7.Webmate.Core.Text.Processings
 
         public virtual string Execute (string text)
         {
-            return Execute (text, null);
+            return Execute (text, new TextProcessingParams ());
         }
 
         public virtual string Execute (string text, ITextProcessingParams textProcessingParams)

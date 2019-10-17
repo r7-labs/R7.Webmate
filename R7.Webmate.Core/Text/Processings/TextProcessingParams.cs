@@ -6,9 +6,9 @@
 
     public abstract class TextProcessingParamsBase: ITextProcessingParams
     {
-        public TextProcessingParamsBase Copy ()
-        {
-            return (TextProcessingParamsBase) MemberwiseClone ();
-        }
+    }
+
+    public class TextProcessingParams: TextProcessingParamsBase
+    {
     }
 }

@@ -25,6 +25,7 @@ namespace R7.Webmate.Xwt
         protected TextCleanerModel Model = new TextCleanerModel ();
 
         protected ITextProcessing TextToTextProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-text.yml");
+        protected ITextProcessing TextToHtmlProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-html.yml");
 
         public TextCleanerWidget ()
         {
@@ -77,14 +78,14 @@ namespace R7.Webmate.Xwt
             vboxResults.Clear ();
             Model.Results.Clear ();
 
-            // process text
-            Model.Results.Add (TextToTextProcessing.Execute (Model.Source));
+            // process text and add results
+            var result1 = TextToTextProcessing.Execute (Model.Source);
+            Model.Results.Add (result1);
+            AddResult (1, T.GetString ("Text"), result1);
 
-            // display new results
-            var index = 0;
-            foreach (var result in Model.Results) {
-                AddResult (++index, T.GetString ("Text"), result);
-            }
+            var result2 = TextToHtmlProcessing.Execute (result1);
+            Model.Results.Add (result2);
+            AddResult (2, T.GetString ("HTML"), result2);
         }
 
         void AddResult (int index, string format, string result)

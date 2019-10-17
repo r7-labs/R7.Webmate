@@ -6,6 +6,7 @@ namespace R7.Webmate.Core.Text.Commands
     {
         public string Pattern { get; set; }
 
+        // TODO: Rename to "With"
         public string Replacement { get; set; }
 
         public RegexOptions RegexOptions { get; set; }

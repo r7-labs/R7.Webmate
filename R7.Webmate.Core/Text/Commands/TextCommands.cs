@@ -2,8 +2,10 @@
 {
 	public class ReplaceCommand: TextCommandBase
 	{
+        // TODO: Add mirror property "Text"
         public string Pattern { get; set; }
 
+        // TODO: Rename to "With"
         public string Replacement { get; set; }
 
         public ReplaceCommand ()
@@ -55,20 +57,20 @@
 
 	public class AppendCommand: TextCommandBase
     {
-        public string After { get; set; }
+        public string Text { get; set; }
 
         public AppendCommand ()
         {}
 
-		public AppendCommand (string after)
+		public AppendCommand (string text)
 		{
-			After = after;
+			Text = text;
 		}
 
 		public override string Execute (string value)
 		{
 			if (!IsDisabled) {
-				return value + After;
+				return value + Text;
 			}
 
 			return value;
@@ -77,20 +79,20 @@
 
 	public class PrependCommand: TextCommandBase
     {
-        public string Before { get; set; }
+        public string Text { get; set; }
 
         public PrependCommand ()
         {}
 
-		public PrependCommand (string before)
+		public PrependCommand (string text)
 		{
-			Before = before;
+			Text = text;
 		}
 
 		public override string Execute (string value)
 		{
 			if (!IsDisabled) {
-				return Before + value;
+				return Text + value;
 			}
 
 			return value;

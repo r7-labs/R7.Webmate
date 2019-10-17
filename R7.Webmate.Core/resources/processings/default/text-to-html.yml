@@ -1,0 +1,70 @@
+---
+commands:
+# placed all text inside P tag
+- !!prepend
+  text: "<p>"
+- !!append
+  text: "</p>"
+# replace endlines with P tags
+- !!replace
+  pattern: "\n"
+  replacement: "</p><p>"
+ # remove space before and after P tags (trim content)
+- !!regex-replace
+  pattern: "<p> +"
+  replacement: "<p>"
+- !!regex-replace
+  pattern: " +</p>"
+  replacement: "</p>"
+# remove duplicate spaces
+- !!regex-replace
+  pattern: " +"
+  replacement: " "
+# remove empty P tags
+- !!replace
+  pattern: "<p></p>"
+  replacement: ""
+- !!replace
+  pattern: "<p>&#160;</p>"
+  replacement: ""
+- !!replace
+  pattern: "<p>&nbsp;</p>"
+  replacement: ""
+# replace ampersands
+- !!replace
+  pattern: "&"
+  replacement: "&amp;"
+# replace quotes
+- !!replace
+  pattern: '"'
+  replacement: "&quot;"
+# replace &ndash;
+- !!replace
+  pattern: "\u2013"
+  replacement: "&ndash;"
+- !!replace
+  pattern: "\u2013"
+  replacement: "&ndash;"
+# potential &horbar; in quotes
+- !!replace
+  pattern: ">- "
+  replacement: ">&horbar; "
+# potential &mdash;
+- !!regex-replace
+  pattern: " - ?"
+  replacement: " &mdash; "
+# add &nbsp; before long dashes
+- !!replace
+  pattern: " &ndash;"
+  replacement: "&nbsp;&ndash;"
+- !!replace
+  pattern: " &mdash;"
+  replacement: "&nbsp;&mdash;"
+# replace emails with links
+- !!regex-replace
+  pattern: "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b"
+  replacement: "<a href=\"mailto:$&\">$&</a>"
+  
+# TODO: More dash rules https://en.wikipedia.org/wiki/Dash
+# TODO: replace URLs with links
+# TODO: emphasize names

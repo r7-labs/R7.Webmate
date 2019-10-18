@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using NGettext;
+using R7.Webmate.Xwt.Icons;
 using Xwt;
 
 namespace R7.Webmate.Xwt
@@ -11,7 +12,11 @@ namespace R7.Webmate.Xwt
 
         protected Label lblPreview = new Label ();
 
+        protected Button btnCopy = new Button ();
+
         protected Button btnOpenFullView = new Button ();
+
+        public bool AllowQuickCopy { get; protected set; }
 
         string _text;
         public string Text {
@@ -22,8 +27,10 @@ namespace R7.Webmate.Xwt
             }
          }
 
-        public TextViewLabel ()
+        public TextViewLabel (bool allowQuickCopy)
         {
+            AllowQuickCopy = allowQuickCopy;
+
             lblPreview.Ellipsize = EllipsizeMode.End;
             lblPreview.Selectable = true;
 
@@ -34,8 +41,20 @@ namespace R7.Webmate.Xwt
             hbox.PackStart (lblPreview, true, true);
             hbox.PackStart (btnOpenFullView, false, true);
 
+            if (AllowQuickCopy) {
+                btnCopy.Label = T.GetString ("Copy");
+                btnCopy.Image = FAIconHelper.GetIcon ("copy").WithSize (IconSize.Small);
+                btnCopy.Clicked += BtnCopy_Clicked;
+                hbox.PackStart (btnCopy, false, true);
+            }
+
             Content = hbox;
             Content.Show ();
+        }
+
+        void BtnCopy_Clicked (object sender, EventArgs e)
+        {
+            Clipboard.SetText (Text);
         }
 
         void BtnOpenFullView_Clicked (object sender, EventArgs e)

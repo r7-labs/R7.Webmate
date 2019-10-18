@@ -16,7 +16,7 @@ namespace R7.Webmate.Xwt
 
         protected Button btnPasteHtml;
 
-        protected TextViewLabel lblSrc = new TextViewLabel ();
+        protected TextViewLabel lblSrc = new TextViewLabel (false);
 
         protected Button btnProcess;
 
@@ -107,18 +107,12 @@ namespace R7.Webmate.Xwt
 
         void AddResult (int index, string format, string result)
         {
-            var lblResult = new TextViewLabel ();
+            var lblResult = new TextViewLabel (true);
             lblResult.Text = result;
-           
-            var btnCopy = new Button (FAIconHelper.GetIcon ("copy").WithSize (IconSize.Small), T.GetString ("Copy"));
-            btnCopy.Clicked += (sender1, e1) => {
-                Clipboard.SetText (result);
-            };
-
+                      
             var vboxResult = new VBox ();
             vboxResult.Margin = 5;
             vboxResult.PackStart (lblResult, false, true);
-            vboxResult.PackStart (btnCopy, true, true);
 
             var frmResult = new Frame ();
             frmResult.Label = "#" + index + " " + format;

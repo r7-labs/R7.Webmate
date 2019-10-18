@@ -18,8 +18,9 @@ namespace R7.Webmate.Xwt
             Initialize ();
 
             var mainWindow = new MainWindow ();
-            mainWindow.Show ();
+            mainWindow.InitStatusIcon (Application.CreateStatusIcon ());
 
+            mainWindow.Show ();
             Application.Run ();
             mainWindow.Dispose ();
         }

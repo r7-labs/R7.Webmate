@@ -37,6 +37,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="locale\ru\LC_MESSAGES\R7.Webmate.Xwt.po" />
+    <None Include="resources\app-icons\r7-webmate-128px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\app-icons\r7-webmate-512px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\app-icons\r7-webmate-plain.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\app-icons\r7-webmate-v1.svg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">

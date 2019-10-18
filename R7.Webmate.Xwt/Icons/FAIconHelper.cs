@@ -9,7 +9,7 @@ namespace R7.Webmate.Xwt.Icons
         public static Image GetIcon (FAIconStyle style, string name)
         {
             // TODO: Cache loaded images
-            return Image.FromFile ($"./icons/{style.ToString ().ToLowerInvariant ()}/{name}.svg");
+            return Image.FromFile ($"./resources/icons/{style.ToString ().ToLowerInvariant ()}/{name}.svg");
         }
 
         public static Image GetIcon (string name)

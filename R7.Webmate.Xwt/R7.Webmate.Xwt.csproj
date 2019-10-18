@@ -33,10 +33,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="locale\ru\LC_MESSAGES\R7.Webmate.Xwt.mo">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="locale\ru\LC_MESSAGES\R7.Webmate.Xwt.po" />
     <None Include="resources\app-icons\r7-webmate-128px.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -47,6 +43,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="resources\app-icons\r7-webmate-v1.svg" />
+    <None Include="resources\locale\ru\LC_MESSAGES\R7.Webmate.Xwt.mo">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\locale\ru\LC_MESSAGES\R7.Webmate.Xwt.po" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">
@@ -66,8 +66,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="locale\" />
     <Folder Include="Icons\" />
+    <Folder Include="resources\locale\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\R7.Webmate.Core\R7.Webmate.Core.csproj">

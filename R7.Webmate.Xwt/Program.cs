@@ -9,7 +9,7 @@ namespace R7.Webmate.Xwt
         static void Initialize ()
         {
             Application.Initialize (OSHelper.GetXwtToolkit ());
-            TextCatalogKeeper.SetDefault (new Catalog ("R7.Webmate.Xwt", "./locale"));
+            TextCatalogKeeper.SetDefault (new Catalog ("R7.Webmate.Xwt", "./resources/locale"));
         }
 
         [STAThread]

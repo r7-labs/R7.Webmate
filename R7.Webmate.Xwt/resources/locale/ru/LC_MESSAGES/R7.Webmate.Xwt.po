@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2019-10-18 11:46+0400\n"
-"PO-Revision-Date: 2019-10-18 11:46+0400\n"
+"POT-Creation-Date: 2019-10-18 15:30+0400\n"
+"PO-Revision-Date: 2019-10-18 15:31+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -19,21 +19,42 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: bin\n"
 "X-Poedit-SearchPathExcluded-2: obj\n"
 
-#: MainWindow.cs:16
-msgid "R7.Webmate.Xwt - "
-msgstr "R7.Webmate.Xwt - "
-
-#: MainWindow.cs:25
+#: MainWindow.cs:24
 msgid "Text Cleaner"
 msgstr "Очистка текста"
 
-#: MainWindow.cs:45
+#: MainWindow.cs:25
+msgid "Table Cleaner"
+msgstr "Очистка таблиц"
+
+#: MainWindow.cs:39
+msgid "R7.Webmaster.Xwt - "
+msgstr "R7.Webmate.Xwt - "
+
+#: MainWindow.cs:53
 msgid "Restore"
 msgstr "Восстановить"
 
-#: MainWindow.cs:51
+#: MainWindow.cs:59
 msgid "Close"
 msgstr "Закрыть"
+
+#: TableCleanerWidget.cs:32 TextCleanerWidget.cs:37
+msgid "Paste HTML"
+msgstr "Вставить HTML"
+
+#: TableCleanerWidget.cs:35 TextCleanerWidget.cs:43
+msgid "Process"
+msgstr "Обработать"
+
+#: TableCleanerWidget.cs:41 TextCleanerWidget.cs:50
+msgid "Process on paste?"
+msgstr "Обрабатывать при вставке?"
+
+#: TableCleanerWidget.cs:122 TextCleanerWidget.cs:144
+#, csharp-format
+msgid "Result #{0} - {1}"
+msgstr "Результат №{0} - {1}"
 
 #: TextCleanerResultType.cs:17
 msgid "Text"
@@ -43,32 +64,15 @@ msgstr "Текст"
 msgid "HTML"
 msgstr "HTML"
 
-#: TextCleanerWidget.cs:33
+#: TextCleanerWidget.cs:36
 msgid "Paste"
 msgstr "Вставить"
-
-#: TextCleanerWidget.cs:34
-msgid "Paste HTML"
-msgstr "Вставить HTML"
-
-#: TextCleanerWidget.cs:40
-msgid "Process"
-msgstr "Обработать"
-
-#: TextCleanerWidget.cs:47
-msgid "Process on paste?"
-msgstr "Обрабатывать при вставке?"
-
-#: TextCleanerWidget.cs:127
-#, csharp-format
-msgid "Result #{0} - {1}"
-msgstr "Результат №{0} - {1}"
 
 #: TextViewDialog.cs:27
 msgid "View Text"
 msgstr "Просмотр текста"
 
-#: TextViewLabel.cs:45
+#: TextViewLabel.cs:50
 msgid "Copy"
 msgstr "Копировать"
 

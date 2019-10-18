@@ -20,6 +20,8 @@ namespace R7.Webmate.Xwt
 
         protected Button btnProcess;
 
+        protected CheckBox chkAutoProcess = new CheckBox ();
+
         protected VBox vboxResults = new VBox ();
 
         protected TextCleanerModel Model = new TextCleanerModel ();
@@ -43,10 +45,14 @@ namespace R7.Webmate.Xwt
             hboxPaste.PackStart (btnPaste, true, true);
             hboxPaste.PackStart (btnPasteHtml, true, true);
 
+            chkAutoProcess.Label = T.GetString ("Process on paste?");
+            chkAutoProcess.Active = true;
+
             var vbox = new VBox ();
             vbox.PackStart (hboxPaste, true, true);
             vbox.PackStart (lblSrc, false, true);
-            vbox.PackStart (btnProcess, true, true);
+            vbox.PackStart (btnProcess, false, true);
+            vbox.PackStart (chkAutoProcess, false, true);
             vbox.PackStart (vboxResults, true, true);
 
             vbox.Margin = 5;
@@ -58,6 +64,11 @@ namespace R7.Webmate.Xwt
         {
             Model.Source = Clipboard.GetText ();
             lblSrc.Text = Model.Source;
+
+            // autoprocess
+            if (chkAutoProcess.Active) {
+                BtnProcess_Clicked (sender, e);
+            }
         }
 
         void BtnPasteHtml_Clicked (object sender, EventArgs e)
@@ -70,6 +81,12 @@ namespace R7.Webmate.Xwt
             }
 
             lblSrc.Text = Model.Source;
+
+            /* Disabled then pasting HTML for now
+            // autoprocess
+            if (chkAutoProcess.Active) {
+                BtnProcess_Clicked (sender, e);
+            }*/
         }
 
         void BtnProcess_Clicked (object sender, EventArgs e)

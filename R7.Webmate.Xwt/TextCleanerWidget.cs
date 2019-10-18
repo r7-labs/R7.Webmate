@@ -90,11 +90,8 @@ namespace R7.Webmate.Xwt
 
         void BtnProcess_Clicked (object sender, EventArgs e)
         {
-            // clear previos results
-            vboxResults.Clear ();
             Model.Results.Clear ();
 
-            // process text
             Model.Results.Add (new TextCleanerResult {
                 Text = TextToTextProcessing.Execute (Model.Source),
                 ResultType = TextCleanerResultType.Text
@@ -105,7 +102,13 @@ namespace R7.Webmate.Xwt
                 ResultType = TextCleanerResultType.HTML
             });
 
-            // display results
+            ShowResults ();           
+        }
+
+        void ShowResults ()
+        {
+            vboxResults.Clear ();
+
             var index = 0;
             foreach (var result in Model.Results) {
                 AddResult (++index, T.GetString (result.ResultType.ToString ()), result.Text);

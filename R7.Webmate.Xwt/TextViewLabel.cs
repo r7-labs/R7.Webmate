@@ -25,6 +25,7 @@ namespace R7.Webmate.Xwt
             set {
                 _text = value;
                 lblPreview.Text = FormatLabel (_text);
+                lblPreview.TooltipText = _text;
             }
          }
 

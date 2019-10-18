@@ -77,13 +77,19 @@ namespace R7.Webmate.Xwt
 
             lblSrc.Text = Model.Source;
 
-            // autoprocess
             if (chkAutoProcess.Active) {
-                BtnProcess_Clicked (sender, e);
+                Process ();
+                ShowResults ();
             }
         }
 
         void BtnProcess_Clicked (object sender, EventArgs e)
+        {
+            Process ();
+            ShowResults ();
+        }
+
+        void Process ()
         {
             Model.Results.Clear ();
 
@@ -93,8 +99,6 @@ namespace R7.Webmate.Xwt
                     ResultType = TextCleanerResultType.HTML
                 });
             }
-
-            ShowResults ();
         }
 
         void ShowResults ()

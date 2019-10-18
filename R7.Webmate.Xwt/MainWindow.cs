@@ -13,7 +13,6 @@ namespace R7.Webmate.Xwt
 
         public MainWindow ()
         {
-            Title = T.GetString ("R7.Webmate.Xwt - ") + OSHelper.GetXwtToolkit ().ToString ();
             Icon = Image.FromFile ("./resources/app-icons/r7-webmate-plain.svg");
             Width = 500;
             Height = 400;
@@ -24,12 +23,20 @@ namespace R7.Webmate.Xwt
             notebook.TabOrientation = NotebookTabOrientation.Bottom;
             notebook.Add (new TextCleanerWidget (), T.GetString ("Text Cleaner"));
             notebook.Add (new TableCleanerWidget (), T.GetString ("Table Cleaner"));
+            notebook.CurrentTabChanged += Notebook_CurrentTabChanged;
+
+            UpdateWindowTitle (notebook.CurrentTab.Label);
 
             var vbox = new VBox ();
             vbox.PackStart (notebook, true, true);
 
             Content = vbox;
             Content.Show ();
+        }
+
+        void UpdateWindowTitle (string suffix)
+        {
+            Title = T.GetString ("R7.Webmaster.Xwt - " + suffix);
         }
 
         public void InitStatusIcon (StatusIcon statusIcon)
@@ -76,6 +83,12 @@ namespace R7.Webmate.Xwt
         void MiClose_Clicked (object sender, System.EventArgs e)
         {
             Application.Exit ();
+        }
+
+        void Notebook_CurrentTabChanged (object sender, System.EventArgs e)
+        {
+            var notebook = (Notebook) sender;
+            UpdateWindowTitle (notebook.CurrentTab.Label);
         }
     }
 }

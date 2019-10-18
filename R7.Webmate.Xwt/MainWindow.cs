@@ -23,6 +23,7 @@ namespace R7.Webmate.Xwt
             var notebook = new Notebook ();
             notebook.TabOrientation = NotebookTabOrientation.Bottom;
             notebook.Add (new TextCleanerWidget (), T.GetString ("Text Cleaner"));
+            notebook.Add (new TableCleanerWidget (), T.GetString ("Table Cleaner"));
 
             var vbox = new VBox ();
             vbox.PackStart (notebook, true, true);

@@ -9,11 +9,9 @@ using Xwt;
 namespace R7.Webmate.Xwt
 {
     // TODO: Extract base class
-    public class TextCleanerWidget: Widget
+    public class TableCleanerWidget: Widget
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();
-
-        protected Button btnPaste;
 
         protected Button btnPasteHtml;
 
@@ -27,24 +25,17 @@ namespace R7.Webmate.Xwt
 
         protected TextCleanerModel Model = new TextCleanerModel ();
 
-        protected ITextProcessing TextToTextProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-text.yml");
-        protected ITextProcessing TextToHtmlProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-html.yml");
-        protected HtmlToHtmlProcessing HtmlToHtmlProcessing;
+        protected TableCleanProcessing TableCleanProcessing;
 
-        public TextCleanerWidget ()
+        public TableCleanerWidget ()
         {
-            btnPaste = new Button (FAIconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste"));
             btnPasteHtml = new Button (FAIconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
-            btnPaste.Clicked += BtnPaste_Clicked;
             btnPasteHtml.Clicked += BtnPasteHtml_Clicked;
-
-            var btnPasteMenu = new MenuButton ();
 
             btnProcess = new Button (FAIconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Process"));
             btnProcess.Clicked += BtnProcess_Clicked;
 
             var hboxPaste = new HBox ();
-            hboxPaste.PackStart (btnPaste, true, true);
             hboxPaste.PackStart (btnPasteHtml, true, true);
 
             chkAutoProcess.Label = T.GetString ("Process on paste?");
@@ -66,25 +57,22 @@ namespace R7.Webmate.Xwt
 
         protected void InitProcessings ()
         {
-            HtmlToHtmlProcessing = new HtmlToHtmlProcessing ();
-            HtmlToHtmlProcessing.TextToTextProcessing = TextToTextProcessing;
+            var htmlToHtmlProcessing = new HtmlToHtmlProcessing ();
+            htmlToHtmlProcessing.TextToTextProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-text.yml");
+
+            TableCleanProcessing = new TableCleanProcessing ();
+            TableCleanProcessing.HtmlToHtmlProcessing = htmlToHtmlProcessing;
+            TableCleanProcessing.TableCleanTextProcessing = TextProcessingLoader.LoadDefaultFromFile ("table-clean.yml");
         }
 
-        void BtnPaste_Clicked (object sender, EventArgs e)
-        {
-            Model.Source = Clipboard.GetText ();
-            lblSrc.Text = Model.Source;
-
-            // autoprocess
-            if (chkAutoProcess.Active) {
-                BtnProcess_Clicked (sender, e);
-            }
-        }
-
+        // TODO: Allow to insert plain text containing HTML markup
         void BtnPasteHtml_Clicked (object sender, EventArgs e)
         {
             if (Clipboard.ContainsData (TransferDataType.Html)) {
-                Model.Source = HtmlHelper.GetBodyContents (Encoding.Default.GetString ((byte []) Clipboard.GetData (TransferDataType.Html)));
+                Model.Source = HtmlHelper.GetFirstTable (Encoding.Default.GetString ((byte []) Clipboard.GetData (TransferDataType.Html)));
+            }
+            else {
+                Model.Source = string.Empty;
             }
 
             lblSrc.Text = Model.Source;
@@ -101,22 +89,12 @@ namespace R7.Webmate.Xwt
 
             if (HtmlHelper.IsHtml (Model.Source)) {
                 Model.Results.Add (new TextCleanerResult {
-                    Text = HtmlToHtmlProcessing.Execute (Model.Source),
-                    ResultType = TextCleanerResultType.HTML
-                });
-            }
-            else {
-                Model.Results.Add (new TextCleanerResult {
-                    Text = TextToTextProcessing.Execute (Model.Source),
-                    ResultType = TextCleanerResultType.Text
-                });
-                Model.Results.Add (new TextCleanerResult {
-                    Text = TextToHtmlProcessing.Execute (Model.Source),
+                    Text = TableCleanProcessing.Execute (Model.Source),
                     ResultType = TextCleanerResultType.HTML
                 });
             }
 
-            ShowResults ();           
+            ShowResults ();
         }
 
         void ShowResults ()

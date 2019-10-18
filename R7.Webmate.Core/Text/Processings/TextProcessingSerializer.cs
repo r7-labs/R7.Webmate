@@ -14,10 +14,12 @@ namespace R7.Webmate.Core.Text.Processings
                     //.WithTagMapping ("tag:yaml.org,2002:text-processing", typeof (TextProcessing))
                     .WithTagMapping ("tag:yaml.org,2002:composite-command", typeof (CompositeCommand))
                     .WithTagMapping ("tag:yaml.org,2002:regex-replace", typeof (RegexReplaceCommand))
+                    .WithTagMapping ("tag:yaml.org,2002:regex-to-lower", typeof (RegexToLowerCommand))
                     .WithTagMapping ("tag:yaml.org,2002:replace", typeof (ReplaceCommand))
                     .WithTagMapping ("tag:yaml.org,2002:trim", typeof (TrimCommand))
                     .WithTagMapping ("tag:yaml.org,2002:append", typeof (AppendCommand))
                     .WithTagMapping ("tag:yaml.org,2002:prepend", typeof (PrependCommand))
+                    .WithTagMapping ("tag:yaml.org,2002:exit", typeof (ExitCommand))
                     //.WithTagMapping ("tag:yaml.org,2002:list", typeof (List<ITextCommand>))
                     .Build ();
 
@@ -31,10 +33,12 @@ namespace R7.Webmate.Core.Text.Processings
                     //.WithTagMapping ("tag:yaml.org,2002:text-processing", typeof (TextProcessing))
                     .WithTagMapping ("tag:yaml.org,2002:composite-command", typeof (CompositeCommand))
                     .WithTagMapping ("tag:yaml.org,2002:regex-replace", typeof (RegexReplaceCommand))
+                    .WithTagMapping ("tag:yaml.org,2002:regex-to-lower", typeof (RegexToLowerCommand))
                     .WithTagMapping ("tag:yaml.org,2002:replace", typeof (ReplaceCommand))
                     .WithTagMapping ("tag:yaml.org,2002:trim", typeof (TrimCommand))
                     .WithTagMapping ("tag:yaml.org,2002:append", typeof (AppendCommand))
                     .WithTagMapping ("tag:yaml.org,2002:prepend", typeof (PrependCommand))
+                    .WithTagMapping ("tag:yaml.org,2002:exit", typeof (ExitCommand))
                     //.WithTagMapping ("tag:yaml.org,2002:list", typeof (List<ITextCommand>))
                     .Build ();
 

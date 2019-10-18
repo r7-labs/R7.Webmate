@@ -4,6 +4,7 @@ namespace R7.Webmate.Core.Text.Commands
 {
 	public class RegexReplaceCommand: TextCommandBase
     {
+        // TODO: Rename to "Match"?
         public string Pattern { get; set; }
 
         // TODO: Rename to "With"
@@ -31,4 +32,3 @@ namespace R7.Webmate.Core.Text.Commands
 		}
 	}
 }
-

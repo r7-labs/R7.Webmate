@@ -17,15 +17,11 @@ namespace R7.Webmate.Core.Text.Processings
         }
 
         public virtual string Execute (string text)
-        {
-            return Execute (text, new TextProcessingParams ());
-        }
-
-        public virtual string Execute (string text, ITextProcessingParams textProcessingParams)
 		{
-			Params = textProcessingParams;
-
-            foreach (var command in Commands) {
+			foreach (var command in Commands) {
+                if (command is ExitCommand) {
+                    break;
+                }
                 text = command.Execute (text);
             }
 

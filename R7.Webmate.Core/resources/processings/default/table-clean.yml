@@ -1,0 +1,51 @@
+---
+commands:
+# shrink whitespace, effectively remove line breaks and tabs
+- !!regex-replace
+  pattern: "\\s+"
+  replacement: " "
+# remove unnecessary tags
+- !!regex-replace
+  pattern: "(?i)<colgroup\\b[^>]*>|<col\\b[^>]*>|<p\\b[^>]*>|<div\\b[^>]*>|<span\\b[^>]*>|<font\\b[^>]*>|<i\\b[^>]*>|<em\\b[^>]*>|<b\\b[^>]*>|<strong\\b[^>]*>"
+  replacement: ""
+- !!regex-replace
+  pattern: "(?i)</colgroup>|</col>|</p>|</div>|</span>|</i>|</b>|</em>|</strong>|</font>"
+  replacement: ""
+# enclose all attribute values in quotes
+- !!regex-replace
+  pattern: "(\\s+\\w+)\\s*=\\s*(\\w+%?)"
+  replacement: "${1}=\"${2}\""
+# add marker before attributes we need to preserve
+- !!regex-replace
+  pattern: "(?i)(?=(row|col)span=[\"']\\d+[\"'])"
+  replacement: "__@@__@@__"
+# remove any other attributes - just because they do not begans with a marker
+- !!regex-replace
+  pattern: "\\s+\\w+:?\\w+=[\"'].*?[\"']"
+  replacement: ""
+# remove MS Excel non-standard export attributes
+- !!regex-replace
+  pattern: "x:num|x:str"
+  replacement: ""
+# remove marker before row/colspan attributes
+- !!regex-replace
+  pattern: __@@__@@__"
+  replacement: ""
+# remove spaces in open tags like "<TD >" => "<TD>" which could appear after removing attributes
+- !!regex-replace
+  pattern: "(<\\w+)\\s+>"
+  replacement: "${1}>"
+# remove whitespace before and after open and close tags
+- !!regex-replace
+  pattern: "\\s+<"
+  replacement: "<"
+- !!regex-replace
+  pattern: ">\\s+"
+  replacement: ">"
+# lowercase all tags and row/colspan attributes
+- !!regex-to-lower
+  pattern: "<(/?\\w+)|(row|col)span"
+# shrink whitespace again
+- !!regex-replace
+  pattern: "\\s+"
+  replacement: " "

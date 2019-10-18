@@ -25,7 +25,7 @@ namespace R7.Webmate.Xwt
             notebook.Add (new TableCleanerWidget (), T.GetString ("Table Cleaner"));
             notebook.CurrentTabChanged += Notebook_CurrentTabChanged;
 
-            UpdateWindowTitle (notebook.CurrentTab.Label);
+            UpdateTitle (notebook.CurrentTab.Label);
 
             var vbox = new VBox ();
             vbox.PackStart (notebook, true, true);
@@ -34,9 +34,9 @@ namespace R7.Webmate.Xwt
             Content.Show ();
         }
 
-        void UpdateWindowTitle (string suffix)
+        void UpdateTitle (string suffix)
         {
-            Title = T.GetString ("R7.Webmaster.Xwt - " + suffix);
+            Title = T.GetString ("R7.Webmaster.Xwt - ") + suffix;
         }
 
         public void InitStatusIcon (StatusIcon statusIcon)
@@ -88,7 +88,7 @@ namespace R7.Webmate.Xwt
         void Notebook_CurrentTabChanged (object sender, System.EventArgs e)
         {
             var notebook = (Notebook) sender;
-            UpdateWindowTitle (notebook.CurrentTab.Label);
+            UpdateTitle (notebook.CurrentTab.Label);
         }
     }
 }

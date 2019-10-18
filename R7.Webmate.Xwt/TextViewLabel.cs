@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using NGettext;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
+using Xwt.Drawing;
 
 namespace R7.Webmate.Xwt
 {
@@ -30,6 +31,9 @@ namespace R7.Webmate.Xwt
         public TextViewLabel (bool allowQuickCopy)
         {
             AllowQuickCopy = allowQuickCopy;
+
+            lblPreview.Font = Font.FromName ("Monospace");
+            lblPreview.TextColor = Color.FromName ("black");
 
             lblPreview.Ellipsize = EllipsizeMode.End;
             lblPreview.Selectable = true;

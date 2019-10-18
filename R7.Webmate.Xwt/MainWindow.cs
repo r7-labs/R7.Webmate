@@ -69,7 +69,7 @@ namespace R7.Webmate.Xwt
 
         void MiRestore_Clicked (object sender, System.EventArgs e)
         {
-            Show ();
+            Present ();
         }
 
         void MiClose_Clicked (object sender, System.EventArgs e)

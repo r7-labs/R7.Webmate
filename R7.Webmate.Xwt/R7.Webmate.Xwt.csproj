@@ -47,6 +47,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="resources\locale\ru\LC_MESSAGES\R7.Webmate.Xwt.po" />
+    <None Include="R7.Webmate.Xwt.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">

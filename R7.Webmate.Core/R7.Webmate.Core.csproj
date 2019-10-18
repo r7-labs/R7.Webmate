@@ -11,6 +11,9 @@
     <PackageReference Include="YamlDotNet" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="R7.Webmate.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <None Update="resources\processings\default\text-to-text.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

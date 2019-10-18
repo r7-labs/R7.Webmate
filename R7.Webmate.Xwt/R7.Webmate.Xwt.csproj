@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xwt.Gtk3.0.2.198\build\Xwt.Gtk3.props" Condition="Exists('..\packages\Xwt.Gtk3.0.2.198\build\Xwt.Gtk3.props')" />
+  <Import Project="..\packages\Xwt.Gtk3.0.2.202\build\Xwt.Gtk3.props" Condition="Exists('..\packages\Xwt.Gtk3.0.2.202\build\Xwt.Gtk3.props')" />
   <PropertyGroup>
     <ProjectGuid>{2505B342-AD1C-46EA-AA9F-BB232CC36CC8}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -52,11 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">
-      <HintPath>..\packages\Xwt.0.2.198\lib\net40\Xwt.dll</HintPath>
+      <HintPath>..\packages\Xwt.0.2.202\lib\net40\Xwt.dll</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="Xwt.Gtk3">
-      <HintPath>..\packages\Xwt.Gtk3.0.2.198\lib\net40\Xwt.Gtk3.dll</HintPath>
+      <HintPath>..\packages\Xwt.Gtk3.0.2.202\lib\net40\Xwt.Gtk3.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />

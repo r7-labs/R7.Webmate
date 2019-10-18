@@ -29,6 +29,7 @@ namespace R7.Webmate.Xwt
             }
          }
 
+        // TODO: Allow to set AllowQuickCopy later
         public TextViewLabel (bool allowQuickCopy)
         {
             AllowQuickCopy = allowQuickCopy;

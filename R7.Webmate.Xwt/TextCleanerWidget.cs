@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 using NGettext;
 using R7.Webmate.Core.Text.Processings;
@@ -53,7 +52,7 @@ namespace R7.Webmate.Xwt
             vbox.PackStart (lblSrc, false, true);
             vbox.PackStart (btnProcess, false, true);
             vbox.PackStart (chkAutoProcess, false, true);
-            vbox.PackStart (vboxResults, true, true);
+            vbox.PackStart (vboxResults, false, true);
 
             vbox.Margin = 5;
             Content = vbox;
@@ -95,14 +94,22 @@ namespace R7.Webmate.Xwt
             vboxResults.Clear ();
             Model.Results.Clear ();
 
-            // process text and add results
-            var result1 = TextToTextProcessing.Execute (Model.Source);
-            Model.Results.Add (result1);
-            AddResult (1, T.GetString ("Text"), result1);
+            // process text
+            Model.Results.Add (new TextCleanerResult {
+                Text = TextToTextProcessing.Execute (Model.Source),
+                ResultType = TextCleanerResultType.Text
+            });
 
-            var result2 = TextToHtmlProcessing.Execute (result1);
-            Model.Results.Add (result2);
-            AddResult (2, T.GetString ("HTML"), result2);
+            Model.Results.Add (new TextCleanerResult {
+                Text = TextToHtmlProcessing.Execute (Model.Results [0].Text),
+                ResultType = TextCleanerResultType.HTML
+            });
+
+            // display results
+            var index = 0;
+            foreach (var result in Model.Results) {
+                AddResult (++index, T.GetString (result.ResultType.ToString ()), result.Text);
+            }
         }
 
         void AddResult (int index, string format, string result)
@@ -111,11 +118,13 @@ namespace R7.Webmate.Xwt
             lblResult.Text = result;
                       
             var vboxResult = new VBox ();
-            vboxResult.Margin = 5;
+            vboxResult.MarginLeft = 5;
+            vboxResult.MarginRight = 5;
+            vboxResult.MarginBottom = 3;
             vboxResult.PackStart (lblResult, false, true);
 
             var frmResult = new Frame ();
-            frmResult.Label = "#" + index + " " + format;
+            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, format);
             frmResult.Content = vboxResult;
             vboxResults.PackStart (frmResult);
         }

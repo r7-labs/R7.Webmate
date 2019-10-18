@@ -30,6 +30,7 @@
     <Compile Include="TextViewDialog.cs" />
     <Compile Include="TextViewLabel.cs" />
     <Compile Include="TextCleanerModel.cs" />
+    <Compile Include="TextCleanerResultType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

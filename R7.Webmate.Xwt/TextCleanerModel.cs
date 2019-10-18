@@ -2,11 +2,17 @@
 
 namespace R7.Webmate.Xwt
 {
-    // TODO: Store result types along with results
     public class TextCleanerModel
     {
         public string Source { get; set; }
 
-        public IList<string> Results = new List<string> ();
+        public IList<TextCleanerResult> Results = new List<TextCleanerResult> ();
+    }
+       
+    public class TextCleanerResult
+    {
+        public string Text { get; set; }
+
+        public TextCleanerResultType ResultType { get; set; }
     }
 }

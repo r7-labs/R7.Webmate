@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2019-10-09 11:44+0400\n"
-"PO-Revision-Date: 2019-10-09 11:46+0400\n"
+"POT-Creation-Date: 2019-10-18 11:26+0400\n"
+"PO-Revision-Date: 2019-10-18 11:26+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -13,34 +13,56 @@ msgstr ""
 "X-Generator: Poedit 1.8.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: GetString;GetPluralString:1,2;GetParticularString:1c,2;GetParticularPluralString:1c,2,3;_;_n:1,2;_p:1c,2;_pn:1c,2,3\n"
-"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-Basepath: ../../../..\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: locale\n"
 "X-Poedit-SearchPathExcluded-1: bin\n"
 "X-Poedit-SearchPathExcluded-2: obj\n"
 
-#: MainWindow.cs:34
+#: MainWindow.cs:16
 msgid "R7.Webmate.Xwt - "
 msgstr "R7.Webmate.Xwt - "
 
-#: MainWindow.cs:40
+#: MainWindow.cs:25
 msgid "Text Cleaner"
 msgstr "Очистка текста"
 
-#: TextCleanerWidget.cs:50
+#: MainWindow.cs:45
+msgid "Restore"
+msgstr "Восстановить"
+
+#: MainWindow.cs:51
+msgid "Close"
+msgstr "Закрыть"
+
+#: TextCleanerWidget.cs:34
 msgid "Paste"
 msgstr "Вставить"
 
-#: TextCleanerWidget.cs:55
+#: TextCleanerWidget.cs:35
+msgid "Paste HTML"
+msgstr "Вставить HTML"
+
+#: TextCleanerWidget.cs:41
 msgid "Process"
 msgstr "Обработать"
 
-#: TextCleanerWidget.cs:58
+#: TextCleanerWidget.cs:48
+msgid "Process on paste?"
+msgstr "Обрабатывать при вставке?"
+
+#: TextCleanerWidget.cs:101
+msgid "Text"
+msgstr "Текст"
+
+#: TextCleanerWidget.cs:105
+msgid "HTML"
+msgstr "HTML"
+
+#: TextViewDialog.cs:27
+msgid "View Text"
+msgstr "Просмотр текста"
+
+#: TextViewLabel.cs:45
 msgid "Copy"
 msgstr "Копировать"
-
-#~ msgid "Heart"
-#~ msgstr "Сердце"
-
-#~ msgid "text"
-#~ msgstr "текст"

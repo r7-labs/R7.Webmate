@@ -26,7 +26,7 @@ namespace R7.Webmate.Xwt
             Height = 300;
             Title = T.GetString ("View Text");
 
-            TextView.Font = Font.FromName ("Monospace");
+            TextView.Font = Font.SystemMonospaceFont;
 
             var vbox = new VBox ();
             vbox.PackStart (new ScrollView (TextView), true, true);

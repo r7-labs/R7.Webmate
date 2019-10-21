@@ -34,7 +34,7 @@ namespace R7.Webmate.Xwt
         {
             AllowQuickCopy = allowQuickCopy;
 
-            lblPreview.Font = Font.FromName ("Monospace");
+            lblPreview.Font = Font.SystemMonospaceFont;
             lblPreview.TextColor = Color.FromName ("black");
 
             lblPreview.Ellipsize = EllipsizeMode.End;

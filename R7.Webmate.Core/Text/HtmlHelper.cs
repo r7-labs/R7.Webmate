@@ -7,10 +7,12 @@ namespace R7.Webmate.Core.Text
     {
         public static bool IsHtml (string text)
         {
-            var stripped = text.Replace ("</", "").Replace ("/>", "");
-            var delta = text.Length - stripped.Length;
+            if (!string.IsNullOrEmpty (text)) {
+                var stripped = text.Replace ("</", "").Replace ("/>", "");
+                return (text.Length - stripped.Length) > 0;
+            }
 
-            return delta > 0;
+            return false;
         }
 
         public static string GetBodyContents (string html)

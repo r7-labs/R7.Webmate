@@ -72,7 +72,7 @@ namespace R7.Webmate.Xwt
 
         void BtnPaste_Clicked (object sender, EventArgs e)
         {
-            Model.Source = Clipboard.GetText ();
+            Model.Source = Clipboard.GetText () ?? string.Empty;
             lblSrc.Text = Model.Source;
 
             if (chkAutoProcess.Active) {
@@ -82,9 +82,7 @@ namespace R7.Webmate.Xwt
 
         void BtnPasteHtml_Clicked (object sender, EventArgs e)
         {
-            if (Clipboard.ContainsData (TransferDataType.Html)) {
-                Model.Source = HtmlHelper.GetBodyContents (Encoding.Default.GetString ((byte []) Clipboard.GetData (TransferDataType.Html)));
-            }
+            Model.Source = HtmlHelper.GetBodyContents (ClipboardHelper.TryGetClipboardData (TransferDataType.Html, Encoding.Default));
 
             lblSrc.Text = Model.Source;
 

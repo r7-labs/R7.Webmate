@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using NGettext;
 using R7.Webmate.Core.Text;
 using R7.Webmate.Core.Text.Processings;
@@ -25,6 +24,7 @@ namespace R7.Webmate.Xwt
 
         protected TextCleanerModel Model = new TextCleanerModel ();
 
+        // TODO: Move processings to model?
         protected TableCleanProcessing TableCleanProcessing;
 
         public TableCleanerWidget ()
@@ -102,7 +102,7 @@ namespace R7.Webmate.Xwt
 
             var index = 0;
             foreach (var result in Model.Results) {
-                AddResult (++index, T.GetString (result.ResultType.ToString ()), result.Text);
+                AddResult (++index, TextCleanerResultTypeHelper.GetString (result.ResultType), result.Text);
             }
         }
 

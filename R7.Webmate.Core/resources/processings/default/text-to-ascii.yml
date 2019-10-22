@@ -1,0 +1,31 @@
+---
+# Try to convert Unicode text to ASCII
+# TODO: Replace more characters from https://www.freeformatter.com/html-entities.html
+# TODO: Cleanup all non-ASCII chars?
+commands:
+# replace double quotes
+- !!regex-replace
+  pattern: "[«»““\u201C\u201D]"
+  replacement: '"'
+# replace single quotes
+- !!regex-replace
+  pattern: "[\u2018\u2019]"
+  replacement: "'"
+# replace &hellip; with ...
+- !!replace
+  pattern: "\u2026"
+  replacement: "..."
+# replace &nbsp; with space
+- !!replace
+  pattern: "\u00A0"
+  replacement: ""
+# replace &ndash; &mdash; &horbar; with just dash
+- !!regex-replace
+  pattern: "[\u2013\u2014\u2015]"
+  replacement: "-"
+# remove duplicate spaces
+- !!regex-replace
+  pattern: " +"
+  replacement: " "
+# trim text
+- !!trim {}

@@ -1,4 +1,5 @@
-﻿using R7.Webmate.Core.Text.Processings;
+﻿using System.Web;
+using R7.Webmate.Core.Text.Processings;
 using Xunit;
 
 namespace R7.Webmate.Core.Tests.Text.Processings
@@ -44,13 +45,27 @@ namespace R7.Webmate.Core.Tests.Text.Processings
         }
 
         [Fact]
+        public void FixCommonEnglishAbbreviationsTest ()
+        {
+            Assert.Equal ("i.e.", TP.Execute ("i. e."));
+            Assert.Equal ("e.g.", TP.Execute ("e. g."));
+            Assert.Equal ("a.k.a.", TP.Execute ("a. k. a."));
+            Assert.Equal ("e.t.a.", TP.Execute ("e. t. a."));
+        }
+
+        [Fact]
         public void FixCommonTyposInRussianTest ()
         {
-            Assert.Equal ("Это случилось в 1990 г.", TP.Execute ("Это случилось в 1990г."));
-            Assert.Equal ("Это случилось в 1990-1991 гг.", TP.Execute ("Это случилось в 1990-1991 г.г."));
+            Assert.Equal (X ("Это случилось в 1990&nbsp;г."), TP.Execute ("Это случилось в 1990г."));
+            Assert.Equal (X ("Это случилось в 1990-1991&nbsp;гг."), TP.Execute ("Это случилось в 1990-1991 г.г."));
             Assert.Equal ("\"Сельское хозяйство\" сокращается как с.-х., с.-х., с.-х.", TP.Execute ("\"Сельское хозяйство\" сокращается как с/х, с\\х, с.х."));
-            Assert.Equal ("Это стоит 15 р.", TP.Execute ("Это стоит 15р."));
-            Assert.Equal ("Это стоит 15 руб.", TP.Execute ("Это стоит 15руб."));
+            Assert.Equal (X ("Это стоит 15&nbsp;р."), TP.Execute ("Это стоит 15р."));
+            Assert.Equal (X ("Это стоит 15&nbsp;руб."), TP.Execute ("Это стоит 15руб."));
+        }
+
+        public string X (string text)
+        {
+            return HttpUtility.HtmlDecode (text);
         }
     }
 }

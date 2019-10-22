@@ -1,4 +1,5 @@
 ---
+# TODO: Move some commands to text-to-text
 commands:
 # placed all text inside P tag
 - !!prepend
@@ -35,6 +36,7 @@ commands:
   pattern: "&"
   replacement: "&amp;"
 # replace quotes
+# TODO: Make optional
 - !!replace
   pattern: '"'
   replacement: "&quot;"
@@ -64,7 +66,7 @@ commands:
 - !!regex-replace
   pattern: "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b"
   replacement: "<a href=\"mailto:$&\">$&</a>"
-  
+
 # TODO: More dash rules https://en.wikipedia.org/wiki/Dash
 # TODO: replace URLs with links
 # TODO: emphasize names

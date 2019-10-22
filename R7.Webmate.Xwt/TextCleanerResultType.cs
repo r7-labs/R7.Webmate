@@ -5,17 +5,23 @@ namespace R7.Webmate.Xwt
     public enum TextCleanerResultType
     {
         Text,
+        AsciiText,
         HTML
     }
 
-    class TextCleanerResultTypeStrings
+    static class TextCleanerResultTypeHelper
     {
-        ICatalog T = null;
+        static ICatalog T = TextCatalogKeeper.GetDefault ();
 
-        void Strings ()
+        public static string GetString (TextCleanerResultType resultType)
         {
-            T.GetString ("Text");
-            T.GetString ("HTML");
+            switch (resultType) {
+                case TextCleanerResultType.Text: return T.GetString ("Тext");
+                case TextCleanerResultType.AsciiText: return T.GetString ("ASCII Text");
+                case TextCleanerResultType.HTML: return T.GetString ("HTML");
+            }
+
+            return string.Empty;
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using NGettext;
 using R7.Webmate.Core.Text;
 using R7.Webmate.Core.Text.Processings;
@@ -27,8 +26,14 @@ namespace R7.Webmate.Xwt
 
         protected TextCleanerModel Model = new TextCleanerModel ();
 
+        // TODO: Move processings to model?
+
+        protected ITextProcessing TextToAsciiProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-ascii.yml");
+
         protected ITextProcessing TextToTextProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-text.yml");
+
         protected ITextProcessing TextToHtmlProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-html.yml");
+
         protected HtmlToHtmlProcessing HtmlToHtmlProcessing;
 
         public TextCleanerWidget ()
@@ -109,12 +114,20 @@ namespace R7.Webmate.Xwt
                 });
             }
             else {
-                Model.Results.Add (new TextCleanerResult {
+                var unicodeText = new TextCleanerResult {
                     Text = TextToTextProcessing.Execute (Model.Source),
                     ResultType = TextCleanerResultType.Text
-                });
+                };
+
+                Model.Results.Add (unicodeText);
+
                 Model.Results.Add (new TextCleanerResult {
-                    Text = TextToHtmlProcessing.Execute (Model.Source),
+                    Text = TextToAsciiProcessing.Execute (unicodeText.Text),
+                    ResultType = TextCleanerResultType.AsciiText
+                });
+
+                Model.Results.Add (new TextCleanerResult {
+                    Text = TextToHtmlProcessing.Execute (unicodeText.Text),
                     ResultType = TextCleanerResultType.HTML
                 });
             }
@@ -126,7 +139,7 @@ namespace R7.Webmate.Xwt
 
             var index = 0;
             foreach (var result in Model.Results) {
-                AddResult (++index, T.GetString (result.ResultType.ToString ()), result.Text);
+                AddResult (++index, TextCleanerResultTypeHelper.GetString (result.ResultType), result.Text);
             }
         }
 

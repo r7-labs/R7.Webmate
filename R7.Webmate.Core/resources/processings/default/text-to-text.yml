@@ -32,31 +32,42 @@ commands:
 - !!replace
   pattern: "?)."
   replacement: ")?"
-# replace figure quotes (for ASCII output)
-- !!regex-replace
-  pattern: "[«»]"
-  replacement: '"'
 # remove hyphens
 - !!replace
   pattern: "¬"
   replacement: ""
-# TODO: replace double hyphens with en dash (for Unicode output)
-#- !!replace
-#  pattern: " -- "
-#  replacement: "\\u2013"
+# fix some common English abbreviations
+# https://english.stackexchange.com/questions/209081/spaces-within-abbreviations-and-initials
+# https://english.stackexchange.com/questions/298507/should-there-be-a-space-in-e-g-i-e-between-a-dot
+- !!regex-replace
+  pattern: "i\\.\\s+e\\."
+  replacement: "i.e."
+- !!regex-replace
+  pattern: "e\\.\\s+g\\."
+  replacement: "e.g."
+- !!regex-replace
+  pattern: "a\\.\\s+k\\.\\s+a\\."
+  replacement: "a.k.a."
+- !!regex-replace
+  pattern: "e\\.\\s+t\\.\\s+a\\."
+  replacement: "e.t.a."
 # fix some common typos in russian
+# TODO: Move to separate processing?
 - !!regex-replace
   pattern: "(\\d+)г\\."
-  replacement: "$1 г."
+  replacement: "$1\u00A0г."
 - !!regex-replace
   pattern: "(\\d+)р\\."
-  replacement: "$1 р."
+  replacement: "$1\u00A0р."
 - !!regex-replace
   pattern: "(\\d+)руб\\."
-  replacement: "$1 руб."
+  replacement: "$1\u00A0руб."
 - !!replace
   pattern: "г.г."
   replacement: "гг."
+- !!regex-replace
+  pattern: "(\\d+)\\s+гг\\."
+  replacement: "$1\u00A0гг."
 - !!replace
   pattern: "с\\х"
   replacement: "с.-х."
@@ -66,7 +77,6 @@ commands:
 - !!replace
   pattern: "с.х."
   replacement: "с.-х."
-# TODO: Add i.e. => i. e., e.g. => e. g. for Unicode output
 # remove duplicate spaces
 - !!regex-replace
   pattern: " +"

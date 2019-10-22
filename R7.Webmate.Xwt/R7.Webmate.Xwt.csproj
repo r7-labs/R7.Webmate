@@ -24,8 +24,8 @@
     <Compile Include="MainWindow.cs" />
     <Compile Include="OSHelper.cs" />
     <Compile Include="TextCatalogKeeper.cs" />
-    <Compile Include="Icons\FAIconHelper.cs" />
-    <Compile Include="Icons\FAIconStyle.cs" />
+    <Compile Include="Icons\IconHelper.cs" />
+    <Compile Include="Icons\IconStyle.cs" />
     <Compile Include="TextCleanerWidget.cs" />
     <Compile Include="TextViewDialog.cs" />
     <Compile Include="TextViewLabel.cs" />
@@ -51,6 +51,36 @@
     </None>
     <None Include="resources\locale\ru\LC_MESSAGES\R7.Webmate.Xwt.po" />
     <None Include="R7.Webmate.Xwt.csproj" />
+    <None Include="resources\icons\solid\arrow-up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\icons\solid\arrow-up.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\icons\solid\copy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\icons\solid\copy.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\icons\solid\paste.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\icons\solid\paste.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\icons\solid\play-circle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\icons\solid\play-circle.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\icons\solid\times-circle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\icons\solid\times-circle.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">

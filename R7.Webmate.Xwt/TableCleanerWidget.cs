@@ -29,10 +29,10 @@ namespace R7.Webmate.Xwt
 
         public TableCleanerWidget ()
         {
-            btnPasteHtml = new Button (FAIconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
+            btnPasteHtml = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
             btnPasteHtml.Clicked += BtnPasteHtml_Clicked;
 
-            btnProcess = new Button (FAIconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Process"));
+            btnProcess = new Button (IconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Process"));
             btnProcess.Clicked += BtnProcess_Clicked;
 
             var hboxPaste = new HBox ();

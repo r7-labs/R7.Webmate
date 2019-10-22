@@ -16,7 +16,6 @@ namespace R7.Webmate.Xwt
             if (IsWindows ()) {
                 return ToolkitType.Wpf;
             }
-
             return ToolkitType.Gtk3;
         }
     }

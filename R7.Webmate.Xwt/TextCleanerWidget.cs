@@ -33,14 +33,14 @@ namespace R7.Webmate.Xwt
 
         public TextCleanerWidget ()
         {
-            btnPaste = new Button (FAIconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste"));
-            btnPasteHtml = new Button (FAIconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
+            btnPaste = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste"));
+            btnPasteHtml = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
             btnPaste.Clicked += BtnPaste_Clicked;
             btnPasteHtml.Clicked += BtnPasteHtml_Clicked;
 
             var btnPasteMenu = new MenuButton ();
 
-            btnProcess = new Button (FAIconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Process"));
+            btnProcess = new Button (IconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Process"));
             btnProcess.Clicked += BtnProcess_Clicked;
 
             var hboxPaste = new HBox ();

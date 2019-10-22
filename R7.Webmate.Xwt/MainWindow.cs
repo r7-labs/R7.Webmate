@@ -1,7 +1,6 @@
 ﻿using NGettext;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
-using Xwt.Drawing;
 
 namespace R7.Webmate.Xwt
 {
@@ -13,7 +12,10 @@ namespace R7.Webmate.Xwt
 
         public MainWindow ()
         {
-            Icon = Image.FromFile ("./resources/app-icons/r7-webmate-plain.svg");
+            Icon = IconHelper.GetAppIcon ();
+
+            InitStatusIcon ();
+
             Width = 500;
             Height = 400;
 
@@ -39,25 +41,26 @@ namespace R7.Webmate.Xwt
             Title = T.GetString ("R7.Webmaster.Xwt - ") + suffix;
         }
 
-        public void InitStatusIcon (StatusIcon statusIcon)
+        public void InitStatusIcon ()
         {
-            StatusIcon = statusIcon;
-            statusIcon.Image = Icon;
-
-            statusIcon.Menu = BuildStatusMenu ();
+            if (!OSHelper.IsWindows ()) {
+                StatusIcon = Application.CreateStatusIcon ();
+                StatusIcon.Image = Icon;
+                StatusIcon.Menu = BuildStatusMenu ();
+            }
         }
 
         protected Menu BuildStatusMenu ()
         {
             var miRestore = new MenuItem {
                 Label = T.GetString ("Restore"),
-                Image = FAIconHelper.GetIcon ("arrow-up").WithSize (IconSize.Small),
+                Image = IconHelper.GetIcon ("arrow-up").WithSize (IconSize.Small),
             };
             miRestore.Clicked += MiRestore_Clicked;
 
             var miClose = new MenuItem {
                 Label = T.GetString ("Close"),
-                Image = FAIconHelper.GetIcon ("times-circle").WithSize (IconSize.Small)
+                Image = IconHelper.GetIcon ("times-circle").WithSize (IconSize.Small)
             };
             miClose.Clicked += MiClose_Clicked;
 
@@ -72,6 +75,7 @@ namespace R7.Webmate.Xwt
         void MainWindow_CloseRequested (object sender, CloseRequestedEventArgs args)
         {
             args.AllowClose = false;
+
             Hide ();
         }
 

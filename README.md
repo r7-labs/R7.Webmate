@@ -32,3 +32,4 @@ OSX suppport is possible, but not planned.
 
 - GPLv3 or any later for the desktop application *R7.Webmate.Xwt*.
 - LGPLv3 or any later for the base library *R7.Webmate.Core*.
+- Font Awesome Free icons: https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt

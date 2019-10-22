@@ -49,7 +49,7 @@ namespace R7.Webmate.Xwt
 
             if (AllowQuickCopy) {
                 btnCopy.Label = T.GetString ("Copy");
-                btnCopy.Image = FAIconHelper.GetIcon ("copy").WithSize (IconSize.Small);
+                btnCopy.Image = IconHelper.GetIcon ("copy").WithSize (IconSize.Small);
                 btnCopy.Clicked += BtnCopy_Clicked;
                 hbox.PackStart (btnCopy, false, true);
             }

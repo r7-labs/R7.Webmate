@@ -1,4 +1,5 @@
 ---
+# Processing sequence: HtmlToHtmlProcessing (text-to-text) --> table-clean
 commands:
 # shrink whitespace, effectively remove line breaks and tabs
 - !!regex-replace

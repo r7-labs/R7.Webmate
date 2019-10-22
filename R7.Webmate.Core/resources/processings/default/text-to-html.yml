@@ -1,4 +1,5 @@
 ---
+# Processing sequence: text-to-text --> text-to-html
 # TODO: Move some commands to text-to-text
 commands:
 # placed all text inside P tag

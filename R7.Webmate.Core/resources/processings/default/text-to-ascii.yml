@@ -1,5 +1,6 @@
 ---
 # Try to convert Unicode text to ASCII
+# Processing sequence: text-to-text --> text-to-ascii
 # TODO: Replace more characters from https://www.freeformatter.com/html-entities.html
 # TODO: Cleanup all non-ASCII chars?
 commands:

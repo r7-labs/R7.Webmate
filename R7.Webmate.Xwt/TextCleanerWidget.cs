@@ -82,7 +82,7 @@ namespace R7.Webmate.Xwt
 
         void BtnPasteHtml_Clicked (object sender, EventArgs e)
         {
-            Model.Source = HtmlHelper.GetBodyContents (ClipboardHelper.TryGetClipboardData (TransferDataType.Html, Encoding.Default));
+            Model.Source = HtmlHelper.GetBodyContents (ClipboardHelper.TryGetHtml ());
 
             lblSrc.Text = Model.Source;
 

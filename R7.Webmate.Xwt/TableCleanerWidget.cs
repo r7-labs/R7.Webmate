@@ -68,7 +68,7 @@ namespace R7.Webmate.Xwt
         // TODO: Allow to insert plain text containing HTML markup
         void BtnPasteHtml_Clicked (object sender, EventArgs e)
         {
-            Model.Source = HtmlHelper.GetFirstTable (ClipboardHelper.TryGetClipboardData (TransferDataType.Html, Encoding.Default));
+            Model.Source = HtmlHelper.GetFirstTable (ClipboardHelper.TryGetHtml ());
 
             lblSrc.Text = Model.Source;
 

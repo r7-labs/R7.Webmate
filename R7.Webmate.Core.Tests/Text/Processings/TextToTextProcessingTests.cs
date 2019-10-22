@@ -38,9 +38,19 @@ namespace R7.Webmate.Core.Tests.Text.Processings
         [Fact]
         public void RemoveExtraPunctuationAfterClosingBracketTest ()
         {
-            Assert.Equal ("(Some sentence in brackets.)", TP.Execute ("(Some sentence in brackets.)."));
-            Assert.Equal ("(Some sentence in brackets!)", TP.Execute ("(Some sentence in brackets!)."));
-            Assert.Equal ("(Some sentence in brackets?)", TP.Execute ("(Some sentence in brackets?)."));
+            Assert.Equal ("(Some sentence in brackets).", TP.Execute ("(Some sentence in brackets.)."));
+            Assert.Equal ("(Some sentence in brackets)!", TP.Execute ("(Some sentence in brackets!)."));
+            Assert.Equal ("(Some sentence in brackets)?", TP.Execute ("(Some sentence in brackets?)."));
+        }
+
+        [Fact]
+        public void FixCommonTyposInRussianTest ()
+        {
+            Assert.Equal ("Это случилось в 1990 г.", TP.Execute ("Это случилось в 1990г."));
+            Assert.Equal ("Это случилось в 1990-1991 гг.", TP.Execute ("Это случилось в 1990-1991 г.г."));
+            Assert.Equal ("\"Сельское хозяйство\" сокращается как с.-х., с.-х., с.-х.", TP.Execute ("\"Сельское хозяйство\" сокращается как с/х, с\\х, с.х."));
+            Assert.Equal ("Это стоит 15 р.", TP.Execute ("Это стоит 15р."));
+            Assert.Equal ("Это стоит 15 руб.", TP.Execute ("Это стоит 15руб."));
         }
     }
 }

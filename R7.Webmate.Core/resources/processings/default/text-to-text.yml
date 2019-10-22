@@ -4,8 +4,8 @@ commands:
 - !!replace
   pattern: "\r\n"
   replacement: "\n"
-# remove excess empty lines
-- !!regex-replace  
+# remove excess empty lines (more than 2 is too much)
+- !!regex-replace
   pattern: "\n{3,}"
   replacement: "\n\n"
 - !!replace
@@ -22,32 +22,38 @@ commands:
 - !!regex-replace
   pattern: " +"
   replacement: " "
-# remove extra punctuation after closing bracket
+# remove extra punctuation before closing bracket
 - !!replace
   pattern: ".)."
-  replacement: ".)"
+  replacement: ")."
 - !!replace
   pattern: "!)."
-  replacement: "!)"
+  replacement: ")!"
 - !!replace
   pattern: "?)."
-  replacement: "?)"
-# replace figure quotes (for text output)
-- !!replace
-  pattern: "«"
-  replacement: '"'
-- !!replace
-  pattern: "»"
+  replacement: ")?"
+# replace figure quotes (for ASCII output)
+- !!regex-replace
+  pattern: "[«»]"
   replacement: '"'
 # remove hyphens
 - !!replace
   pattern: "¬"
   replacement: ""
-# replace double hyphens with en dash
+# TODO: replace double hyphens with en dash (for Unicode output)
 #- !!replace
 #  pattern: " -- "
 #  replacement: "\\u2013"
-# fix some common typos
+# fix some common typos in russian
+- !!regex-replace
+  pattern: "(\\d+)г\\."
+  replacement: "$1 г."
+- !!regex-replace
+  pattern: "(\\d+)р\\."
+  replacement: "$1 р."
+- !!regex-replace
+  pattern: "(\\d+)руб\\."
+  replacement: "$1 руб."
 - !!replace
   pattern: "г.г."
   replacement: "гг."
@@ -60,6 +66,7 @@ commands:
 - !!replace
   pattern: "с.х."
   replacement: "с.-х."
+# TODO: Add i.e. => i. e., e.g. => e. g. for Unicode output
 # remove duplicate spaces
 - !!regex-replace
   pattern: " +"

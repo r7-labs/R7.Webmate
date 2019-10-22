@@ -20,10 +20,11 @@ the globe. It is all about text, clipboard, regexes and drag&drop.
 - FontAwesome for icons.
 - NGettext for i18n.
 - YamlDotNet for configs.
+- NLog for logging.
 
 ## Supported platforms
 
-- Linux and Unix
+- Linux (Unix)
 - Windows
 
 OSX suppport is possible, but not planned.

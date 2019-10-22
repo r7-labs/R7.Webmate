@@ -1,6 +1,7 @@
 ﻿using System;
 using NGettext;
 using Xwt;
+using NLog;
 
 namespace R7.Webmate.Xwt
 {
@@ -10,6 +11,7 @@ namespace R7.Webmate.Xwt
         {
             Application.Initialize (OSHelper.GetXwtToolkit ());
             TextCatalogKeeper.SetDefault (new Catalog ("R7.Webmate.Xwt", "./resources/locale"));
+            LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration ("./config/R7.Webmate.Xwt.NLog.config");
         }
 
         [STAThread]

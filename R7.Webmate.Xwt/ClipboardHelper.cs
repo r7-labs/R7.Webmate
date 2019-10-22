@@ -1,11 +1,14 @@
 using System;
 using System.Text;
 using Xwt;
+using NLog;
 
 namespace R7.Webmate.Xwt
 {
     public static class ClipboardHelper
     {
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger ();
+
         public static string TryGetHtml ()
         {
             try {
@@ -24,10 +27,8 @@ namespace R7.Webmate.Xwt
                     return string.Empty;
                 }
             }
-            catch (Exception ex)
-            {
-                // TODO: Log error
-                Console.WriteLine (ex.Message);
+            catch (Exception ex) {
+                Logger.Error (ex, "Error getting HTML from the clipboard!");
             }
             return string.Empty;
         }

@@ -81,6 +81,9 @@
     <None Include="resources\icons\solid\times-circle.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="config\R7.Webmate.Xwt.NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">
@@ -98,10 +101,22 @@
     <Reference Include="NGettext">
       <HintPath>..\packages\NGettext.0.6.4\lib\net46\NGettext.dll</HintPath>
     </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.6.7\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Icons\" />
     <Folder Include="resources\locale\" />
+    <Folder Include="config\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\R7.Webmate.Core\R7.Webmate.Core.csproj">

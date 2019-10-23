@@ -30,9 +30,14 @@ namespace R7.Webmate.Core.Text
 
         public static string GetFirstTable (string html)
         {
-            html = html.Substring (html.IndexOf ("<table", StringComparison.InvariantCultureIgnoreCase));
-            html = html.Substring (0, html.IndexOf ("</table>", StringComparison.InvariantCultureIgnoreCase) + "</table>".Length);
-            return html;
+            var tableIndex = html.IndexOf ("<table", StringComparison.InvariantCultureIgnoreCase);
+            if (tableIndex >= 0) {
+                html = html.Substring (tableIndex);
+                html = html.Substring (0, html.IndexOf ("</table>", StringComparison.InvariantCultureIgnoreCase) + "</table>".Length);
+                return html;
+            }
+
+            return string.Empty;
         }
     }
 }

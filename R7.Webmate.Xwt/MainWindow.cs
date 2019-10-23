@@ -1,5 +1,6 @@
-﻿using NGettext;
-using R7.Webmate.Core;
+﻿using System;
+using NGettext;
+using NLog;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
 
@@ -9,7 +10,9 @@ namespace R7.Webmate.Xwt
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();
 
-        public StatusIcon StatusIcon { get; protected set; }
+        protected readonly Logger Logger = LogManager.GetCurrentClassLogger ();
+
+        protected StatusIcon StatusIcon { get; set; }
 
         public MainWindow ()
         {
@@ -44,10 +47,13 @@ namespace R7.Webmate.Xwt
 
         public void InitStatusIcon ()
         {
-            if (!PlatformHelper.IsWindows ()) {
+            try {
                 StatusIcon = Application.CreateStatusIcon ();
                 StatusIcon.Image = Icon;
                 StatusIcon.Menu = BuildStatusMenu ();
+            }
+            catch (Exception ex) {
+                Logger.Warn (ex, "Cannot create status icon - probably not supported by current XWT backend.");
             }
         }
 
@@ -75,9 +81,13 @@ namespace R7.Webmate.Xwt
 
         void MainWindow_CloseRequested (object sender, CloseRequestedEventArgs args)
         {
-            args.AllowClose = false;
-
-            Hide ();
+            if (StatusIcon == null) {
+                args.AllowClose = true;
+            }
+            else {
+                args.AllowClose = false;
+                Hide ();
+            }
         }
 
         void MiRestore_Clicked (object sender, System.EventArgs e)

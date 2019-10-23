@@ -17,26 +17,46 @@ namespace R7.Webmate.Xwt
 
         protected Button btnOpenFullView = new Button ();
 
-        public bool AllowQuickCopy { get; protected set; }
+        bool _allowQuickCopy = true;
+        public bool AllowQuickCopy {
+            get { return _allowQuickCopy; }
+            set {
+                _allowQuickCopy = value;
+                UpdateView ();
+            }
+        }
 
-        string _text;
+        string _text = string.Empty;
         public string Text {
             get { return _text; }
             set {
                 _text = value;
-                lblPreview.Text = FormatLabel (_text);
-                lblPreview.TooltipText = _text;
+                UpdateView ();
             }
          }
 
-        // TODO: Allow to set AllowQuickCopy later
-        public TextViewLabel (bool allowQuickCopy)
+        protected void UpdateView ()
         {
-            AllowQuickCopy = allowQuickCopy;
+            if (!string.IsNullOrEmpty (Text)) {
+                lblPreview.Text = FormatLabel (Text);
+                // TODO: Shorten tooltip text
+                lblPreview.TooltipText = Text;
+                lblPreview.TextColor = Color.FromName ("black");
+                btnOpenFullView.Visible = true;
+                btnCopy.Visible = AllowQuickCopy;
+            }
+            else {
+                lblPreview.Text = T.GetString ("<empty>");
+                lblPreview.TooltipText = string.Empty;
+                lblPreview.TextColor = Color.FromName ("red");
+                btnOpenFullView.Visible = false;
+                btnCopy.Visible = false;
+            }
+        }
 
+        public TextViewLabel ()
+        {
             lblPreview.Font = Font.SystemMonospaceFont;
-            lblPreview.TextColor = Color.FromName ("black");
-
             lblPreview.Ellipsize = EllipsizeMode.End;
             lblPreview.Selectable = true;
 
@@ -47,15 +67,15 @@ namespace R7.Webmate.Xwt
             hbox.PackStart (lblPreview, true, true);
             hbox.PackStart (btnOpenFullView, false, true);
 
-            if (AllowQuickCopy) {
-                btnCopy.Label = T.GetString ("Copy");
-                btnCopy.Image = IconHelper.GetIcon ("copy").WithSize (IconSize.Small);
-                btnCopy.Clicked += BtnCopy_Clicked;
-                hbox.PackStart (btnCopy, false, true);
-            }
+            btnCopy.Label = T.GetString ("Copy");
+            btnCopy.Image = IconHelper.GetIcon ("copy").WithSize (IconSize.Small);
+            btnCopy.Clicked += BtnCopy_Clicked;
+            hbox.PackStart (btnCopy, false, true);
 
             Content = hbox;
             Content.Show ();
+
+            UpdateView ();
         }
 
         void BtnCopy_Clicked (object sender, EventArgs e)

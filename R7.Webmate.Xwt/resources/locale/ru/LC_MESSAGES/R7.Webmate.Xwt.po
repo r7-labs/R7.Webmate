@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2019-10-22 14:25+0400\n"
-"PO-Revision-Date: 2019-10-22 14:25+0400\n"
+"POT-Creation-Date: 2019-10-23 10:33+0400\n"
+"PO-Revision-Date: 2019-10-23 10:33+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -39,19 +39,19 @@ msgstr "Восстановить"
 msgid "Close"
 msgstr "Закрыть"
 
-#: TableCleanerWidget.cs:32 TextCleanerWidget.cs:42
+#: TableCleanerWidget.cs:34 TextCleanerWidget.cs:44
 msgid "Paste HTML"
 msgstr "Вставить HTML"
 
-#: TableCleanerWidget.cs:35 TextCleanerWidget.cs:48
+#: TableCleanerWidget.cs:37 TextCleanerWidget.cs:50
 msgid "Process"
 msgstr "Обработать"
 
-#: TableCleanerWidget.cs:41 TextCleanerWidget.cs:55
+#: TableCleanerWidget.cs:43 TextCleanerWidget.cs:57
 msgid "Process on paste?"
 msgstr "Обрабатывать при вставке?"
 
-#: TableCleanerWidget.cs:121 TextCleanerWidget.cs:157
+#: TableCleanerWidget.cs:123 TextCleanerWidget.cs:160
 #, csharp-format
 msgid "Result #{0} - {1}"
 msgstr "Результат №{0} - {1}"
@@ -68,15 +68,19 @@ msgstr "Текст ASCII"
 msgid "HTML"
 msgstr "HTML"
 
-#: TextCleanerWidget.cs:41
+#: TextCleanerWidget.cs:43
 msgid "Paste"
 msgstr "Вставить"
 
-#: TextViewDialog.cs:27
+#: TextViewDialog.cs:29
 msgid "View Text"
 msgstr "Просмотр текста"
 
-#: TextViewLabel.cs:51
+#: TextViewLabel.cs:49
+msgid "<empty>"
+msgstr "<пусто>"
+
+#: TextViewLabel.cs:70
 msgid "Copy"
 msgstr "Копировать"
 

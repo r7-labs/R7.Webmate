@@ -14,7 +14,7 @@ namespace R7.Webmate.Xwt
 
         protected Button btnPasteHtml;
 
-        protected TextViewLabel lblSrc = new TextViewLabel (false);
+        protected TextViewLabel lblSrc = new TextViewLabel ();
 
         protected Button btnProcess;
 
@@ -29,6 +29,8 @@ namespace R7.Webmate.Xwt
 
         public TableCleanerWidget ()
         {
+            lblSrc.AllowQuickCopy = false;
+
             btnPasteHtml = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
             btnPasteHtml.Clicked += BtnPasteHtml_Clicked;
 
@@ -108,7 +110,7 @@ namespace R7.Webmate.Xwt
 
         void AddResult (int index, string format, string result)
         {
-            var lblResult = new TextViewLabel (true);
+            var lblResult = new TextViewLabel ();
             lblResult.Text = result;
                       
             var vboxResult = new VBox ();

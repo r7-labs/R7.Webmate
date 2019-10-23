@@ -27,7 +27,7 @@ the globe. It is all about text, clipboard, regexes and drag&drop.
 - Linux (Unix)
 - Windows
 
-OSX suppport is possible, but not planned.
+OSX suppport is possible, but not tested in any way.
 
 ## Licenses
 

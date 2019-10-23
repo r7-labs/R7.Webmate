@@ -12,6 +12,8 @@ namespace R7.Webmate.Xwt
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();
 
+        protected Button btnPaste;
+
         protected Button btnPasteHtml;
 
         protected TextViewLabel lblSrc = new TextViewLabel ();
@@ -31,6 +33,9 @@ namespace R7.Webmate.Xwt
         {
             lblSrc.AllowQuickCopy = false;
 
+            btnPaste = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste"));
+            btnPaste.Clicked += BtnPaste_Clicked;
+
             btnPasteHtml = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
             btnPasteHtml.Clicked += BtnPasteHtml_Clicked;
 
@@ -38,6 +43,7 @@ namespace R7.Webmate.Xwt
             btnProcess.Clicked += BtnProcess_Clicked;
 
             var hboxPaste = new HBox ();
+            hboxPaste.PackStart (btnPaste, true, true);
             hboxPaste.PackStart (btnPasteHtml, true, true);
 
             chkAutoProcess.Label = T.GetString ("Process on paste?");
@@ -67,7 +73,17 @@ namespace R7.Webmate.Xwt
             TableCleanProcessing.TableCleanTextProcessing = TextProcessingLoader.LoadDefaultFromFile ("table-clean.yml");
         }
 
-        // TODO: Allow to insert plain text containing HTML markup
+        void BtnPaste_Clicked (object sender, EventArgs e)
+        {
+            Model.Source = HtmlHelper.GetFirstTable (Clipboard.GetText () ?? string.Empty);
+            lblSrc.Text = Model.Source;
+
+            if (chkAutoProcess.Active) {
+                Process ();
+                ShowResults ();
+            }
+        }
+
         void BtnPasteHtml_Clicked (object sender, EventArgs e)
         {
             Model.Source = HtmlHelper.GetFirstTable (ClipboardHelper.TryGetHtml ());

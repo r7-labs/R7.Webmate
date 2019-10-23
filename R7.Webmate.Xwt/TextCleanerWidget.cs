@@ -41,8 +41,9 @@ namespace R7.Webmate.Xwt
             lblSrc.AllowQuickCopy = false;
 
             btnPaste = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste"));
-            btnPasteHtml = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
             btnPaste.Clicked += BtnPaste_Clicked;
+
+            btnPasteHtml = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
             btnPasteHtml.Clicked += BtnPasteHtml_Clicked;
 
             var btnPasteMenu = new MenuButton ();

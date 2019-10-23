@@ -135,15 +135,15 @@ namespace R7.Webmate.Xwt
                         // TODO: Don't hardcode this?
                         resultText = resultText.Replace ("<table>",
                             "<table class=\"table table-bordered table-striped table-hover\">");
+                        if (chkBootstrapResponsiveTable.Active) {
+                            resultText = $"<div class=\"table-responsive\">{resultText}</div>";
+                        }
+                        Model.Results.Add (new TextCleanerResult {
+                            Text = resultText,
+                            Label = T.GetString ("Bootstrap table"),
+                            Format = TextCleanerResultFormat.HTML
+                        });
                     }
-                    if (chkBootstrapResponsiveTable.Active) {
-                        resultText = $"<div class=\"table-responsive\">{resultText}</div>";
-                    }
-                    Model.Results.Add (new TextCleanerResult {
-                        Text = resultText,
-                        Label = T.GetString ("Bootstrap table"),
-                        Format = TextCleanerResultFormat.HTML
-                    });
                 } 
             }
         }

@@ -19,6 +19,7 @@
   <ItemGroup>
     <Folder Include="Text\" />
     <Folder Include="Text\Processings\" />
+    <Folder Include="Files\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="R7.Webmate.Core.Tests.csproj" />

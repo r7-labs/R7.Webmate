@@ -33,6 +33,7 @@
     <Compile Include="TextCleanerResultType.cs" />
     <Compile Include="TableCleanerWidget.cs" />
     <Compile Include="ClipboardHelper.cs" />
+    <Compile Include="Config.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

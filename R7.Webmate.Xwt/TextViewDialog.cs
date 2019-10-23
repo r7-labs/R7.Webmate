@@ -16,7 +16,9 @@ namespace R7.Webmate.Xwt
             get { return _text; }
             set {
                 _text = value;
-                TextView.LoadText (_text, TextFormat.Plain);
+                if (!string.IsNullOrEmpty (_text)) {
+                    TextView.LoadText (_text, TextFormat.Plain);
+                }
             }
         }
 

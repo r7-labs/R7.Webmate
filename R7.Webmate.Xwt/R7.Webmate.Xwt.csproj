@@ -29,7 +29,7 @@
     <Compile Include="TextViewDialog.cs" />
     <Compile Include="TextViewLabel.cs" />
     <Compile Include="TextCleanerModel.cs" />
-    <Compile Include="TextCleanerResultType.cs" />
+    <Compile Include="TextCleanerResultFormat.cs" />
     <Compile Include="TableCleanerWidget.cs" />
     <Compile Include="ClipboardHelper.cs" />
     <Compile Include="Config.cs" />

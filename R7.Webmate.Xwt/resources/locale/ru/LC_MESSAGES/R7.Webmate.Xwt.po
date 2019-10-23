@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2019-10-23 10:33+0400\n"
-"PO-Revision-Date: 2019-10-23 10:33+0400\n"
+"POT-Creation-Date: 2019-10-23 12:19+0400\n"
+"PO-Revision-Date: 2019-10-23 12:20+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -19,58 +19,74 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: bin\n"
 "X-Poedit-SearchPathExcluded-2: obj\n"
 
-#: MainWindow.cs:26
+#: MainWindow.cs:27
 msgid "Text Cleaner"
 msgstr "Очистка текста"
 
-#: MainWindow.cs:27
+#: MainWindow.cs:28
 msgid "Table Cleaner"
 msgstr "Очистка таблиц"
 
-#: MainWindow.cs:41
+#: MainWindow.cs:42
 msgid "R7.Webmaster.Xwt - "
 msgstr "R7.Webmate.Xwt - "
 
-#: MainWindow.cs:56
+#: MainWindow.cs:57
 msgid "Restore"
 msgstr "Восстановить"
 
-#: MainWindow.cs:62
+#: MainWindow.cs:63
 msgid "Close"
 msgstr "Закрыть"
 
-#: TableCleanerWidget.cs:34 TextCleanerWidget.cs:44
+#: TableCleanerWidget.cs:40 TextCleanerWidget.cs:43
+msgid "Paste"
+msgstr "Вставить"
+
+#: TableCleanerWidget.cs:43 TextCleanerWidget.cs:46
 msgid "Paste HTML"
 msgstr "Вставить HTML"
 
-#: TableCleanerWidget.cs:37 TextCleanerWidget.cs:50
+#: TableCleanerWidget.cs:46 TextCleanerWidget.cs:51
 msgid "Process"
 msgstr "Обработать"
 
-#: TableCleanerWidget.cs:43 TextCleanerWidget.cs:57
+#: TableCleanerWidget.cs:53 TextCleanerWidget.cs:58
 msgid "Process on paste?"
 msgstr "Обрабатывать при вставке?"
 
-#: TableCleanerWidget.cs:123 TextCleanerWidget.cs:160
+#: TableCleanerWidget.cs:56
+msgid "Generate Bootstrap table?"
+msgstr "Генерировать таблицу Bootstrap?"
+
+#: TableCleanerWidget.cs:62
+msgid "Generate Bootstrap responsive table?"
+msgstr "Генерировать адаптивную таблицу Bootstrap?"
+
+#: TableCleanerWidget.cs:129
+msgid "HTML table"
+msgstr "Таблица HTML"
+
+#: TableCleanerWidget.cs:143
+msgid "Bootstrap table"
+msgstr "Таблица Bootstrap"
+
+#: TableCleanerWidget.cs:172 TextCleanerWidget.cs:165
 #, csharp-format
 msgid "Result #{0} - {1}"
 msgstr "Результат №{0} - {1}"
 
-#: TextCleanerResultType.cs:19
-msgid "Тext"
-msgstr "Текст"
-
-#: TextCleanerResultType.cs:20
-msgid "ASCII Text"
-msgstr "Текст ASCII"
-
-#: TextCleanerResultType.cs:21
+#: TextCleanerWidget.cs:116 TextCleanerWidget.cs:137
 msgid "HTML"
 msgstr "HTML"
 
-#: TextCleanerWidget.cs:43
-msgid "Paste"
-msgstr "Вставить"
+#: TextCleanerWidget.cs:123
+msgid "Text"
+msgstr "Текст"
+
+#: TextCleanerWidget.cs:131
+msgid "ASCII text"
+msgstr "Текст ASCII"
 
 #: TextViewDialog.cs:29
 msgid "View Text"
@@ -84,11 +100,11 @@ msgstr "<пусто>"
 msgid "Copy"
 msgstr "Копировать"
 
+#~ msgid "Тext"
+#~ msgstr "Текст"
+
 #~ msgid "Unicode Text"
 #~ msgstr "Текст Unicode"
-
-#~ msgid "Text"
-#~ msgstr "Текст"
 
 #~ msgid "Heart"
 #~ msgstr "Сердце"

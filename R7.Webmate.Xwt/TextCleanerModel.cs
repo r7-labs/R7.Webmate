@@ -13,6 +13,8 @@ namespace R7.Webmate.Xwt
     {
         public string Text { get; set; }
 
-        public TextCleanerResultType ResultType { get; set; }
+        public string Label { get; set; }
+
+        public TextCleanerResultFormat Format { get; set; }
     }
 }

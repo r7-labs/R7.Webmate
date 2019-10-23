@@ -113,25 +113,29 @@ namespace R7.Webmate.Xwt
             if (HtmlHelper.IsHtml (Model.Source)) {
                 Model.Results.Add (new TextCleanerResult {
                     Text = HtmlToHtmlProcessing.Execute (Model.Source),
-                    ResultType = TextCleanerResultType.HTML
+                    Label = T.GetString ("HTML"),
+                    Format = TextCleanerResultFormat.HTML
                 });
             }
             else {
                 var unicodeText = new TextCleanerResult {
                     Text = TextToTextProcessing.Execute (Model.Source),
-                    ResultType = TextCleanerResultType.Text
+                    Label = T.GetString ("Text"),
+                    Format = TextCleanerResultFormat.Text
                 };
 
                 Model.Results.Add (unicodeText);
 
                 Model.Results.Add (new TextCleanerResult {
                     Text = TextToAsciiProcessing.Execute (unicodeText.Text),
-                    ResultType = TextCleanerResultType.AsciiText
+                    Label = T.GetString ("ASCII text"),
+                    Format = TextCleanerResultFormat.Text
                 });
 
                 Model.Results.Add (new TextCleanerResult {
                     Text = TextToHtmlProcessing.Execute (unicodeText.Text),
-                    ResultType = TextCleanerResultType.HTML
+                    Label = T.GetString ("HTML"),
+                    Format = TextCleanerResultFormat.HTML
                 });
             }
         }
@@ -142,15 +146,15 @@ namespace R7.Webmate.Xwt
 
             var index = 0;
             foreach (var result in Model.Results) {
-                AddResult (++index, TextCleanerResultTypeHelper.GetString (result.ResultType), result.Text);
+                AddResult (result.Text, ++index, result.Label, result.Format);
             }
         }
 
-        void AddResult (int index, string format, string result)
+        void AddResult (string result, int index, string label, TextCleanerResultFormat resultFormat)
         {
             var lblResult = new TextViewLabel ();
             lblResult.Text = result;
-                      
+
             var vboxResult = new VBox ();
             vboxResult.MarginLeft = 5;
             vboxResult.MarginRight = 5;
@@ -158,7 +162,7 @@ namespace R7.Webmate.Xwt
             vboxResult.PackStart (lblResult, false, true);
 
             var frmResult = new Frame ();
-            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, format);
+            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, label);
             frmResult.Content = vboxResult;
             vboxResults.PackStart (frmResult);
         }

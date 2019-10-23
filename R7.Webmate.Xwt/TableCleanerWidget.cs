@@ -22,6 +22,10 @@ namespace R7.Webmate.Xwt
 
         protected CheckBox chkAutoProcess = new CheckBox ();
 
+        protected CheckBox chkBootstrapTable = new CheckBox ();
+
+        protected CheckBox chkBootstrapResponsiveTable = new CheckBox ();
+
         protected VBox vboxResults = new VBox ();
 
         protected TextCleanerModel Model = new TextCleanerModel ();
@@ -49,11 +53,22 @@ namespace R7.Webmate.Xwt
             chkAutoProcess.Label = T.GetString ("Process on paste?");
             chkAutoProcess.Active = true;
 
+            chkBootstrapTable.Label = T.GetString ("Generate Bootstrap table?");
+            chkBootstrapTable.Active = true;
+            chkBootstrapTable.Clicked += (sender, e) => {
+                chkBootstrapResponsiveTable.Visible = ((CheckBox) sender).Active;
+            };
+
+            chkBootstrapResponsiveTable.Label = T.GetString ("Generate Bootstrap responsive table?");
+            chkBootstrapResponsiveTable.Active = true;
+
             var vbox = new VBox ();
             vbox.PackStart (hboxPaste, true, true);
             vbox.PackStart (lblSrc, false, true);
             vbox.PackStart (btnProcess, false, true);
             vbox.PackStart (chkAutoProcess, false, true);
+            vbox.PackStart (chkBootstrapTable, false, true);
+            vbox.PackStart (chkBootstrapResponsiveTable, false, true);
             vbox.PackStart (vboxResults, false, true);
 
             vbox.Margin = 5;
@@ -107,10 +122,29 @@ namespace R7.Webmate.Xwt
             Model.Results.Clear ();
 
             if (HtmlHelper.IsHtml (Model.Source)) {
+                var resultText = TableCleanProcessing.Execute (Model.Source);
+
                 Model.Results.Add (new TextCleanerResult {
-                    Text = TableCleanProcessing.Execute (Model.Source),
-                    ResultType = TextCleanerResultType.HTML
+                    Text = resultText,
+                    Label = T.GetString ("HTML table"),
+                    Format = TextCleanerResultFormat.HTML
                 });
+
+                if (!string.IsNullOrEmpty (resultText)) {
+                    if (chkBootstrapTable.Active) {
+                        // TODO: Don't hardcode this?
+                        resultText = resultText.Replace ("<table>",
+                            "<table class=\"table table-bordered table-striped table-hover\">");
+                    }
+                    if (chkBootstrapResponsiveTable.Active) {
+                        resultText = $"<div class=\"table-responsive\">{resultText}</div>";
+                    }
+                    Model.Results.Add (new TextCleanerResult {
+                        Text = resultText,
+                        Label = T.GetString ("Bootstrap table"),
+                        Format = TextCleanerResultFormat.HTML
+                    });
+                } 
             }
         }
 
@@ -120,11 +154,11 @@ namespace R7.Webmate.Xwt
 
             var index = 0;
             foreach (var result in Model.Results) {
-                AddResult (++index, TextCleanerResultTypeHelper.GetString (result.ResultType), result.Text);
+                AddResult (result.Text, ++index, result.Label, result.Format);
             }
         }
 
-        void AddResult (int index, string format, string result)
+        void AddResult (string result, int index, string label, TextCleanerResultFormat resultFormat)
         {
             var lblResult = new TextViewLabel ();
             lblResult.Text = result;
@@ -136,7 +170,7 @@ namespace R7.Webmate.Xwt
             vboxResult.PackStart (lblResult, false, true);
 
             var frmResult = new Frame ();
-            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, format);
+            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, label);
             frmResult.Content = vboxResult;
             vboxResults.PackStart (frmResult);
         }

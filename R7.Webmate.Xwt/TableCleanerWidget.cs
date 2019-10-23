@@ -121,30 +121,32 @@ namespace R7.Webmate.Xwt
         {
             Model.Results.Clear ();
 
-            if (HtmlHelper.IsHtml (Model.Source)) {
-                var resultText = TableCleanProcessing.Execute (Model.Source);
+            if (!string.IsNullOrEmpty (Model.Source)) {
+                if (HtmlHelper.IsHtml (Model.Source)) {
+                    var resultText = TableCleanProcessing.Execute (Model.Source);
 
-                Model.Results.Add (new TextCleanerResult {
-                    Text = resultText,
-                    Label = T.GetString ("HTML table"),
-                    Format = TextCleanerResultFormat.HTML
-                });
+                    Model.Results.Add (new TextCleanerResult {
+                        Text = resultText,
+                        Label = T.GetString ("HTML table"),
+                        Format = TextCleanerResultFormat.HTML
+                    });
 
-                if (!string.IsNullOrEmpty (resultText)) {
-                    if (chkBootstrapTable.Active) {
-                        // TODO: Don't hardcode this?
-                        resultText = resultText.Replace ("<table>",
-                            "<table class=\"table table-bordered table-striped table-hover\">");
-                        if (chkBootstrapResponsiveTable.Active) {
-                            resultText = $"<div class=\"table-responsive\">{resultText}</div>";
+                    if (!string.IsNullOrEmpty (resultText)) {
+                        if (chkBootstrapTable.Active) {
+                            // TODO: Don't hardcode this?
+                            resultText = resultText.Replace ("<table>",
+                                "<table class=\"table table-bordered table-striped table-hover\">");
+                            if (chkBootstrapResponsiveTable.Active) {
+                                resultText = $"<div class=\"table-responsive\">{resultText}</div>";
+                            }
+                            Model.Results.Add (new TextCleanerResult {
+                                Text = resultText,
+                                Label = T.GetString ("Bootstrap table"),
+                                Format = TextCleanerResultFormat.HTML
+                            });
                         }
-                        Model.Results.Add (new TextCleanerResult {
-                            Text = resultText,
-                            Label = T.GetString ("Bootstrap table"),
-                            Format = TextCleanerResultFormat.HTML
-                        });
                     }
-                } 
+                }
             }
         }
 

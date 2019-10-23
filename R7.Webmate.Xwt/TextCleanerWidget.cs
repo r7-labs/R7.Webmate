@@ -110,33 +110,35 @@ namespace R7.Webmate.Xwt
         {
             Model.Results.Clear ();
 
-            if (HtmlHelper.IsHtml (Model.Source)) {
-                Model.Results.Add (new TextCleanerResult {
-                    Text = HtmlToHtmlProcessing.Execute (Model.Source),
-                    Label = T.GetString ("HTML"),
-                    Format = TextCleanerResultFormat.HTML
-                });
-            }
-            else {
-                var unicodeText = new TextCleanerResult {
-                    Text = TextToTextProcessing.Execute (Model.Source),
-                    Label = T.GetString ("Text"),
-                    Format = TextCleanerResultFormat.Text
-                };
+            if (!string.IsNullOrEmpty (Model.Source)) {
+                if (HtmlHelper.IsHtml (Model.Source)) {
+                    Model.Results.Add (new TextCleanerResult {
+                        Text = HtmlToHtmlProcessing.Execute (Model.Source),
+                        Label = T.GetString ("HTML"),
+                        Format = TextCleanerResultFormat.HTML
+                    });
+                }
+                else {
+                    var unicodeText = new TextCleanerResult {
+                        Text = TextToTextProcessing.Execute (Model.Source),
+                        Label = T.GetString ("Text"),
+                        Format = TextCleanerResultFormat.Text
+                    };
 
-                Model.Results.Add (unicodeText);
+                    Model.Results.Add (unicodeText);
 
-                Model.Results.Add (new TextCleanerResult {
-                    Text = TextToAsciiProcessing.Execute (unicodeText.Text),
-                    Label = T.GetString ("ASCII text"),
-                    Format = TextCleanerResultFormat.Text
-                });
+                    Model.Results.Add (new TextCleanerResult {
+                        Text = TextToAsciiProcessing.Execute (unicodeText.Text),
+                        Label = T.GetString ("ASCII text"),
+                        Format = TextCleanerResultFormat.Text
+                    });
 
-                Model.Results.Add (new TextCleanerResult {
-                    Text = TextToHtmlProcessing.Execute (unicodeText.Text),
-                    Label = T.GetString ("HTML"),
-                    Format = TextCleanerResultFormat.HTML
-                });
+                    Model.Results.Add (new TextCleanerResult {
+                        Text = TextToHtmlProcessing.Execute (unicodeText.Text),
+                        Label = T.GetString ("HTML"),
+                        Format = TextCleanerResultFormat.HTML
+                    });
+                }
             }
         }
 

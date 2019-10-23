@@ -4,7 +4,7 @@ using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using Xwt;
 using NLog;
-using R7.Webmate.Core.Files;
+using R7.Webmate.Core;
 
 namespace R7.Webmate.Xwt
 {
@@ -31,7 +31,7 @@ namespace R7.Webmate.Xwt
                 return new Config ();
             }
 
-            var platformString = OSHelper.GetPlatformString ();
+            var platformString = PlatformHelper.GetPlatformString ();
             var configPath = FileHelper.GetFirstSuffixedOrDefaultFile (DefaultConfigPath,
                     $".{platformString}.user",
                     $".{platformString}");

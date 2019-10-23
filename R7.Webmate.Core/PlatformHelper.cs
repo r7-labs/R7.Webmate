@@ -1,9 +1,8 @@
 ﻿using System.Runtime.InteropServices;
-using Xwt;
 
-namespace R7.Webmate.Xwt
+namespace R7.Webmate.Core
 {
-    public static class OSHelper
+    public static class PlatformHelper
     {
         public static bool IsWindows () => RuntimeInformation.IsOSPlatform (OSPlatform.Windows);
 
@@ -23,17 +22,6 @@ namespace R7.Webmate.Xwt
                 return "osx";
             }
             return "unknown";
-        }
-
-        public static ToolkitType GetDefaultXwtToolkitType ()
-        {
-            if (IsWindows ()) {
-                return ToolkitType.Wpf;
-            }
-            if (IsUnix ()) {
-                return ToolkitType.Gtk3;
-            }
-            return ToolkitType.Gtk;
         }
     }
 }

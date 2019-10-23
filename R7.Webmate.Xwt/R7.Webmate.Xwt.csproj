@@ -22,7 +22,6 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="MainWindow.cs" />
-    <Compile Include="OSHelper.cs" />
     <Compile Include="TextCatalogKeeper.cs" />
     <Compile Include="Icons\IconHelper.cs" />
     <Compile Include="Icons\IconStyle.cs" />
@@ -34,6 +33,7 @@
     <Compile Include="TableCleanerWidget.cs" />
     <Compile Include="ClipboardHelper.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="XwtHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

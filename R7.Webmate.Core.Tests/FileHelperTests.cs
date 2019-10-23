@@ -1,7 +1,7 @@
-using R7.Webmate.Core.Files;
+using R7.Webmate.Core;
 using Xunit;
 
-namespace R7.Webmate.Core.Tests.Files
+namespace R7.Webmate.Core.Tests
 {
     public class FileHelperTests
     {

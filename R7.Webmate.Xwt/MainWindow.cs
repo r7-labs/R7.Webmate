@@ -1,4 +1,5 @@
 ﻿using NGettext;
+using R7.Webmate.Core;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
 
@@ -43,7 +44,7 @@ namespace R7.Webmate.Xwt
 
         public void InitStatusIcon ()
         {
-            if (!OSHelper.IsWindows ()) {
+            if (!PlatformHelper.IsWindows ()) {
                 StatusIcon = Application.CreateStatusIcon ();
                 StatusIcon.Image = Icon;
                 StatusIcon.Menu = BuildStatusMenu ();

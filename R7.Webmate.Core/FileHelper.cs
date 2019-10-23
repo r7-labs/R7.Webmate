@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace R7.Webmate.Core.Files
+namespace R7.Webmate.Core
 {
     public static class FileHelper
     {

@@ -10,7 +10,7 @@ namespace R7.Webmate.Xwt
         static void Initialize ()
         {
             Config.DefaultConfigPath = "./config/R7.Webmate.Xwt.yml";
-            Application.Initialize (Config.Instance.ToolkitType ?? OSHelper.GetDefaultXwtToolkitType ());
+            Application.Initialize (Config.Instance.ToolkitType ?? XwtHelper.GetDefaultXwtToolkitType ());
             TextCatalogKeeper.SetDefault (new Catalog ("R7.Webmate.Xwt", "./resources/locale"));
             LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration ("./config/R7.Webmate.Xwt.NLog.config");
         }

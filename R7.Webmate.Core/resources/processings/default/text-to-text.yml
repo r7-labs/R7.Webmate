@@ -16,13 +16,25 @@ commands:
 - !!replace
   pattern: "\t"
   replacement: " "
-# remove spaces before closing punctuation
+# remove duplicate &nbsp;
 - !!regex-replace
-  pattern: " ([\\.,;:\\)\\}\\]\\?!])"
-  replacement: "$1"
+  pattern: "\u00A0{2,}"
+  replacement: "\u00A0"
+# remove &nbsp; with spaces around
+- !!replace
+  pattern: "\u00A0 "
+  replacement: " "
+- !!replace
+  pattern: " \u00A0"
+  replacement: " "
+# remove duplicate spaces
 - !!regex-replace
   pattern: " +"
   replacement: " "
+# remove spaces before closing punctuation
+- !!regex-replace
+  pattern: "[ \u00A0]([\\.,;:\\)\\}\\]\\?!])"
+  replacement: "$1"
 # remove extra punctuation before closing bracket
 - !!replace
   pattern: ".)."

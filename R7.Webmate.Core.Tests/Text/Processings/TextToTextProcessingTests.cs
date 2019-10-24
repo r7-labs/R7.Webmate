@@ -1,10 +1,9 @@
-﻿using System.Web;
-using R7.Webmate.Core.Text.Processings;
+﻿using R7.Webmate.Core.Text.Processings;
 using Xunit;
 
 namespace R7.Webmate.Core.Tests.Text.Processings
 {
-    public class TextToTextProcessingTests
+    public class TextToTextProcessingTests: TextProcessingTestBase
     {
         ITextProcessing TP = TextProcessingLoader.LoadDefaultFromFile ("text-to-text.yml");
 
@@ -54,18 +53,29 @@ namespace R7.Webmate.Core.Tests.Text.Processings
         }
 
         [Fact]
+        public void RemoveNbspsWithSpacesAroundTest ()
+        {
+            // include text in //, as Trim() removes also &nbsps;
+            Assert.Equal ("/ /", TP.Execute (X ("/&nbsp; /")));
+            Assert.Equal ("/ /", TP.Execute (X ("/ &nbsp;/")));
+            Assert.Equal ("/ /", TP.Execute (X ("/&nbsp; &nbsp;  &nbsp;&nbsp;   &nbsp;/")));
+        }
+
+        [Fact]
+        public void RemoveDuplicateNbspTest ()
+        {
+            // include text in //, as Trim() removes also &nbsps;
+            Assert.Equal ("/&nbsp;/", XX (TP.Execute (X ("/&nbsp;&nbsp;/"))));
+        }
+
+        [Fact]
         public void FixCommonTyposInRussianTest ()
         {
             Assert.Equal (X ("Это случилось в 1990&nbsp;г."), TP.Execute ("Это случилось в 1990г."));
             Assert.Equal (X ("Это случилось в 1990-1991&nbsp;гг."), TP.Execute ("Это случилось в 1990-1991 г.г."));
-            Assert.Equal ("\"Сельское хозяйство\" сокращается как с.-х., с.-х., с.-х.", TP.Execute ("\"Сельское хозяйство\" сокращается как с/х, с\\х, с.х."));
             Assert.Equal (X ("Это стоит 15&nbsp;р."), TP.Execute ("Это стоит 15р."));
             Assert.Equal (X ("Это стоит 15&nbsp;руб."), TP.Execute ("Это стоит 15руб."));
-        }
-
-        public string X (string text)
-        {
-            return HttpUtility.HtmlDecode (text);
+            Assert.Equal ("\"Сельское хозяйство\" сокращается как с.-х., с.-х., с.-х.", TP.Execute ("\"Сельское хозяйство\" сокращается как с/х, с\\х, с.х."));
         }
     }
 }

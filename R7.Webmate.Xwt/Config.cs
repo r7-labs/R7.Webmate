@@ -5,6 +5,7 @@ using YamlDotNet.Serialization.NamingConventions;
 using Xwt;
 using NLog;
 using R7.Webmate.Core;
+using Xwt.Drawing;
 
 namespace R7.Webmate.Xwt
 {
@@ -14,7 +15,29 @@ namespace R7.Webmate.Xwt
 
         public ToolkitType? ToolkitType { get; set; }
 
+        public string MonospaceFontName { get; set; }
+
         #endregion
+
+        Font _monospaceFont;
+
+        [YamlIgnore]
+        public Font MonospaceFont {
+            get {
+                if (_monospaceFont == null) {
+                    if (!string.IsNullOrEmpty (MonospaceFontName)) {
+                        _monospaceFont = Font.FromName (MonospaceFontName);
+                    }
+                }
+                if (_monospaceFont == null) {
+                    _monospaceFont = Font.SystemMonospaceFont;
+                }
+                return _monospaceFont;
+            }
+            set {
+                _monospaceFont = value;
+            }
+        }
 
         public static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 

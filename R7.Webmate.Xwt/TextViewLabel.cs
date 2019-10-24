@@ -56,7 +56,7 @@ namespace R7.Webmate.Xwt
 
         public TextViewLabel ()
         {
-            lblPreview.Font = Font.SystemMonospaceFont;
+            lblPreview.Font = Config.Instance.MonospaceFont;
             lblPreview.Ellipsize = EllipsizeMode.End;
             lblPreview.Selectable = true;
 

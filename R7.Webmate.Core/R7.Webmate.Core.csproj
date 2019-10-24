@@ -14,16 +14,16 @@
     <None Include="R7.Webmate.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="resources\processings\default\text-to-text.yml">
+    <None Update="resources\processings\table-clean.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="resources\processings\default\text-to-html.yml">
+    <None Update="resources\processings\text-to-ascii.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="resources\processings\default\table-clean.yml">
+    <None Update="resources\processings\text-to-html.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="resources\processings\default\text-to-ascii.yml">
+    <None Update="resources\processings\text-to-text.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

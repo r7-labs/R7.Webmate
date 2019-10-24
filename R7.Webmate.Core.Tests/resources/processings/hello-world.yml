@@ -1,0 +1,7 @@
+---
+commands:
+- !!regex-replace
+  pattern: ".*"
+  replacement: ""
+- !!append
+  text: "Hello, world!"

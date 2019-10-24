@@ -81,11 +81,11 @@ namespace R7.Webmate.Xwt
         protected void InitProcessings ()
         {
             var htmlToHtmlProcessing = new HtmlToHtmlProcessing ();
-            htmlToHtmlProcessing.TextToTextProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-text.yml");
+            htmlToHtmlProcessing.TextToTextProcessing = TextProcessingLoader.Load ("text-to-text.yml");
 
             TableCleanProcessing = new TableCleanProcessing ();
             TableCleanProcessing.HtmlToHtmlProcessing = htmlToHtmlProcessing;
-            TableCleanProcessing.TableCleanTextProcessing = TextProcessingLoader.LoadDefaultFromFile ("table-clean.yml");
+            TableCleanProcessing.TableCleanTextProcessing = TextProcessingLoader.Load ("table-clean.yml");
         }
 
         void BtnPaste_Clicked (object sender, EventArgs e)

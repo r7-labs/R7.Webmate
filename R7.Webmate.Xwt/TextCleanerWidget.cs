@@ -28,11 +28,11 @@ namespace R7.Webmate.Xwt
 
         // TODO: Move processings to model?
 
-        protected ITextProcessing TextToAsciiProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-ascii.yml");
+        protected ITextProcessing TextToAsciiProcessing = TextProcessingLoader.Load ("text-to-ascii.yml");
 
-        protected ITextProcessing TextToTextProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-text.yml");
+        protected ITextProcessing TextToTextProcessing = TextProcessingLoader.Load ("text-to-text.yml");
 
-        protected ITextProcessing TextToHtmlProcessing = TextProcessingLoader.LoadDefaultFromFile ("text-to-html.yml");
+        protected ITextProcessing TextToHtmlProcessing = TextProcessingLoader.Load ("text-to-html.yml");
 
         protected HtmlToHtmlProcessing HtmlToHtmlProcessing;
 

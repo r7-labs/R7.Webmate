@@ -5,7 +5,7 @@ namespace R7.Webmate.Core.Tests.Text.Processings
 {
     public class TextToTextProcessingTests: TextProcessingTestBase
     {
-        ITextProcessing TP = TextProcessingLoader.LoadDefaultFromFile ("text-to-text.yml");
+        ITextProcessing TP = TextProcessingLoader.Load ("text-to-text.yml");
 
         [Fact]
         public void NormalizeEndlinesTest ()

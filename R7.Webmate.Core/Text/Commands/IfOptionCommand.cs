@@ -11,7 +11,7 @@ namespace R7.Webmate.Core.Text.Commands
 
         public IList<ITextCommand> ElseCommands = new List<ITextCommand> ();
 
-        public override string Execute (string value)
+        public override string Run (string text)
         {
             throw new NotSupportedException ("Must be executed by external processor.");
         }

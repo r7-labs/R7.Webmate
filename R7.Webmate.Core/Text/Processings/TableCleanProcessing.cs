@@ -6,9 +6,9 @@ namespace R7.Webmate.Core.Text.Processings
 
         public HtmlToHtmlProcessing HtmlToHtmlProcessing { get; set; }
 
-        public override string Execute (string text)
+        public override string Process (string text)
         {
-            return TableCleanTextProcessing.Execute (HtmlToHtmlProcessing.Execute (text));
+            return TableCleanTextProcessing.Process (HtmlToHtmlProcessing.Process (text));
 
             /*
             if (tableCleanerParams.SetCssClass)

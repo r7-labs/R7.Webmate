@@ -17,9 +17,9 @@ namespace R7.Webmate.Core.Text.Commands
             RegexOptions = regexOptions;
         }
 
-        public override string Execute (string value)
+        public override string Run (string text)
         {
-            return Regex.Replace (value, Pattern, m => m.Value.ToLower (), RegexOptions);
+            return Regex.Replace (text, Pattern, m => m.Value.ToLower (), RegexOptions);
         }
     }
 }

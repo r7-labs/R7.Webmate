@@ -19,13 +19,13 @@ namespace R7.Webmate.Core.Text.Processings
             }
         }
 
-        public virtual string Execute (string text)
+        public virtual string Process (string text)
         {
             var exit = false;
-            return Execute (text, Commands, ref exit);
+            return Process (text, Commands, ref exit);
         }
 
-        protected virtual string Execute (string text, IList<ITextCommand> commands, ref bool exit)
+        protected virtual string Process (string text, IList<ITextCommand> commands, ref bool exit)
         {
             if (commands == null || commands.Count == 0) {
                 return text;
@@ -42,14 +42,14 @@ namespace R7.Webmate.Core.Text.Processings
                 if (command is IfOptionCommand) {
                     var ifCommand = (IfOptionCommand) command;
                     if (Options [ifCommand.Option]) {
-                        text = Execute (text, ifCommand.ThenCommands, ref exit);
+                        text = Process (text, ifCommand.ThenCommands, ref exit);
                     }
                     else {
-                        text = Execute (text, ifCommand.ElseCommands, ref exit);
+                        text = Process (text, ifCommand.ElseCommands, ref exit);
                     }
                 }
                 else {
-                    text = command.Execute (text);
+                    text = command.Run (text);
                 }
             }
 

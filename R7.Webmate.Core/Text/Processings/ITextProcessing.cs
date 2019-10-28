@@ -9,6 +9,6 @@ namespace R7.Webmate.Core.Text.Processings
 
         IList<ITextCommand> Commands { get; set; }
 
-        string Execute (string text);
+        string Process (string text);
     }
 }

@@ -2,6 +2,6 @@
 {
 	public abstract class TextCommandBase: ITextCommand
 	{
-		public abstract string Execute (string value);
+		public abstract string Run (string text);
 	}
 }

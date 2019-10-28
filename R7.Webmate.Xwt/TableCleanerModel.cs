@@ -30,7 +30,7 @@ namespace R7.Webmate.Xwt
 
             if (!string.IsNullOrEmpty (Source)) {
                 if (HtmlHelper.IsHtml (Source)) {
-                    var resultText = TP.Execute (Source);
+                    var resultText = TP.Process (Source);
 
                     Results.Add (new TextCleanerResult {
                         Text = resultText,

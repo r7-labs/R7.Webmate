@@ -1,6 +1,6 @@
 ﻿namespace R7.Webmate.Core.Text.Commands
 {
-	public delegate string CustomCommandHandler (string value);
+	public delegate string CustomCommandHandler (string text);
 
 	public class CustomCommand: TextCommandBase
     {
@@ -11,13 +11,13 @@
 
 		public CustomCommandHandler CustomCommandHandler;
 
-		public override string Execute (string value)
+		public override string Run (string text)
 		{
             if (CustomCommandHandler != null) {
-                return CustomCommandHandler (value);
+                return CustomCommandHandler (text);
             }
 
-			return value;
+			return text;
 		}
 	}
 }

@@ -20,7 +20,7 @@ namespace R7.Webmate.Core.Text.Processings
     {
         public ITextProcessing TextToTextProcessing { get; set; }
 
-        public override string Execute (string text)
+        public override string Process (string text)
         {
             return HtmlToHtml (text);
         }
@@ -44,7 +44,7 @@ namespace R7.Webmate.Core.Text.Processings
 
             // pass all matched values to cleanup
             foreach (var group in attrGroups) {
-                group.NewValue = TextToTextProcessing.Execute (group.Value);
+                group.NewValue = TextToTextProcessing.Process (group.Value);
             }
 
             // now, we need to apply changes back to original text, before proceed with tags and values
@@ -62,7 +62,7 @@ namespace R7.Webmate.Core.Text.Processings
             CopyValidMatches (values, valueGroups, 1);
 
             foreach (var group in valueGroups) {
-                group.NewValue = TextToTextProcessing.Execute (group.Value);
+                group.NewValue = TextToTextProcessing.Process (group.Value);
             }
 
             text = ApplyMatchGroups (text, valueGroups);

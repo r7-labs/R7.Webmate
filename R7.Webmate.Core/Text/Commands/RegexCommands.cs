@@ -22,9 +22,9 @@ namespace R7.Webmate.Core.Text.Commands
 			RegexOptions = regexOptions;
 		}
 
-		public override string Execute (string value)
+		public override string Run (string text)
 		{
-			return Regex.Replace (value, Pattern, Replacement, RegexOptions);
+			return Regex.Replace (text, Pattern, Replacement, RegexOptions);
 		}
 	}
 }

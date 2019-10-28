@@ -2,6 +2,6 @@
 {
     public interface ITextCommand
     {
-        string Execute (string value);
+        string Run (string text);
     }
 }

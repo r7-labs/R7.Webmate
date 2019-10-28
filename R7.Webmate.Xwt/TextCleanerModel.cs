@@ -29,14 +29,14 @@ namespace R7.Webmate.Xwt
             if (!string.IsNullOrEmpty (Source)) {
                 if (HtmlHelper.IsHtml (Source)) {
                     Results.Add (new TextCleanerResult {
-                        Text = HtmlToHtmlProcessing.Execute (Source),
+                        Text = HtmlToHtmlProcessing.Process (Source),
                         Label = T.GetString ("HTML"),
                         Format = TextCleanerResultFormat.HTML
                     });
                 }
                 else {
                     var unicodeText = new TextCleanerResult {
-                        Text = TextToTextProcessing.Execute (Source),
+                        Text = TextToTextProcessing.Process (Source),
                         Label = T.GetString ("Text"),
                         Format = TextCleanerResultFormat.Text
                     };
@@ -44,13 +44,13 @@ namespace R7.Webmate.Xwt
                     Results.Add (unicodeText);
 
                     Results.Add (new TextCleanerResult {
-                        Text = TextToAsciiProcessing.Execute (unicodeText.Text),
+                        Text = TextToAsciiProcessing.Process (unicodeText.Text),
                         Label = T.GetString ("ASCII text"),
                         Format = TextCleanerResultFormat.Text
                     });
 
                     Results.Add (new TextCleanerResult {
-                        Text = TextToHtmlProcessing.Execute (unicodeText.Text),
+                        Text = TextToHtmlProcessing.Process (unicodeText.Text),
                         Label = T.GetString ("HTML"),
                         Format = TextCleanerResultFormat.HTML
                     });

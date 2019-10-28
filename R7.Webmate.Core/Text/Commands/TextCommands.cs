@@ -17,9 +17,9 @@
 			Replacement = replacement;
 		}
 
-		public override string Execute (string value)
+		public override string Run (string text)
 		{
-			return value.Replace (Pattern, Replacement);
+			return text.Replace (Pattern, Replacement);
 		}
 	}
 
@@ -37,12 +37,12 @@
             }
 		}
 
-		public override string Execute (string value)
+		public override string Run (string text)
 		{
 			if (!string.IsNullOrEmpty (TrimChars)) {
-                return value.Trim (TrimChars.ToCharArray ());
+                return text.Trim (TrimChars.ToCharArray ());
             }
-    		return value.Trim ();
+    		return text.Trim ();
 		}
 	}
 
@@ -58,9 +58,9 @@
 			Text = text;
 		}
 
-		public override string Execute (string value)
+		public override string Run (string text)
 		{
-			return value + Text;
+			return text + Text;
 		}
 	}
 
@@ -76,9 +76,9 @@
 			Text = text;
 		}
 
-		public override string Execute (string value)
+		public override string Run (string text)
 		{
-		    return Text + value;
+		    return Text + text;
 		}
 	}
 }

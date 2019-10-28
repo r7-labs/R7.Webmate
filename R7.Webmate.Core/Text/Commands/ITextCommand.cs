@@ -2,8 +2,6 @@
 {
     public interface ITextCommand
     {
-        bool IsDisabled { get; set; }
-
         string Execute (string value);
     }
 }

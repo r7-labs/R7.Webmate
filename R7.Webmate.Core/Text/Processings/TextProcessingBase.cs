@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using R7.Webmate.Core.Text.Commands;
+using YamlDotNet.Serialization;
 
 namespace R7.Webmate.Core.Text.Processings
 {
     public abstract class TextProcessingBase: ITextProcessing
     {
-        public ITextProcessingParams Params { get; set; }
+        [YamlMember (Order = 1)]
+        public IDictionary<string, bool> Options { get; set; } = new Dictionary<string, bool> ();
 
+        [YamlMember (Order = 2)]
         public IList<ITextCommand> Commands { get; set; } = new List<ITextCommand> ();
 
         public void AddCommands (params ITextCommand [] commands)
@@ -17,16 +20,41 @@ namespace R7.Webmate.Core.Text.Processings
         }
 
         public virtual string Execute (string text)
-		{
-			foreach (var command in Commands) {
-                if (command is ExitCommand) {
+        {
+            var exit = false;
+            return Execute (text, Commands, ref exit);
+        }
+
+        protected virtual string Execute (string text, IList<ITextCommand> commands, ref bool exit)
+        {
+            if (commands == null || commands.Count == 0) {
+                return text;
+            }
+
+            foreach (var command in commands) {
+                if (exit) {
                     break;
                 }
-                text = command.Execute (text);
+                if (command is ExitCommand) {
+                    exit = true;
+                    break;
+                }
+                if (command is IfOptionCommand) {
+                    var ifCommand = (IfOptionCommand) command;
+                    if (Options [ifCommand.Option]) {
+                        text = Execute (text, ifCommand.ThenCommands, ref exit);
+                    }
+                    else {
+                        text = Execute (text, ifCommand.ElseCommands, ref exit);
+                    }
+                }
+                else {
+                    text = command.Execute (text);
+                }
             }
 
             return text;
-		}
-	}
+        }
+    }
 }
 

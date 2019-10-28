@@ -5,6 +5,8 @@ namespace R7.Webmate.Core.Tests.Text.Processings
 {
     public class TextProcessingTestBase
     {
+        protected readonly string TestProcessingsPath = "../../../resources/processings";
+
         protected string X (string text)
         {
             return HttpUtility.HtmlDecode (text);

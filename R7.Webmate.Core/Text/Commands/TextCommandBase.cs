@@ -2,8 +2,6 @@
 {
 	public abstract class TextCommandBase: ITextCommand
 	{
-		public bool IsDisabled { get; set; }
-
 		public abstract string Execute (string value);
 	}
 }

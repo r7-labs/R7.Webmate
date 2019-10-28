@@ -1,0 +1,14 @@
+---
+options:
+  option1: true
+commands:
+- !!if-option
+  option: option1
+  then-commands:
+  - !!append
+    text: "This should happen."
+  - !!exit {}
+  - !!append
+    text: " This shouldn't happen!"
+- !!append
+  text: " And this shouldn't happen!"

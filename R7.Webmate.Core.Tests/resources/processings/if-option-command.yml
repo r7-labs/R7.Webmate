@@ -1,0 +1,24 @@
+---
+options:
+  option1: true
+  option2: false
+  option3: false
+commands:
+- !!if-option
+  option: option1
+  then-commands:
+  - !!append
+    text: "option1 is true;"
+- !!if-option
+  option: option2
+  then-commands:
+  - !!append
+    text: "option2 is true;"
+  else-commands:
+  - !!append
+    text: "option2 is false;"
+- !!if-option
+  option: option3
+  else-commands:
+  - !!append
+    text: "option3 is false;"

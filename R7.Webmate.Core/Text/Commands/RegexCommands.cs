@@ -24,11 +24,7 @@ namespace R7.Webmate.Core.Text.Commands
 
 		public override string Execute (string value)
 		{
-			if (!IsDisabled) {
-				return Regex.Replace (value, Pattern, Replacement, RegexOptions);
-			}
-
-			return value; 
+			return Regex.Replace (value, Pattern, Replacement, RegexOptions);
 		}
 	}
 }

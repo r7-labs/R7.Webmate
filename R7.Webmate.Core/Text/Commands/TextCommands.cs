@@ -19,11 +19,7 @@
 
 		public override string Execute (string value)
 		{
-			if (!IsDisabled) {
-				return value.Replace (Pattern, Replacement);
-			}
-
-			return value; 
+			return value.Replace (Pattern, Replacement);
 		}
 	}
 
@@ -43,15 +39,10 @@
 
 		public override string Execute (string value)
 		{
-			if (!IsDisabled) {
-                if (!string.IsNullOrEmpty (TrimChars)) {
-                    return value.Trim (TrimChars.ToCharArray ());
-                }
-
-				return value.Trim ();
-			}
-
-			return value;
+			if (!string.IsNullOrEmpty (TrimChars)) {
+                return value.Trim (TrimChars.ToCharArray ());
+            }
+    		return value.Trim ();
 		}
 	}
 
@@ -69,11 +60,7 @@
 
 		public override string Execute (string value)
 		{
-			if (!IsDisabled) {
-				return value + Text;
-			}
-
-			return value;
+			return value + Text;
 		}
 	}
 
@@ -91,11 +78,7 @@
 
 		public override string Execute (string value)
 		{
-			if (!IsDisabled) {
-				return Text + value;
-			}
-
-			return value;
+		    return Text + value;
 		}
 	}
 }

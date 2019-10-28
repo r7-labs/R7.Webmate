@@ -5,6 +5,7 @@ namespace R7.Webmate.Core.Text.Processings
 {
     // TODO: Exception handling
     // TODO: Support for loading text w/o deserialization
+    // TODO: Support for loading from text, not file
     public static class TextProcessingLoader
     {
         public static string BasePath { get; private set; } = "./resources/processings";

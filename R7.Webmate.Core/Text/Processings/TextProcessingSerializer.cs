@@ -11,8 +11,7 @@ namespace R7.Webmate.Core.Text.Processings
             var serializer = new SerializerBuilder ()
                     .WithNamingConvention (HyphenatedNamingConvention.Instance)
                     //.EnsureRoundtrip ()
-                    //.WithTagMapping ("tag:yaml.org,2002:text-processing", typeof (TextProcessing))
-                    .WithTagMapping ("tag:yaml.org,2002:composite-command", typeof (CompositeCommand))
+                    .WithTagMapping ("tag:yaml.org,2002:if-option", typeof (IfOptionCommand))
                     .WithTagMapping ("tag:yaml.org,2002:regex-replace", typeof (RegexReplaceCommand))
                     .WithTagMapping ("tag:yaml.org,2002:regex-to-lower", typeof (RegexToLowerCommand))
                     .WithTagMapping ("tag:yaml.org,2002:replace", typeof (ReplaceCommand))
@@ -20,7 +19,6 @@ namespace R7.Webmate.Core.Text.Processings
                     .WithTagMapping ("tag:yaml.org,2002:append", typeof (AppendCommand))
                     .WithTagMapping ("tag:yaml.org,2002:prepend", typeof (PrependCommand))
                     .WithTagMapping ("tag:yaml.org,2002:exit", typeof (ExitCommand))
-                    //.WithTagMapping ("tag:yaml.org,2002:list", typeof (List<ITextCommand>))
                     .Build ();
 
             return serializer.Serialize (textProcessing);
@@ -30,8 +28,7 @@ namespace R7.Webmate.Core.Text.Processings
         {
             var deserializer = new DeserializerBuilder ()
                     .WithNamingConvention (HyphenatedNamingConvention.Instance)
-                    //.WithTagMapping ("tag:yaml.org,2002:text-processing", typeof (TextProcessing))
-                    .WithTagMapping ("tag:yaml.org,2002:composite-command", typeof (CompositeCommand))
+                    .WithTagMapping ("tag:yaml.org,2002:if-option", typeof (IfOptionCommand))
                     .WithTagMapping ("tag:yaml.org,2002:regex-replace", typeof (RegexReplaceCommand))
                     .WithTagMapping ("tag:yaml.org,2002:regex-to-lower", typeof (RegexToLowerCommand))
                     .WithTagMapping ("tag:yaml.org,2002:replace", typeof (ReplaceCommand))
@@ -39,7 +36,6 @@ namespace R7.Webmate.Core.Text.Processings
                     .WithTagMapping ("tag:yaml.org,2002:append", typeof (AppendCommand))
                     .WithTagMapping ("tag:yaml.org,2002:prepend", typeof (PrependCommand))
                     .WithTagMapping ("tag:yaml.org,2002:exit", typeof (ExitCommand))
-                    //.WithTagMapping ("tag:yaml.org,2002:list", typeof (List<ITextCommand>))
                     .Build ();
 
             return deserializer.Deserialize<TextProcessing> (yaml);

@@ -60,7 +60,7 @@ namespace R7.Webmate.Xwt
         protected Menu BuildStatusMenu ()
         {
             var miRestore = new MenuItem {
-                Label = T.GetString ("Restore"),
+                Label = T.GetString ("Open R7.Webmate"),
                 Image = IconHelper.GetIcon ("arrow-up").WithSize (IconSize.Small),
             };
             miRestore.Clicked += MiRestore_Clicked;

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2019-10-23 12:19+0400\n"
-"PO-Revision-Date: 2019-10-23 12:20+0400\n"
+"POT-Creation-Date: 2019-10-28 10:03+0400\n"
+"PO-Revision-Date: 2019-10-28 10:03+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -19,72 +19,72 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: bin\n"
 "X-Poedit-SearchPathExcluded-2: obj\n"
 
-#: MainWindow.cs:27
+#: MainWindow.cs:30
 msgid "Text Cleaner"
 msgstr "Очистка текста"
 
-#: MainWindow.cs:28
+#: MainWindow.cs:31
 msgid "Table Cleaner"
 msgstr "Очистка таблиц"
 
-#: MainWindow.cs:42
+#: MainWindow.cs:45
 msgid "R7.Webmaster.Xwt - "
 msgstr "R7.Webmate.Xwt - "
 
-#: MainWindow.cs:57
-msgid "Restore"
-msgstr "Восстановить"
-
 #: MainWindow.cs:63
+msgid "Open R7.Webmate"
+msgstr "Открыть R7.Webmate"
+
+#: MainWindow.cs:69
 msgid "Close"
 msgstr "Закрыть"
 
-#: TableCleanerWidget.cs:40 TextCleanerWidget.cs:43
-msgid "Paste"
-msgstr "Вставить"
-
-#: TableCleanerWidget.cs:43 TextCleanerWidget.cs:46
-msgid "Paste HTML"
-msgstr "Вставить HTML"
-
-#: TableCleanerWidget.cs:46 TextCleanerWidget.cs:51
-msgid "Process"
-msgstr "Обработать"
-
-#: TableCleanerWidget.cs:53 TextCleanerWidget.cs:58
-msgid "Process on paste?"
-msgstr "Обрабатывать при вставке?"
-
-#: TableCleanerWidget.cs:56
-msgid "Generate Bootstrap table?"
-msgstr "Генерировать таблицу Bootstrap?"
-
-#: TableCleanerWidget.cs:62
-msgid "Generate Bootstrap responsive table?"
-msgstr "Генерировать адаптивную таблицу Bootstrap?"
-
-#: TableCleanerWidget.cs:129
+#: TableCleanerModel.cs:37
 msgid "HTML table"
 msgstr "Таблица HTML"
 
-#: TableCleanerWidget.cs:143
+#: TableCleanerModel.cs:51
 msgid "Bootstrap table"
 msgstr "Таблица Bootstrap"
 
-#: TableCleanerWidget.cs:172 TextCleanerWidget.cs:165
+#: TableCleanerWidget.cs:36 TextCleanerWidget.cs:32
+msgid "Paste"
+msgstr "Вставить"
+
+#: TableCleanerWidget.cs:39 TextCleanerWidget.cs:35
+msgid "Paste HTML"
+msgstr "Вставить HTML"
+
+#: TableCleanerWidget.cs:42 TextCleanerWidget.cs:40
+msgid "Process"
+msgstr "Обработать"
+
+#: TableCleanerWidget.cs:49 TextCleanerWidget.cs:47
+msgid "Process on paste?"
+msgstr "Обрабатывать при вставке?"
+
+#: TableCleanerWidget.cs:52
+msgid "Generate Bootstrap table?"
+msgstr "Генерировать таблицу Bootstrap?"
+
+#: TableCleanerWidget.cs:58
+msgid "Generate Bootstrap responsive table?"
+msgstr "Генерировать адаптивную таблицу Bootstrap?"
+
+#: TableCleanerWidget.cs:132 TextCleanerWidget.cs:117
 #, csharp-format
 msgid "Result #{0} - {1}"
 msgstr "Результат №{0} - {1}"
 
-#: TextCleanerWidget.cs:116 TextCleanerWidget.cs:137
+#: TextCleanerModel.cs:33 TextCleanerModel.cs:54
 msgid "HTML"
 msgstr "HTML"
 
-#: TextCleanerWidget.cs:123
+#: TextCleanerModel.cs:40
 msgid "Text"
 msgstr "Текст"
 
-#: TextCleanerWidget.cs:131
+#: TextCleanerModel.cs:48
 msgid "ASCII text"
 msgstr "Текст ASCII"
 
@@ -99,6 +99,9 @@ msgstr "<пусто>"
 #: TextViewLabel.cs:70
 msgid "Copy"
 msgstr "Копировать"
+
+#~ msgid "Restore"
+#~ msgstr "Восстановить"
 
 #~ msgid "Тext"
 #~ msgstr "Текст"

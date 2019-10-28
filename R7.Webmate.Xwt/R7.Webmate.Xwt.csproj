@@ -3,7 +3,7 @@
   <Import Project="..\packages\Xwt.Gtk3.0.2.206\build\Xwt.Gtk3.props" Condition="Exists('..\packages\Xwt.Gtk3.0.2.206\build\Xwt.Gtk3.props')" />
   <PropertyGroup>
     <ProjectGuid>{2505B342-AD1C-46EA-AA9F-BB232CC36CC8}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <RootNamespace>R7.Webmate.Xwt</RootNamespace>
   </PropertyGroup>

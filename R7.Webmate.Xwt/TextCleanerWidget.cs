@@ -1,7 +1,6 @@
 ﻿using System;
 using NGettext;
 using R7.Webmate.Core.Text;
-using R7.Webmate.Core.Text.Processings;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
 
@@ -25,16 +24,6 @@ namespace R7.Webmate.Xwt
         protected VBox vboxResults = new VBox ();
 
         protected TextCleanerModel Model = new TextCleanerModel ();
-
-        // TODO: Move processings to model?
-
-        protected ITextProcessing TextToAsciiProcessing = TextProcessingLoader.Load ("text-to-ascii.yml");
-
-        protected ITextProcessing TextToTextProcessing = TextProcessingLoader.Load ("text-to-text.yml");
-
-        protected ITextProcessing TextToHtmlProcessing = TextProcessingLoader.Load ("text-to-html.yml");
-
-        protected HtmlToHtmlProcessing HtmlToHtmlProcessing;
 
         public TextCleanerWidget ()
         {
@@ -68,14 +57,6 @@ namespace R7.Webmate.Xwt
             vbox.Margin = 5;
             Content = vbox;
             Content.Show ();
-
-            InitProcessings ();
-        }
-
-        protected void InitProcessings ()
-        {
-            HtmlToHtmlProcessing = new HtmlToHtmlProcessing ();
-            HtmlToHtmlProcessing.TextToTextProcessing = TextToTextProcessing;
         }
 
         void BtnPaste_Clicked (object sender, EventArgs e)
@@ -108,38 +89,7 @@ namespace R7.Webmate.Xwt
 
         void Process ()
         {
-            Model.Results.Clear ();
-
-            if (!string.IsNullOrEmpty (Model.Source)) {
-                if (HtmlHelper.IsHtml (Model.Source)) {
-                    Model.Results.Add (new TextCleanerResult {
-                        Text = HtmlToHtmlProcessing.Execute (Model.Source),
-                        Label = T.GetString ("HTML"),
-                        Format = TextCleanerResultFormat.HTML
-                    });
-                }
-                else {
-                    var unicodeText = new TextCleanerResult {
-                        Text = TextToTextProcessing.Execute (Model.Source),
-                        Label = T.GetString ("Text"),
-                        Format = TextCleanerResultFormat.Text
-                    };
-
-                    Model.Results.Add (unicodeText);
-
-                    Model.Results.Add (new TextCleanerResult {
-                        Text = TextToAsciiProcessing.Execute (unicodeText.Text),
-                        Label = T.GetString ("ASCII text"),
-                        Format = TextCleanerResultFormat.Text
-                    });
-
-                    Model.Results.Add (new TextCleanerResult {
-                        Text = TextToHtmlProcessing.Execute (unicodeText.Text),
-                        Label = T.GetString ("HTML"),
-                        Format = TextCleanerResultFormat.HTML
-                    });
-                }
-            }
+            Model.Process ();
         }
 
         void ShowResults ()

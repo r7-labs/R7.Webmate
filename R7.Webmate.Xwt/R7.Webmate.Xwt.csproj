@@ -34,6 +34,9 @@
     <Compile Include="ClipboardHelper.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="XwtHelper.cs" />
+    <Compile Include="TableCleanerModel.cs" />
+    <Compile Include="TextCleanerResult.cs" />
+    <Compile Include="TextCleanerModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

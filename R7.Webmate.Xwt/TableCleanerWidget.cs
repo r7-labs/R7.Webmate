@@ -1,7 +1,6 @@
 ﻿using System;
 using NGettext;
 using R7.Webmate.Core.Text;
-using R7.Webmate.Core.Text.Processings;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
 
@@ -28,10 +27,7 @@ namespace R7.Webmate.Xwt
 
         protected VBox vboxResults = new VBox ();
 
-        protected TextCleanerModel Model = new TextCleanerModel ();
-
-        // TODO: Move processings to model?
-        protected TableCleanProcessing TableCleanProcessing;
+        protected TableCleanerModel Model = new TableCleanerModel ();
 
         public TableCleanerWidget ()
         {
@@ -74,18 +70,6 @@ namespace R7.Webmate.Xwt
             vbox.Margin = 5;
             Content = vbox;
             Content.Show ();
-
-            InitProcessings ();
-        }
-
-        protected void InitProcessings ()
-        {
-            var htmlToHtmlProcessing = new HtmlToHtmlProcessing ();
-            htmlToHtmlProcessing.TextToTextProcessing = TextProcessingLoader.Load ("text-to-text.yml");
-
-            TableCleanProcessing = new TableCleanProcessing ();
-            TableCleanProcessing.HtmlToHtmlProcessing = htmlToHtmlProcessing;
-            TableCleanProcessing.TableCleanTextProcessing = TextProcessingLoader.Load ("table-clean.yml");
         }
 
         void BtnPaste_Clicked (object sender, EventArgs e)
@@ -102,7 +86,6 @@ namespace R7.Webmate.Xwt
         void BtnPasteHtml_Clicked (object sender, EventArgs e)
         {
             Model.Source = HtmlHelper.GetFirstTable (ClipboardHelper.TryGetHtml ());
-
             lblSrc.Text = Model.Source;
 
             if (chkAutoProcess.Active) {
@@ -119,35 +102,9 @@ namespace R7.Webmate.Xwt
 
         void Process ()
         {
-            Model.Results.Clear ();
-
-            if (!string.IsNullOrEmpty (Model.Source)) {
-                if (HtmlHelper.IsHtml (Model.Source)) {
-                    var resultText = TableCleanProcessing.Execute (Model.Source);
-
-                    Model.Results.Add (new TextCleanerResult {
-                        Text = resultText,
-                        Label = T.GetString ("HTML table"),
-                        Format = TextCleanerResultFormat.HTML
-                    });
-
-                    if (!string.IsNullOrEmpty (resultText)) {
-                        if (chkBootstrapTable.Active) {
-                            // TODO: Don't hardcode this?
-                            resultText = resultText.Replace ("<table>",
-                                "<table class=\"table table-bordered table-striped table-hover\">");
-                            if (chkBootstrapResponsiveTable.Active) {
-                                resultText = $"<div class=\"table-responsive\">{resultText}</div>";
-                            }
-                            Model.Results.Add (new TextCleanerResult {
-                                Text = resultText,
-                                Label = T.GetString ("Bootstrap table"),
-                                Format = TextCleanerResultFormat.HTML
-                            });
-                        }
-                    }
-                }
-            }
+            Model.BootstrapTable = chkBootstrapTable.Active;
+            Model.BootstrapResponsiveTable = chkBootstrapResponsiveTable.Active;
+            Model.Process ();
         }
 
         void ShowResults ()

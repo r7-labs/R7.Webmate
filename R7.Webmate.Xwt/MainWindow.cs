@@ -2,6 +2,7 @@
 using NGettext;
 using NLog;
 using R7.Webmate.Xwt.Icons;
+using R7.Webmate.Xwt.Text;
 using Xwt;
 
 namespace R7.Webmate.Xwt

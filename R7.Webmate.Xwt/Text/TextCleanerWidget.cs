@@ -4,10 +4,10 @@ using R7.Webmate.Core.Text;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
 
-namespace R7.Webmate.Xwt
+namespace R7.Webmate.Xwt.Text
 {
     // TODO: Extract base class
-    public class TableCleanerWidget: Widget
+    public class TextCleanerWidget: Widget
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();
 
@@ -21,15 +21,11 @@ namespace R7.Webmate.Xwt
 
         protected CheckBox chkAutoProcess = new CheckBox ();
 
-        protected CheckBox chkBootstrapTable = new CheckBox ();
-
-        protected CheckBox chkBootstrapResponsiveTable = new CheckBox ();
-
         protected VBox vboxResults = new VBox ();
 
-        protected TableCleanerModel Model = new TableCleanerModel ();
+        protected TextCleanerModel Model = new TextCleanerModel ();
 
-        public TableCleanerWidget ()
+        public TextCleanerWidget ()
         {
             lblSrc.AllowQuickCopy = false;
 
@@ -38,6 +34,8 @@ namespace R7.Webmate.Xwt
 
             btnPasteHtml = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste HTML"));
             btnPasteHtml.Clicked += BtnPasteHtml_Clicked;
+
+            var btnPasteMenu = new MenuButton ();
 
             btnProcess = new Button (IconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Process"));
             btnProcess.Clicked += BtnProcess_Clicked;
@@ -49,22 +47,11 @@ namespace R7.Webmate.Xwt
             chkAutoProcess.Label = T.GetString ("Process on paste?");
             chkAutoProcess.Active = true;
 
-            chkBootstrapTable.Label = T.GetString ("Generate Bootstrap table?");
-            chkBootstrapTable.Active = true;
-            chkBootstrapTable.Clicked += (sender, e) => {
-                chkBootstrapResponsiveTable.Visible = ((CheckBox) sender).Active;
-            };
-
-            chkBootstrapResponsiveTable.Label = T.GetString ("Generate Bootstrap responsive table?");
-            chkBootstrapResponsiveTable.Active = true;
-
             var vbox = new VBox ();
             vbox.PackStart (hboxPaste, true, true);
             vbox.PackStart (lblSrc, false, true);
             vbox.PackStart (btnProcess, false, true);
             vbox.PackStart (chkAutoProcess, false, true);
-            vbox.PackStart (chkBootstrapTable, false, true);
-            vbox.PackStart (chkBootstrapResponsiveTable, false, true);
             vbox.PackStart (vboxResults, false, true);
 
             vbox.Margin = 5;
@@ -74,18 +61,18 @@ namespace R7.Webmate.Xwt
 
         void BtnPaste_Clicked (object sender, EventArgs e)
         {
-            Model.Source = HtmlHelper.GetFirstTable (Clipboard.GetText () ?? string.Empty);
+            Model.Source = Clipboard.GetText () ?? string.Empty;
             lblSrc.Text = Model.Source;
 
             if (chkAutoProcess.Active) {
-                Process ();
-                ShowResults ();
+                BtnProcess_Clicked (sender, e);
             }
         }
 
         void BtnPasteHtml_Clicked (object sender, EventArgs e)
         {
-            Model.Source = HtmlHelper.GetFirstTable (ClipboardHelper.TryGetHtml ());
+            Model.Source = HtmlHelper.GetBodyContents (ClipboardHelper.TryGetHtml ());
+
             lblSrc.Text = Model.Source;
 
             if (chkAutoProcess.Active) {
@@ -102,8 +89,6 @@ namespace R7.Webmate.Xwt
 
         void Process ()
         {
-            Model.BootstrapTable = chkBootstrapTable.Active;
-            Model.BootstrapResponsiveTable = chkBootstrapResponsiveTable.Active;
             Model.Process ();
         }
 
@@ -121,7 +106,7 @@ namespace R7.Webmate.Xwt
         {
             var lblResult = new TextViewLabel ();
             lblResult.Text = result;
-                      
+
             var vboxResult = new VBox ();
             vboxResult.MarginLeft = 5;
             vboxResult.MarginRight = 5;

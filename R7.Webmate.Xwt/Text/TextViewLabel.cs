@@ -5,7 +5,7 @@ using R7.Webmate.Xwt.Icons;
 using Xwt;
 using Xwt.Drawing;
 
-namespace R7.Webmate.Xwt
+namespace R7.Webmate.Xwt.Text
 {
     public class TextViewLabel: Widget
     {

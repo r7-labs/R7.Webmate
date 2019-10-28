@@ -3,7 +3,7 @@ using Xwt;
 using Xwt.Formats;
 using Xwt.Drawing;
 
-namespace R7.Webmate.Xwt
+namespace R7.Webmate.Xwt.Text
 {
     public class TextViewDialog: Dialog
     {

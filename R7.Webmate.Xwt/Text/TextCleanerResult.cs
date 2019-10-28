@@ -1,4 +1,4 @@
-namespace R7.Webmate.Xwt
+namespace R7.Webmate.Xwt.Text
 {
     public class TextCleanerResult
     {

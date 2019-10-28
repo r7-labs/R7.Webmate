@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace R7.Webmate.Xwt
+namespace R7.Webmate.Xwt.Text
 {
     public abstract class TextCleanerModelBase
     {

@@ -22,21 +22,21 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="MainWindow.cs" />
-    <Compile Include="TextCatalogKeeper.cs" />
     <Compile Include="Icons\IconHelper.cs" />
     <Compile Include="Icons\IconStyle.cs" />
-    <Compile Include="TextCleanerWidget.cs" />
-    <Compile Include="TextViewDialog.cs" />
-    <Compile Include="TextViewLabel.cs" />
-    <Compile Include="TextCleanerModel.cs" />
-    <Compile Include="TextCleanerResultFormat.cs" />
-    <Compile Include="TableCleanerWidget.cs" />
     <Compile Include="ClipboardHelper.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="XwtHelper.cs" />
-    <Compile Include="TableCleanerModel.cs" />
-    <Compile Include="TextCleanerResult.cs" />
-    <Compile Include="TextCleanerModelBase.cs" />
+    <Compile Include="Text\TableCleanerModel.cs" />
+    <Compile Include="Text\TableCleanerWidget.cs" />
+    <Compile Include="Text\TextCleanerModel.cs" />
+    <Compile Include="Text\TextCleanerModelBase.cs" />
+    <Compile Include="Text\TextCleanerResult.cs" />
+    <Compile Include="Text\TextCleanerResultFormat.cs" />
+    <Compile Include="Text\TextCleanerWidget.cs" />
+    <Compile Include="Text\TextViewDialog.cs" />
+    <Compile Include="Text\TextViewLabel.cs" />
+    <Compile Include="TextCatalogKeeper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -124,6 +124,7 @@
     <Folder Include="Icons\" />
     <Folder Include="resources\locale\" />
     <Folder Include="config\" />
+    <Folder Include="Text\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\R7.Webmate.Core\R7.Webmate.Core.csproj">

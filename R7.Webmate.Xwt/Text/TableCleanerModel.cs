@@ -2,7 +2,7 @@
 using R7.Webmate.Core.Text;
 using R7.Webmate.Core.Text.Processings;
 
-namespace R7.Webmate.Xwt
+namespace R7.Webmate.Xwt.Text
 {
     public class TableCleanerModel: TextCleanerModelBase
     {

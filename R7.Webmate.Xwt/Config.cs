@@ -55,17 +55,17 @@ namespace R7.Webmate.Xwt
             }
 
             var platformString = PlatformHelper.GetPlatformString ();
-            var configPath = FileHelper.GetFirstSuffixedOrDefaultFile (DefaultConfigPath,
+            var configFile = FileHelper.GetFirstSuffixedOrDefaultFile (DefaultConfigPath,
                     $".{platformString}.user",
                     $".{platformString}");
 
-            if (configPath == null) {
+            if (configFile == null) {
                 Logger.Warn ("Config file not found, fallback to default config.");
                 return new Config ();
             }
 
             try {
-                var configText = File.ReadAllText (configPath.FullName);
+                var configText = File.ReadAllText (configFile.FullName);
                 var deserializer = new DeserializerBuilder ()
                     .WithNamingConvention (HyphenatedNamingConvention.Instance)
                     .Build ();

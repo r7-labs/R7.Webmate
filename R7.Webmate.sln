@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Core", "R7.Webma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Core.Tests", "R7.Webmate.Core.Tests\R7.Webmate.Core.Tests.csproj", "{DA075051-D5E0-445D-8826-F683F89494E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Xwt.DependencyHelper", "R7.Webmate.Xwt.DependencyHelper\R7.Webmate.Xwt.DependencyHelper.csproj", "{B801B613-7219-4C07-9340-A33451516F68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

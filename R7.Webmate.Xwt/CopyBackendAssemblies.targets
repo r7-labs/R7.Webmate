@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="CopyBackendAssemblies" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="CopyBackendAssemblies">
+	<XmlPeek XmlInputPath="packages.config" Query="/packages/package[id=Xwt]/@version">
+        <Output TaskParameter="Result" PropertyName="XwtPackageVersion" />
+    </XmlPeek>
+	<Message Text="XwtPackageVersion=$(XwtPackageVersion)" />	
+	<!-- <Exec Command="CopyBackendAssemblies.ps1 -OutputPath $(OutputPath) -XwtPackageVersion $(XwtPackageVersion)" /> -->
+  </Target>
+</Project>

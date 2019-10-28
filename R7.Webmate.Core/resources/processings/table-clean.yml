@@ -30,7 +30,7 @@ commands:
   replacement: ""
 # remove marker before row/colspan attributes
 - !!regex-replace
-  pattern: __@@__@@__"
+  pattern: "__@@__@@__"
   replacement: ""
 # remove spaces in open tags like "<TD >" => "<TD>" which could appear after removing attributes
 - !!regex-replace

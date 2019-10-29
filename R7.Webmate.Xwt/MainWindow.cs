@@ -13,7 +13,7 @@ namespace R7.Webmate.Xwt
 
         protected readonly Logger Logger = LogManager.GetCurrentClassLogger ();
 
-        protected StatusIcon StatusIcon { get; set; }
+        public StatusIcon StatusIcon { get; set; }
 
         public MainWindow ()
         {

@@ -73,7 +73,7 @@ commands:
   replacement: "&nbsp;&mdash;"
 # replace emails with links
 - !!regex-replace
-  pattern: "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b"
+  pattern: "(?i)\\b[A-Z0-9\\._%\\+-]+@[A-Z0-9\\.-]+\\.[A-Z]{2,4}\\b"
   replacement: "<a href=\"mailto:$&\">$&</a>"
 
 # TODO: More dash rules https://en.wikipedia.org/wiki/Dash

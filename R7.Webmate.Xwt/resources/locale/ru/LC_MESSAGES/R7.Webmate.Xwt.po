@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2019-10-31 13:04+0400\n"
-"PO-Revision-Date: 2019-10-31 13:04+0400\n"
+"POT-Creation-Date: 2019-10-31 16:07+0400\n"
+"PO-Revision-Date: 2019-10-31 16:08+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -71,7 +71,7 @@ msgstr "Вставить HTML"
 msgid "Process"
 msgstr "Обработать"
 
-#: Text/TableCleanerWidget.cs:50 Text/TextCleanerWidget.cs:80
+#: Text/TableCleanerWidget.cs:50 Text/TextCleanerWidget.cs:84
 msgid "Process on paste?"
 msgstr "Обрабатывать при вставке?"
 
@@ -83,28 +83,28 @@ msgstr "Генерировать таблицу Bootstrap?"
 msgid "Generate Bootstrap responsive table?"
 msgstr "Генерировать адаптивную таблицу Bootstrap?"
 
-#: Text/TableCleanerWidget.cs:138 Text/TextCleanerWidget.cs:159
+#: Text/TableCleanerWidget.cs:138 Text/TextCleanerWidget.cs:163
 #, csharp-format
 msgid "Result #{0} - {1}"
 msgstr "Результат №{0} - {1}"
 
-#: Text/TextCleanerModel.cs:33 Text/TextCleanerModel.cs:54
+#: Text/TextCleanerModel.cs:35 Text/TextCleanerModel.cs:62
 msgid "HTML"
 msgstr "HTML"
 
-#: Text/TextCleanerModel.cs:40
+#: Text/TextCleanerModel.cs:41 Text/TextCleanerModel.cs:48
 msgid "Text"
 msgstr "Текст"
 
-#: Text/TextCleanerModel.cs:48
-msgid "ASCII text"
-msgstr "Текст ASCII"
+#: Text/TextCleanerModel.cs:56
+msgid "Simplified Text"
+msgstr "Упрощённый текст"
 
 #: Text/TextCleanerWidget.cs:50
 msgid "Text processing options"
 msgstr "Настройки обработки текста"
 
-#: Text/TextCleanerWidget.cs:71
+#: Text/TextCleanerWidget.cs:75
 msgid "Click to open text processing options."
 msgstr "Нажмите, чтобы открыть настройки обработки текста."
 
@@ -135,6 +135,9 @@ msgstr "Нажмите, чтобы открыть полный текст."
 #: Text/TextViewLabel.cs:80
 msgid "Copy"
 msgstr "Копировать"
+
+#~ msgid "ASCII text"
+#~ msgstr "Текст ASCII"
 
 #~ msgid "OK"
 #~ msgstr "Да"

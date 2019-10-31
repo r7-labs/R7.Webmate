@@ -57,8 +57,8 @@ namespace R7.Webmate.Xwt.Text
                         Processing = Model.TextToTextProcessing
                     },
                     new LabeledTextProcessing {
-                        Label = "text-to-ascii",
-                        Processing = Model.TextToAsciiProcessing
+                        Label = "text-simplify",
+                        Processing = Model.TextSimplifyProcessing
                     },
                     new LabeledTextProcessing {
                         Label = "text-to-html",

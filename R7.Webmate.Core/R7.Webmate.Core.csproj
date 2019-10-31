@@ -17,7 +17,7 @@
     <None Update="resources\processings\table-clean.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="resources\processings\text-to-ascii.yml">
+    <None Update="resources\processings\text-simplify.yml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="resources\processings\text-to-html.yml">

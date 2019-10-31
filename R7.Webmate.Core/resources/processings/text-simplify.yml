@@ -1,6 +1,6 @@
 ---
-# Try to convert Unicode text to the simplified, ASCII-like representation
-# Processing sequence: text-to-text --> text-to-ascii
+# Try to convert Unicode text to simplified, ASCII-like representation
+# Processing sequence: text-to-text --> text-simplify
 # TODO: Replace more characters from https://www.freeformatter.com/html-entities.html
 commands:
 # replace double quotes

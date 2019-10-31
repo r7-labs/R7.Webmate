@@ -8,7 +8,7 @@ namespace R7.Webmate.Xwt.Text
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();
 
-        public ITextProcessing TextToAsciiProcessing = TextProcessingLoader.Load ("text-to-ascii.yml");
+        public ITextProcessing TextSimplifyProcessing = TextProcessingLoader.Load ("text-simplify.yml");
 
         public ITextProcessing TextToTextProcessing = TextProcessingLoader.Load ("text-to-text.yml");
 
@@ -52,8 +52,8 @@ namespace R7.Webmate.Xwt.Text
                     Results.Add (textResult);
 
                     Results.Add (new TextCleanerResult {
-                        Text = TextToAsciiProcessing.Process (textResult.Text),
-                        Label = T.GetString ("ASCII text"),
+                        Text = TextSimplifyProcessing.Process (textResult.Text),
+                        Label = T.GetString ("Simplified Text"),
                         Format = TextCleanerResultFormat.Text
                     });
 

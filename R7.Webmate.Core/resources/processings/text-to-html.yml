@@ -1,6 +1,8 @@
 ---
 # Processing sequence: text-to-text --> text-to-html
 # TODO: Move some commands to text-to-text
+options:
+  remove-endlines: false
 commands:
 # placed all text inside P tag
 - !!prepend
@@ -10,7 +12,13 @@ commands:
 # replace endlines with P tags
 - !!replace
   pattern: "\n"
-  replacement: "</p><p>"
+  replacement: "</p>\n<p>"
+- !!if-option
+  option: remove-endlines
+  then-commands:
+  - !!replace
+    pattern: "\n"
+    replacement: ""
  # remove space before and after P tags (trim content)
 - !!regex-replace
   pattern: "<p> +"

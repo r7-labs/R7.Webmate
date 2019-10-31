@@ -36,6 +36,7 @@
     <Compile Include="Text\TextViewDialog.cs" />
     <Compile Include="Text\TextViewLabel.cs" />
     <Compile Include="TextCatalogKeeper.cs" />
+    <Compile Include="Text\ProcessingOptionsWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -91,6 +92,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="CopyBackendAssemblies.ps1" />
+    <None Include="resources\icons\solid\cog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="resources\icons\solid\cog.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">

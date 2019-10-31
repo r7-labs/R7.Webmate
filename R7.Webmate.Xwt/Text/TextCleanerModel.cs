@@ -8,13 +8,13 @@ namespace R7.Webmate.Xwt.Text
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();
 
-        protected ITextProcessing TextToAsciiProcessing = TextProcessingLoader.Load ("text-to-ascii.yml");
+        public ITextProcessing TextToAsciiProcessing = TextProcessingLoader.Load ("text-to-ascii.yml");
 
-        protected ITextProcessing TextToTextProcessing = TextProcessingLoader.Load ("text-to-text.yml");
+        public ITextProcessing TextToTextProcessing = TextProcessingLoader.Load ("text-to-text.yml");
 
-        protected ITextProcessing TextToHtmlProcessing = TextProcessingLoader.Load ("text-to-html.yml");
+        public ITextProcessing TextToHtmlProcessing = TextProcessingLoader.Load ("text-to-html.yml");
 
-        protected HtmlToHtmlProcessing HtmlToHtmlProcessing;
+        public HtmlToHtmlProcessing HtmlToHtmlProcessing;
 
         public TextCleanerModel ()
         {

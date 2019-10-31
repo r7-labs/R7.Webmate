@@ -69,7 +69,7 @@ namespace R7.Webmate.Core.Tests.Text.Processings
         }
 
         [Fact]
-        public void FixCommonTyposInRussianTest ()
+        public void FixRussianTyposTest ()
         {
             Assert.Equal (X ("Это случилось в 1990&nbsp;г."), TP.Process ("Это случилось в 1990г."));
             Assert.Equal (X ("Это случилось в 1990-1991&nbsp;гг."), TP.Process ("Это случилось в 1990-1991 г.г."));

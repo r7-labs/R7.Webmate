@@ -1,17 +1,20 @@
 ---
 # Serves as a base for most other processings
+options:
+  fix-english-abbreviations: true
+  fix-russian-typos: true
 commands:
 # normalize endlines
 - !!replace
   pattern: "\r\n"
   replacement: "\n"
+- !!replace
+  pattern: "\r"
+  replacement: "\n"
 # remove excess empty lines (more than 2 is too much)
 - !!regex-replace
   pattern: "\n{3,}"
   replacement: "\n\n"
-- !!replace
-  pattern: "\r"
-  replacement: "\n"
 # replace tabs with spaces
 - !!replace
   pattern: "\t"
@@ -49,47 +52,53 @@ commands:
 - !!replace
   pattern: "¬"
   replacement: ""
-# fix some common English abbreviations
+# fix some English abbreviations
 # https://english.stackexchange.com/questions/209081/spaces-within-abbreviations-and-initials
 # https://english.stackexchange.com/questions/298507/should-there-be-a-space-in-e-g-i-e-between-a-dot
-- !!regex-replace
-  pattern: "i\\.\\s+e\\."
-  replacement: "i.e."
-- !!regex-replace
-  pattern: "e\\.\\s+g\\."
-  replacement: "e.g."
-- !!regex-replace
-  pattern: "a\\.\\s+k\\.\\s+a\\."
-  replacement: "a.k.a."
-- !!regex-replace
-  pattern: "e\\.\\s+t\\.\\s+a\\."
-  replacement: "e.t.a."
-# fix some common typos in russian
+- !!if-option
+  option: fix-english-abbreviations
+  then-commands:
+  - !!regex-replace
+    pattern: "i\\.\\s+e\\."
+    replacement: "i.e."
+  - !!regex-replace
+    pattern: "e\\.\\s+g\\."
+    replacement: "e.g."
+  - !!regex-replace
+    pattern: "a\\.\\s+k\\.\\s+a\\."
+    replacement: "a.k.a."
+  - !!regex-replace
+    pattern: "e\\.\\s+t\\.\\s+a\\."
+    replacement: "e.t.a."
+# fix some russian typos
 # TODO: Move to separate processing?
-- !!regex-replace
-  pattern: "(\\d+)г\\."
-  replacement: "$1\u00A0г."
-- !!regex-replace
-  pattern: "(\\d+)р\\."
-  replacement: "$1\u00A0р."
-- !!regex-replace
-  pattern: "(\\d+)руб\\."
-  replacement: "$1\u00A0руб."
-- !!replace
-  pattern: "г.г."
-  replacement: "гг."
-- !!regex-replace
-  pattern: "(\\d+)\\s+гг\\."
-  replacement: "$1\u00A0гг."
-- !!replace
-  pattern: "с\\х"
-  replacement: "с.-х."
-- !!replace
-  pattern: "с/х"
-  replacement: "с.-х."
-- !!replace
-  pattern: "с.х."
-  replacement: "с.-х."
+- !!if-option
+  option: fix-russian-typos
+  then-commands:
+  - !!regex-replace
+    pattern: "(\\d+)г\\."
+    replacement: "$1\u00A0г."
+  - !!regex-replace
+    pattern: "(\\d+)р\\."
+    replacement: "$1\u00A0р."
+  - !!regex-replace
+    pattern: "(\\d+)руб\\."
+    replacement: "$1\u00A0руб."
+  - !!replace
+    pattern: "г.г."
+    replacement: "гг."
+  - !!regex-replace
+    pattern: "(\\d+)\\s+гг\\."
+    replacement: "$1\u00A0гг."
+  - !!replace
+    pattern: "с\\х"
+    replacement: "с.-х."
+  - !!replace
+    pattern: "с/х"
+    replacement: "с.-х."
+  - !!replace
+    pattern: "с.х."
+    replacement: "с.-х."
 # remove duplicate spaces
 - !!regex-replace
   pattern: " +"

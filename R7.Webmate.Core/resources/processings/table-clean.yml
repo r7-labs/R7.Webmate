@@ -1,16 +1,39 @@
 ---
 # Processing sequence: HtmlToHtmlProcessing (text-to-text) --> table-clean
+options:
+  remove-colgroup-tags: true
+  remove-col-tags: true
 commands:
 # shrink whitespace, effectively remove line breaks and tabs
 - !!regex-replace
   pattern: "\\s+"
   replacement: " "
+# remove colgroup tags
+- !!if-option
+  option: remove-colgroup-tags
+  then-commands:
+  - !!regex-replace
+    pattern: "(?i)<colgroup\\b[^>]*>"
+    replacement: ""
+  - !!regex-replace
+    pattern: "(?i)</colgroup>"
+    replacement: ""
+# remove col tags
+- !!if-option
+  option: remove-col-tags
+  then-commands:
+  - !!regex-replace
+    pattern: "(?i)<col\\b[^>]*>"
+    replacement: ""
+  - !!regex-replace
+    pattern: "(?i)</col>"
+    replacement: ""
 # remove unnecessary tags
 - !!regex-replace
-  pattern: "(?i)<colgroup\\b[^>]*>|<col\\b[^>]*>|<p\\b[^>]*>|<div\\b[^>]*>|<span\\b[^>]*>|<font\\b[^>]*>|<i\\b[^>]*>|<em\\b[^>]*>|<b\\b[^>]*>|<strong\\b[^>]*>"
+  pattern: "(?i)<p\\b[^>]*>|<div\\b[^>]*>|<span\\b[^>]*>|<font\\b[^>]*>|<i\\b[^>]*>|<em\\b[^>]*>|<b\\b[^>]*>|<strong\\b[^>]*>"
   replacement: ""
 - !!regex-replace
-  pattern: "(?i)</colgroup>|</col>|</p>|</div>|</span>|</i>|</b>|</em>|</strong>|</font>"
+  pattern: "(?i)</p>|</div>|</span>|</i>|</b>|</em>|</strong>|</font>"
   replacement: ""
 # enclose all attribute values in quotes
 - !!regex-replace

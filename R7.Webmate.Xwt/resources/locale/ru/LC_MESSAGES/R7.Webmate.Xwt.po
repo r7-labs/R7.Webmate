@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2019-10-28 10:03+0400\n"
-"PO-Revision-Date: 2019-10-28 10:03+0400\n"
+"POT-Creation-Date: 2019-10-31 10:47+0400\n"
+"PO-Revision-Date: 2019-10-31 10:48+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -19,84 +19,104 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: bin\n"
 "X-Poedit-SearchPathExcluded-2: obj\n"
 
-#: MainWindow.cs:30
+#: MainWindow.cs:31
 msgid "Text Cleaner"
 msgstr "Очистка текста"
 
-#: MainWindow.cs:31
+#: MainWindow.cs:32
 msgid "Table Cleaner"
 msgstr "Очистка таблиц"
 
-#: MainWindow.cs:45
+#: MainWindow.cs:46
 msgid "R7.Webmaster.Xwt - "
 msgstr "R7.Webmate.Xwt - "
 
-#: MainWindow.cs:63
+#: MainWindow.cs:64
 msgid "Open R7.Webmate"
 msgstr "Открыть R7.Webmate"
 
-#: MainWindow.cs:69
+#: MainWindow.cs:70
 msgid "Close"
 msgstr "Закрыть"
 
-#: TableCleanerModel.cs:37
+#: Text/ProcessingOptionsWidget.cs:35
+msgid "Options:"
+msgstr "Настройки:"
+
+#: Text/ProcessingOptionsWidget.cs:38
+msgid "Text processing:"
+msgstr "Обработка:"
+
+#: Text/ProcessingOptionsWidget.cs:42
+msgid "<not selected>"
+msgstr "<не выбрано>"
+
+#: Text/TableCleanerModel.cs:37
 msgid "HTML table"
 msgstr "Таблица HTML"
 
-#: TableCleanerModel.cs:51
+#: Text/TableCleanerModel.cs:51
 msgid "Bootstrap table"
 msgstr "Таблица Bootstrap"
 
-#: TableCleanerWidget.cs:36 TextCleanerWidget.cs:32
+#: Text/TableCleanerWidget.cs:36 Text/TextCleanerWidget.cs:38
 msgid "Paste"
 msgstr "Вставить"
 
-#: TableCleanerWidget.cs:39 TextCleanerWidget.cs:35
+#: Text/TableCleanerWidget.cs:39 Text/TextCleanerWidget.cs:41
 msgid "Paste HTML"
 msgstr "Вставить HTML"
 
-#: TableCleanerWidget.cs:42 TextCleanerWidget.cs:40
+#: Text/TableCleanerWidget.cs:42 Text/TextCleanerWidget.cs:46
 msgid "Process"
 msgstr "Обработать"
 
-#: TableCleanerWidget.cs:49 TextCleanerWidget.cs:47
+#: Text/TableCleanerWidget.cs:49 Text/TextCleanerWidget.cs:68
 msgid "Process on paste?"
 msgstr "Обрабатывать при вставке?"
 
-#: TableCleanerWidget.cs:52
+#: Text/TableCleanerWidget.cs:52
 msgid "Generate Bootstrap table?"
 msgstr "Генерировать таблицу Bootstrap?"
 
-#: TableCleanerWidget.cs:58
+#: Text/TableCleanerWidget.cs:58
 msgid "Generate Bootstrap responsive table?"
 msgstr "Генерировать адаптивную таблицу Bootstrap?"
 
-#: TableCleanerWidget.cs:132 TextCleanerWidget.cs:117
+#: Text/TableCleanerWidget.cs:132 Text/TextCleanerWidget.cs:142
 #, csharp-format
 msgid "Result #{0} - {1}"
 msgstr "Результат №{0} - {1}"
 
-#: TextCleanerModel.cs:33 TextCleanerModel.cs:54
+#: Text/TextCleanerModel.cs:33 Text/TextCleanerModel.cs:54
 msgid "HTML"
 msgstr "HTML"
 
-#: TextCleanerModel.cs:40
+#: Text/TextCleanerModel.cs:40
 msgid "Text"
 msgstr "Текст"
 
-#: TextCleanerModel.cs:48
+#: Text/TextCleanerModel.cs:48
 msgid "ASCII text"
 msgstr "Текст ASCII"
 
-#: TextViewDialog.cs:29
+#: Text/TextCleanerWidget.cs:50
+msgid "Text processing options"
+msgstr "Настройки обработки текста"
+
+#: Text/TextCleanerWidget.cs:59
+msgid "Click to open text processing options."
+msgstr "Нажмите, чтобы открыть настройки обработки текста."
+
+#: Text/TextViewDialog.cs:29
 msgid "View Text"
 msgstr "Просмотр текста"
 
-#: TextViewLabel.cs:49
+#: Text/TextViewLabel.cs:49
 msgid "<empty>"
 msgstr "<пусто>"
 
-#: TextViewLabel.cs:70
+#: Text/TextViewLabel.cs:70
 msgid "Copy"
 msgstr "Копировать"
 

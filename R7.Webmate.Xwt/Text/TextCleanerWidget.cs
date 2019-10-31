@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using NGettext;
 using R7.Webmate.Core.Text;
+using R7.Webmate.Core.Text.Processings;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
 
@@ -18,6 +20,10 @@ namespace R7.Webmate.Xwt.Text
         protected TextViewLabel lblSrc = new TextViewLabel ();
 
         protected Button btnProcess;
+
+        protected Button btnProcessOptions;
+
+        protected Dialog dlgProcessOptions;
 
         protected CheckBox chkAutoProcess = new CheckBox ();
 
@@ -40,6 +46,33 @@ namespace R7.Webmate.Xwt.Text
             btnProcess = new Button (IconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Process"));
             btnProcess.Clicked += BtnProcess_Clicked;
 
+            dlgProcessOptions = new Dialog ();
+            dlgProcessOptions.Title = T.GetString ("Text processing options");
+            dlgProcessOptions.Width = 400;
+            dlgProcessOptions.Height = 300;
+            dlgProcessOptions.Content = new ProcessingOptionsWidget (
+                new List<LabeledTextProcessing> {
+                    new LabeledTextProcessing {
+                        Label = "text-to-text",
+                        Processing = Model.TextToTextProcessing
+                    },
+                    new LabeledTextProcessing {
+                        Label = "text-to-ascii",
+                        Processing = Model.TextToAsciiProcessing
+                    },
+                    new LabeledTextProcessing {
+                        Label = "text-to-html",
+                        Processing = Model.TextToHtmlProcessing
+                    }
+                }
+            );
+
+            btnProcessOptions = new Button (IconHelper.GetIcon ("cog").WithSize (IconSize.Medium), "");
+            btnProcessOptions.TooltipText = T.GetString ("Click to open text processing options.");
+            btnProcessOptions.Clicked += (sender, e) => {
+                dlgProcessOptions.Run (ParentWindow);
+            };
+
             var hboxPaste = new HBox ();
             hboxPaste.PackStart (btnPaste, true, true);
             hboxPaste.PackStart (btnPasteHtml, true, true);
@@ -47,10 +80,14 @@ namespace R7.Webmate.Xwt.Text
             chkAutoProcess.Label = T.GetString ("Process on paste?");
             chkAutoProcess.Active = true;
 
+            var hboxProcess = new HBox ();
+            hboxProcess.PackStart (btnProcess, true, true);
+            hboxProcess.PackStart (btnProcessOptions, false, true);
+
             var vbox = new VBox ();
             vbox.PackStart (hboxPaste, true, true);
             vbox.PackStart (lblSrc, false, true);
-            vbox.PackStart (btnProcess, false, true);
+            vbox.PackStart (hboxProcess, false, true);
             vbox.PackStart (chkAutoProcess, false, true);
             vbox.PackStart (vboxResults, false, true);
 

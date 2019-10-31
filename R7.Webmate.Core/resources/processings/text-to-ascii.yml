@@ -1,8 +1,7 @@
 ---
-# Try to convert Unicode text to ASCII
+# Try to convert Unicode text to the simplified, ASCII-like representation
 # Processing sequence: text-to-text --> text-to-ascii
 # TODO: Replace more characters from https://www.freeformatter.com/html-entities.html
-# TODO: Cleanup all non-ASCII chars?
 commands:
 # replace double quotes
 - !!regex-replace

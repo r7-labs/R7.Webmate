@@ -13,7 +13,7 @@ commands:
   option: remove-colgroup-tags
   then-commands:
   - !!regex-replace
-    pattern: "(?i)<colgroup\\b[^>]*>"
+    pattern: "(?is)<colgroup\\b[^>]*>"
     replacement: ""
   - !!regex-replace
     pattern: "(?i)</colgroup>"
@@ -30,7 +30,7 @@ commands:
     replacement: ""
 # remove unnecessary tags
 - !!regex-replace
-  pattern: "(?i)<p\\b[^>]*>|<div\\b[^>]*>|<span\\b[^>]*>|<font\\b[^>]*>|<i\\b[^>]*>|<em\\b[^>]*>|<b\\b[^>]*>|<strong\\b[^>]*>"
+  pattern: "(?is)<p\\b[^>]*>|<div\\b[^>]*>|<span\\b[^>]*>|<font\\b[^>]*>|<i\\b[^>]*>|<em\\b[^>]*>|<b\\b[^>]*>|<strong\\b[^>]*>"
   replacement: ""
 - !!regex-replace
   pattern: "(?i)</p>|</div>|</span>|</i>|</b>|</em>|</strong>|</font>"
@@ -57,7 +57,7 @@ commands:
   replacement: ""
 # remove spaces in open tags like "<TD >" => "<TD>" which could appear after removing attributes
 - !!regex-replace
-  pattern: "(<\\w+)\\s+>"
+  pattern: "(?s)(<\\w+)\\s+>"
   replacement: "${1}>"
 # remove whitespace before and after open and close tags
 - !!regex-replace

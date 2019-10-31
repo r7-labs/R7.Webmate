@@ -19,6 +19,9 @@ namespace R7.Webmate.Core.Tests.Text.Processings
         {
             Assert.Equal ("First line\n\nSecond line\n\nThird line\nForth line",
                 TP.Process ("First line\n\n\n\n\nSecond line\n\nThird line\nForth line"));
+
+            Assert.Equal ("First line\n\nSecond line\n\nThird line\nForth line",
+                TP.Process ("First line\n\t  \n\n \t \n\nSecond line\n \nThird line\nForth line"));
         }
 
         [Fact]

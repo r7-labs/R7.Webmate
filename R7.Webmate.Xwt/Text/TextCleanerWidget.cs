@@ -63,6 +63,10 @@ namespace R7.Webmate.Xwt.Text
                     new LabeledTextProcessing {
                         Label = "text-to-html",
                         Processing = Model.TextToHtmlProcessing
+                    },
+                    new LabeledTextProcessing {
+                        Label = "html-to-text",
+                        Processing = Model.HtmlToTextProcessing
                     }
                 }
             );

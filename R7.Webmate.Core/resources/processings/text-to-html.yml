@@ -53,9 +53,10 @@ commands:
 - !!replace
   pattern: "\u2013"
   replacement: "&ndash;"
+# replace &mdash;
 - !!replace
-  pattern: "\u2013"
-  replacement: "&ndash;"
+  pattern: "\u2014"
+  replacement: "&mdash;"
 # potential &horbar; in quotes
 - !!replace
   pattern: ">- "

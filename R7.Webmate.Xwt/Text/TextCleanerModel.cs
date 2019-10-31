@@ -14,6 +14,8 @@ namespace R7.Webmate.Xwt.Text
 
         public ITextProcessing TextToHtmlProcessing = TextProcessingLoader.Load ("text-to-html.yml");
 
+        public ITextProcessing HtmlToTextProcessing = TextProcessingLoader.Load ("html-to-text.yml");
+
         public HtmlToHtmlProcessing HtmlToHtmlProcessing;
 
         public TextCleanerModel ()
@@ -33,24 +35,30 @@ namespace R7.Webmate.Xwt.Text
                         Label = T.GetString ("HTML"),
                         Format = TextCleanerResultFormat.HTML
                     });
+
+                    Results.Add (new TextCleanerResult {
+                        Text = TextToTextProcessing.Process (HtmlToTextProcessing.Process (Source)),
+                        Label = T.GetString ("Text"),
+                        Format = TextCleanerResultFormat.Text
+                    });
                 }
                 else {
-                    var unicodeText = new TextCleanerResult {
+                    var textResult = new TextCleanerResult {
                         Text = TextToTextProcessing.Process (Source),
                         Label = T.GetString ("Text"),
                         Format = TextCleanerResultFormat.Text
                     };
 
-                    Results.Add (unicodeText);
+                    Results.Add (textResult);
 
                     Results.Add (new TextCleanerResult {
-                        Text = TextToAsciiProcessing.Process (unicodeText.Text),
+                        Text = TextToAsciiProcessing.Process (textResult.Text),
                         Label = T.GetString ("ASCII text"),
                         Format = TextCleanerResultFormat.Text
                     });
 
                     Results.Add (new TextCleanerResult {
-                        Text = TextToHtmlProcessing.Process (unicodeText.Text),
+                        Text = TextToHtmlProcessing.Process (textResult.Text),
                         Label = T.GetString ("HTML"),
                         Format = TextCleanerResultFormat.HTML
                     });

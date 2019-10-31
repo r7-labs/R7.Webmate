@@ -1,0 +1,52 @@
+---
+# TODO: Replace more characters from https://www.freeformatter.com/html-entities.html
+# TODO: Unwrap links, emails, maybe images?
+# TODO: Command to replace numeric entites like &#160; (decimal) with Unicode char (and backwards)
+# TODO: Command to replace named entites like &nbsp; with Unicode char (and backwards)
+# TODO: Some attributes (e.g. title, alt, caption) can contain valuable text
+# Processing sequence: html-to-text --> text-to-text
+commands:
+# remove comments
+- !!regex-replace
+  pattern: "(?s)<!--.*-->"
+  replacement: " "
+# replace entities
+- !!replace
+  pattern: "&nbsp;"
+  replacement: "\u00A0"
+- !!replace
+  pattern: "&amp;"
+  replacement: "&"
+- !!replace
+  pattern: "&apos;"
+  replacement: "'"
+- !!replace
+  pattern: "&quot;"
+  replacement: '"'
+- !!replace
+  pattern: "&ndash;"
+  replacement: "\u2013"
+- !!replace
+  pattern: "&mdash;"
+  replacement: "\u2014"
+- !!replace
+  pattern: "&horbar;"
+  replacement: "\u2015"
+# add endline after some tags
+- !!regex-replace
+  pattern: "(?i)</p>|<br\\b[^>]*>|<hr\\b[^>]*>|</ul>|</ol>|</li>|</tr>|</table>|</blockquote>|</h\\d>"
+  replacement: "$&\n"
+# strip HTML tags leaving spaces
+- !!regex-replace
+  pattern: "(?i)</td>|</th>"
+  replacement: " "
+# strip HTML tags completely
+- !!regex-replace
+  pattern: "(?s)</?\\w+\\b[^>]*>"
+  replacement: ""
+# remove duplicate spaces
+- !!regex-replace
+  pattern: " +"
+  replacement: " "
+# trim text
+- !!trim {}

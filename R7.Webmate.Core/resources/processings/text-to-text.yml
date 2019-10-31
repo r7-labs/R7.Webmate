@@ -11,14 +11,17 @@ commands:
 - !!replace
   pattern: "\r"
   replacement: "\n"
-# remove excess empty lines (more than 2 is too much)
-- !!regex-replace
-  pattern: "\n{3,}"
-  replacement: "\n\n"
 # replace tabs with spaces
 - !!replace
   pattern: "\t"
   replacement: " "
+# remove excess empty lines (more than 2 is too much)
+- !!regex-replace
+  pattern: "\n +"
+  replacement: "\n"
+- !!regex-replace
+  pattern: "\n{3,}"
+  replacement: "\n\n"
 # remove duplicate &nbsp;
 - !!regex-replace
   pattern: "\u00A0{2,}"

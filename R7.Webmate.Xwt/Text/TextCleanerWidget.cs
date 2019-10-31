@@ -67,7 +67,7 @@ namespace R7.Webmate.Xwt.Text
                 }
             );
 
-            btnProcessOptions = new Button (IconHelper.GetIcon ("cog").WithSize (IconSize.Medium), "");
+            btnProcessOptions = new Button (IconHelper.GetIcon ("cog").WithBoxSize (IconSize.Small));
             btnProcessOptions.TooltipText = T.GetString ("Click to open text processing options.");
             btnProcessOptions.Clicked += (sender, e) => {
                 dlgProcessOptions.Run (ParentWindow);

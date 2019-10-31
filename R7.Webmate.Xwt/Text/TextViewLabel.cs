@@ -60,7 +60,8 @@ namespace R7.Webmate.Xwt.Text
             lblPreview.Ellipsize = EllipsizeMode.End;
             lblPreview.Selectable = true;
 
-            btnOpenFullView.Label = "...";
+            btnOpenFullView.TooltipText = T.GetString ("Click to open full text.");
+            btnOpenFullView.Image = IconHelper.GetIcon ("ellipsis-h").WithBoxSize (IconSize.Small);
             btnOpenFullView.Clicked += BtnOpenFullView_Clicked;
 
             var hbox = new HBox ();

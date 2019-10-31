@@ -26,6 +26,15 @@ namespace R7.Webmate.Xwt.Text
             }
         }
 
+        bool _allowEdit;
+        public bool AllowEdit {
+            get { return _allowEdit; }
+            set {
+                _allowEdit = value;
+                UpdateView ();
+            }
+        }
+
         string _text = string.Empty;
         public string Text {
             get { return _text; }
@@ -33,7 +42,7 @@ namespace R7.Webmate.Xwt.Text
                 _text = value;
                 UpdateView ();
             }
-         }
+        }
 
         protected void UpdateView ()
         {
@@ -49,7 +58,7 @@ namespace R7.Webmate.Xwt.Text
                 lblPreview.Text = T.GetString ("<empty>");
                 lblPreview.TooltipText = string.Empty;
                 lblPreview.TextColor = Color.FromName ("red");
-                btnOpenFullView.Visible = false;
+                btnOpenFullView.Visible = AllowEdit;
                 btnCopy.Visible = false;
             }
         }
@@ -87,8 +96,14 @@ namespace R7.Webmate.Xwt.Text
         void BtnOpenFullView_Clicked (object sender, EventArgs e)
         {
             var dlgTextView = new TextViewDialog ();
+            dlgTextView.AllowEdit = AllowEdit;
             dlgTextView.Text = Text;
-            dlgTextView.Run (ParentWindow);
+
+            var result = dlgTextView.Run (ParentWindow);
+
+            if (AllowEdit && result == Command.Save) {
+                Text = dlgTextView.Text;
+            }
         }
 
         string FormatLabel (string text)

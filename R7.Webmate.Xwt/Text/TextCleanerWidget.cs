@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using NGettext;
 using R7.Webmate.Core.Text;
-using R7.Webmate.Core.Text.Processings;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
 
@@ -34,6 +33,7 @@ namespace R7.Webmate.Xwt.Text
         public TextCleanerWidget ()
         {
             lblSrc.AllowQuickCopy = false;
+            lblSrc.AllowEdit = true;
 
             btnPaste = new Button (IconHelper.GetIcon ("paste").WithSize (IconSize.Medium), T.GetString ("Paste"));
             btnPaste.Clicked += BtnPaste_Clicked;
@@ -126,6 +126,11 @@ namespace R7.Webmate.Xwt.Text
 
         void Process ()
         {
+            // TODO: Implement model update via events
+            if (Model.Source != lblSrc.Text) {
+                Model.Source = lblSrc.Text;
+            }
+
             Model.Process ();
         }
 

@@ -1,7 +1,7 @@
 ﻿using NGettext;
 using Xwt;
 using Xwt.Formats;
-using Xwt.Drawing;
+using R7.Webmate.Xwt.Icons;
 
 namespace R7.Webmate.Xwt.Text
 {
@@ -9,16 +9,27 @@ namespace R7.Webmate.Xwt.Text
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();
 
+        #region Widgets
+
         protected RichTextView TextView = new RichTextView ();
 
-        string _text;
+        protected HBox Toolbar = new HBox ();
+
+        protected Button btnCopy;
+
+        #endregion
+
         public string Text {
-            get { return _text; }
+            get { return TextView.PlainText; }
+            set { TextView.LoadText (value ?? string.Empty, TextFormat.Plain); }
+        }
+
+        bool _allowEdit;
+        public bool AllowEdit {
+            get { return _allowEdit; }
             set {
-                _text = value;
-                if (!string.IsNullOrEmpty (_text)) {
-                    TextView.LoadText (_text, TextFormat.Plain);
-                }
+                _allowEdit = value;
+                UpdateView ();
             }
         }
 
@@ -30,11 +41,37 @@ namespace R7.Webmate.Xwt.Text
 
             TextView.Font = Config.Instance.MonospaceFont;
 
+            btnCopy = new Button (IconHelper.GetIcon ("copy").WithSize (IconSize.Small), T.GetString ("Copy All"));
+            btnCopy.Clicked += (sender, e) => {
+                Clipboard.SetText (TextView.PlainText);
+            };
+
+            Toolbar.PackStart (btnCopy, false, true);
+
             var vbox = new VBox ();
             vbox.PackStart (new ScrollView (TextView), true, true);
+            vbox.PackStart (Toolbar, false, true);
+
+            UpdateView ();
 
             Content = vbox;
             Content.Show ();
+        }
+
+        void UpdateView ()
+        {
+            TextView.ReadOnly = !AllowEdit;
+
+            Buttons.Clear ();
+            if (AllowEdit) {
+                Buttons.Add (new DialogButton (T.GetString ("Save"), Command.Save));
+                Buttons.Add (new DialogButton (T.GetString ("Cancel"), Command.Cancel));
+                DefaultCommand = Command.Save;
+            }
+            else {
+                Buttons.Add (new DialogButton (T.GetString ("Close"), Command.Close));
+                DefaultCommand = Command.Close;
+            }
         }
     }
 }

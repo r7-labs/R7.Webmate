@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2019-10-31 11:12+0400\n"
-"PO-Revision-Date: 2019-10-31 11:13+0400\n"
+"POT-Creation-Date: 2019-10-31 13:04+0400\n"
+"PO-Revision-Date: 2019-10-31 13:04+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -35,7 +35,7 @@ msgstr "R7.Webmate.Xwt - "
 msgid "Open R7.Webmate"
 msgstr "Открыть R7.Webmate"
 
-#: MainWindow.cs:70
+#: MainWindow.cs:70 Text/TextViewDialog.cs:72
 msgid "Close"
 msgstr "Закрыть"
 
@@ -59,31 +59,31 @@ msgstr "Таблица HTML"
 msgid "Bootstrap table"
 msgstr "Таблица Bootstrap"
 
-#: Text/TableCleanerWidget.cs:36 Text/TextCleanerWidget.cs:38
+#: Text/TableCleanerWidget.cs:37 Text/TextCleanerWidget.cs:38
 msgid "Paste"
 msgstr "Вставить"
 
-#: Text/TableCleanerWidget.cs:39 Text/TextCleanerWidget.cs:41
+#: Text/TableCleanerWidget.cs:40 Text/TextCleanerWidget.cs:41
 msgid "Paste HTML"
 msgstr "Вставить HTML"
 
-#: Text/TableCleanerWidget.cs:42 Text/TextCleanerWidget.cs:46
+#: Text/TableCleanerWidget.cs:43 Text/TextCleanerWidget.cs:46
 msgid "Process"
 msgstr "Обработать"
 
-#: Text/TableCleanerWidget.cs:49 Text/TextCleanerWidget.cs:80
+#: Text/TableCleanerWidget.cs:50 Text/TextCleanerWidget.cs:80
 msgid "Process on paste?"
 msgstr "Обрабатывать при вставке?"
 
-#: Text/TableCleanerWidget.cs:52
+#: Text/TableCleanerWidget.cs:53
 msgid "Generate Bootstrap table?"
 msgstr "Генерировать таблицу Bootstrap?"
 
-#: Text/TableCleanerWidget.cs:58
+#: Text/TableCleanerWidget.cs:59
 msgid "Generate Bootstrap responsive table?"
 msgstr "Генерировать адаптивную таблицу Bootstrap?"
 
-#: Text/TableCleanerWidget.cs:132 Text/TextCleanerWidget.cs:154
+#: Text/TableCleanerWidget.cs:138 Text/TextCleanerWidget.cs:159
 #, csharp-format
 msgid "Result #{0} - {1}"
 msgstr "Результат №{0} - {1}"
@@ -108,21 +108,36 @@ msgstr "Настройки обработки текста"
 msgid "Click to open text processing options."
 msgstr "Нажмите, чтобы открыть настройки обработки текста."
 
-#: Text/TextViewDialog.cs:29
+#: Text/TextViewDialog.cs:40
 msgid "View Text"
 msgstr "Просмотр текста"
 
-#: Text/TextViewLabel.cs:49
+#: Text/TextViewDialog.cs:44
+msgid "Copy All"
+msgstr "Копировать всё"
+
+#: Text/TextViewDialog.cs:67
+msgid "Save"
+msgstr "Сохранить"
+
+#: Text/TextViewDialog.cs:68
+msgid "Cancel"
+msgstr "Отмена"
+
+#: Text/TextViewLabel.cs:58
 msgid "<empty>"
 msgstr "<пусто>"
 
-#: Text/TextViewLabel.cs:63
+#: Text/TextViewLabel.cs:72
 msgid "Click to open full text."
 msgstr "Нажмите, чтобы открыть полный текст."
 
-#: Text/TextViewLabel.cs:71
+#: Text/TextViewLabel.cs:80
 msgid "Copy"
 msgstr "Копировать"
+
+#~ msgid "OK"
+#~ msgstr "Да"
 
 #~ msgid "Restore"
 #~ msgstr "Восстановить"

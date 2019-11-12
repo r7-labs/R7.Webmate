@@ -1,5 +1,4 @@
 ﻿using System;
-using NGettext;
 using R7.Webmate.Core.Text;
 using R7.Webmate.Core.Text.Models;
 using R7.Webmate.Xwt.Icons;
@@ -7,11 +6,8 @@ using Xwt;
 
 namespace R7.Webmate.Xwt.Text
 {
-    // TODO: Extract base class
-    public class TableCleanerWidget: Widget
+    public class TableCleanerWidget: TextCleanerWidgetBase
     {
-        protected ICatalog T = TextCatalogKeeper.GetDefault ();
-
         protected Button btnPaste;
 
         protected Button btnPasteHtml;
@@ -26,12 +22,10 @@ namespace R7.Webmate.Xwt.Text
 
         protected CheckBox chkBootstrapResponsiveTable = new CheckBox ();
 
-        protected VBox vboxResults = new VBox ();
-
-        protected TableCleanerModel Model = new TableCleanerModel ();
-
         public TableCleanerWidget ()
         {
+            Model = new TableCleanerModel ();
+
             lblSrc.AllowQuickCopy = false;
             lblSrc.AllowEdit = true;
 
@@ -109,36 +103,9 @@ namespace R7.Webmate.Xwt.Text
                 Model.Source = lblSrc.Text;
             }
 
-            Model.BootstrapTable = chkBootstrapTable.Active;
-            Model.BootstrapResponsiveTable = chkBootstrapResponsiveTable.Active;
+            (Model as TableCleanerModel).BootstrapTable = chkBootstrapTable.Active;
+            (Model as TableCleanerModel).BootstrapResponsiveTable = chkBootstrapResponsiveTable.Active;
             Model.Process ();
-        }
-
-        void ShowResults ()
-        {
-            vboxResults.Clear ();
-
-            var index = 0;
-            foreach (var result in Model.Results) {
-                AddResult (result.Text, ++index, result.Label, result.Format);
-            }
-        }
-
-        void AddResult (string result, int index, string label, TextCleanerResultFormat resultFormat)
-        {
-            var lblResult = new TextViewLabel ();
-            lblResult.Text = result;
-                      
-            var vboxResult = new VBox ();
-            vboxResult.MarginLeft = 5;
-            vboxResult.MarginRight = 5;
-            vboxResult.MarginBottom = 3;
-            vboxResult.PackStart (lblResult, false, true);
-
-            var frmResult = new Frame ();
-            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, T.GetString (label));
-            frmResult.Content = vboxResult;
-            vboxResults.PackStart (frmResult);
         }
     }
 }

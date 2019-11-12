@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using NGettext;
 using R7.Webmate.Core.Text;
 using R7.Webmate.Core.Text.Models;
 using R7.Webmate.Xwt.Icons;
@@ -8,11 +7,8 @@ using Xwt;
 
 namespace R7.Webmate.Xwt.Text
 {
-    // TODO: Extract base class
-    public class TextCleanerWidget: Widget
+    public class TextCleanerWidget: TextCleanerWidgetBase
     {
-        protected ICatalog T = TextCatalogKeeper.GetDefault ();
-
         protected Button btnPaste;
 
         protected Button btnPasteHtml;
@@ -27,12 +23,10 @@ namespace R7.Webmate.Xwt.Text
 
         protected CheckBox chkAutoProcess = new CheckBox ();
 
-        protected VBox vboxResults = new VBox ();
-
-        protected TextCleanerModel Model = new TextCleanerModel ();
-
         public TextCleanerWidget ()
         {
+            Model = new TextCleanerModel ();
+
             lblSrc.AllowQuickCopy = false;
             lblSrc.AllowEdit = true;
 
@@ -55,19 +49,19 @@ namespace R7.Webmate.Xwt.Text
                 new List<LabeledTextProcessing> {
                     new LabeledTextProcessing {
                         Label = "text-to-text",
-                        Processing = Model.TextToTextProcessing
+                        Processing = (Model as TextCleanerModel).TextToTextProcessing
                     },
                     new LabeledTextProcessing {
                         Label = "text-simplify",
-                        Processing = Model.TextSimplifyProcessing
+                        Processing = (Model as TextCleanerModel).TextSimplifyProcessing
                     },
                     new LabeledTextProcessing {
                         Label = "text-to-html",
-                        Processing = Model.TextToHtmlProcessing
+                        Processing = (Model as TextCleanerModel).TextToHtmlProcessing
                     },
                     new LabeledTextProcessing {
                         Label = "html-to-text",
-                        Processing = Model.HtmlToTextProcessing
+                        Processing = (Model as TextCleanerModel).HtmlToTextProcessing
                     }
                 }
             );
@@ -137,33 +131,6 @@ namespace R7.Webmate.Xwt.Text
             }
 
             Model.Process ();
-        }
-
-        void ShowResults ()
-        {
-            vboxResults.Clear ();
-
-            var index = 0;
-            foreach (var result in Model.Results) {
-                AddResult (result.Text, ++index, result.Label, result.Format);
-            }
-        }
-
-        void AddResult (string result, int index, string label, TextCleanerResultFormat resultFormat)
-        {
-            var lblResult = new TextViewLabel ();
-            lblResult.Text = result;
-
-            var vboxResult = new VBox ();
-            vboxResult.MarginLeft = 5;
-            vboxResult.MarginRight = 5;
-            vboxResult.MarginBottom = 3;
-            vboxResult.PackStart (lblResult, false, true);
-
-            var frmResult = new Frame ();
-            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, T.GetString (label));
-            frmResult.Content = vboxResult;
-            vboxResults.PackStart (frmResult);
         }
     }
 }

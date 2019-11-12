@@ -32,6 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="resources\" />
+    <Folder Include="Text\Models\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

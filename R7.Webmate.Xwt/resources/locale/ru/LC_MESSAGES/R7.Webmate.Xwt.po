@@ -1,18 +1,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2019-10-31 16:07+0400\n"
-"PO-Revision-Date: 2019-10-31 16:08+0400\n"
+"POT-Creation-Date: 2019-11-12 10:58+0400\n"
+"PO-Revision-Date: 2019-11-12 10:59+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.8.11\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: GetString;GetPluralString:1,2;GetParticularString:1c,2;GetParticularPluralString:1c,2,3;_;_n:1,2;_p:1c,2;_pn:1c,2,3\n"
+"X-Poedit-KeywordsList: GetString;GetPluralString:1,2;"
+"GetParticularString:1c,2;GetParticularPluralString:1c,2,3;_;_n:1,2;"
+"_p:1c,2;_pn:1c,2,3\n"
 "X-Poedit-Basepath: ../../../..\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: locale\n"
@@ -51,60 +54,40 @@ msgstr "Обработка:"
 msgid "<not selected>"
 msgstr "<не выбрано>"
 
-#: Text/TableCleanerModel.cs:37
-msgid "HTML table"
-msgstr "Таблица HTML"
-
-#: Text/TableCleanerModel.cs:51
-msgid "Bootstrap table"
-msgstr "Таблица Bootstrap"
-
-#: Text/TableCleanerWidget.cs:37 Text/TextCleanerWidget.cs:38
+#: Text/TableCleanerWidget.cs:38 Text/TextCleanerWidget.cs:39
 msgid "Paste"
 msgstr "Вставить"
 
-#: Text/TableCleanerWidget.cs:40 Text/TextCleanerWidget.cs:41
+#: Text/TableCleanerWidget.cs:41 Text/TextCleanerWidget.cs:42
 msgid "Paste HTML"
 msgstr "Вставить HTML"
 
-#: Text/TableCleanerWidget.cs:43 Text/TextCleanerWidget.cs:46
+#: Text/TableCleanerWidget.cs:44 Text/TextCleanerWidget.cs:47
 msgid "Process"
 msgstr "Обработать"
 
-#: Text/TableCleanerWidget.cs:50 Text/TextCleanerWidget.cs:84
+#: Text/TableCleanerWidget.cs:51 Text/TextCleanerWidget.cs:85
 msgid "Process on paste?"
 msgstr "Обрабатывать при вставке?"
 
-#: Text/TableCleanerWidget.cs:53
+#: Text/TableCleanerWidget.cs:54
 msgid "Generate Bootstrap table?"
 msgstr "Генерировать таблицу Bootstrap?"
 
-#: Text/TableCleanerWidget.cs:59
+#: Text/TableCleanerWidget.cs:60
 msgid "Generate Bootstrap responsive table?"
 msgstr "Генерировать адаптивную таблицу Bootstrap?"
 
-#: Text/TableCleanerWidget.cs:138 Text/TextCleanerWidget.cs:163
+#: Text/TableCleanerWidget.cs:139 Text/TextCleanerWidget.cs:164
 #, csharp-format
 msgid "Result #{0} - {1}"
 msgstr "Результат №{0} - {1}"
 
-#: Text/TextCleanerModel.cs:35 Text/TextCleanerModel.cs:62
-msgid "HTML"
-msgstr "HTML"
-
-#: Text/TextCleanerModel.cs:41 Text/TextCleanerModel.cs:48
-msgid "Text"
-msgstr "Текст"
-
-#: Text/TextCleanerModel.cs:56
-msgid "Simplified Text"
-msgstr "Упрощённый текст"
-
-#: Text/TextCleanerWidget.cs:50
+#: Text/TextCleanerWidget.cs:51
 msgid "Text processing options"
 msgstr "Настройки обработки текста"
 
-#: Text/TextCleanerWidget.cs:75
+#: Text/TextCleanerWidget.cs:76
 msgid "Click to open text processing options."
 msgstr "Нажмите, чтобы открыть настройки обработки текста."
 
@@ -135,6 +118,32 @@ msgstr "Нажмите, чтобы открыть полный текст."
 #: Text/TextViewLabel.cs:80
 msgid "Copy"
 msgstr "Копировать"
+
+#: TextCatalogAdditionalStrings.cs:13
+msgid "HTML"
+msgstr "HTML"
+
+#: TextCatalogAdditionalStrings.cs:14
+msgid "Text"
+msgstr "Текст"
+
+#: TextCatalogAdditionalStrings.cs:15
+msgid "Simplified text"
+msgstr "Упрощённый текст"
+
+#: TextCatalogAdditionalStrings.cs:16
+msgid "HTML table"
+msgstr "Таблица HTML"
+
+#: TextCatalogAdditionalStrings.cs:17
+msgid "Boostrap table"
+msgstr "Таблица Bootstrap"
+
+#~ msgid "Bootstrap table"
+#~ msgstr "Таблица Bootstrap"
+
+#~ msgid "Simplified Text"
+#~ msgstr "Упрощённый текст"
 
 #~ msgid "ASCII text"
 #~ msgstr "Текст ASCII"

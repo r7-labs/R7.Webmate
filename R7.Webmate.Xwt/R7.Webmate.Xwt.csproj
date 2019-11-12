@@ -26,18 +26,14 @@
     <Compile Include="ClipboardHelper.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="XwtHelper.cs" />
-    <Compile Include="Text\TableCleanerModel.cs" />
     <Compile Include="Text\TableCleanerWidget.cs" />
-    <Compile Include="Text\TextCleanerModel.cs" />
-    <Compile Include="Text\TextCleanerModelBase.cs" />
-    <Compile Include="Text\TextCleanerResult.cs" />
-    <Compile Include="Text\TextCleanerResultFormat.cs" />
     <Compile Include="Text\TextCleanerWidget.cs" />
     <Compile Include="Text\TextViewDialog.cs" />
     <Compile Include="Text\TextViewLabel.cs" />
     <Compile Include="TextCatalogKeeper.cs" />
     <Compile Include="Text\ProcessingOptionsWidget.cs" />
     <Compile Include="Icons\ImageExtensions.cs" />
+    <Compile Include="TextCatalogAdditionalStrings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

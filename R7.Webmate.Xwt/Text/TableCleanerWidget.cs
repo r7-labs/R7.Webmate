@@ -1,6 +1,7 @@
 ﻿using System;
 using NGettext;
 using R7.Webmate.Core.Text;
+using R7.Webmate.Core.Text.Models;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
 
@@ -135,7 +136,7 @@ namespace R7.Webmate.Xwt.Text
             vboxResult.PackStart (lblResult, false, true);
 
             var frmResult = new Frame ();
-            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, label);
+            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, T.GetString (label));
             frmResult.Content = vboxResult;
             vboxResults.PackStart (frmResult);
         }

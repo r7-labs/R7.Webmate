@@ -1,13 +1,9 @@
-﻿using NGettext;
-using R7.Webmate.Core.Text;
-using R7.Webmate.Core.Text.Processings;
+﻿using R7.Webmate.Core.Text.Processings;
 
-namespace R7.Webmate.Xwt.Text
+namespace R7.Webmate.Core.Text.Models
 {
     public class TableCleanerModel: TextCleanerModelBase
     {
-        protected ICatalog T = TextCatalogKeeper.GetDefault ();
-
         public bool BootstrapTable { get; set; }
 
         public bool BootstrapResponsiveTable { get; set; }
@@ -34,7 +30,7 @@ namespace R7.Webmate.Xwt.Text
 
                     Results.Add (new TextCleanerResult {
                         Text = resultText,
-                        Label = T.GetString ("HTML table"),
+                        Label = "HTML table",
                         Format = TextCleanerResultFormat.HTML
                     });
 
@@ -48,7 +44,7 @@ namespace R7.Webmate.Xwt.Text
                             }
                             Results.Add (new TextCleanerResult {
                                 Text = resultText,
-                                Label = T.GetString ("Bootstrap table"),
+                                Label = "Bootstrap table",
                                 Format = TextCleanerResultFormat.HTML
                             });
                         }

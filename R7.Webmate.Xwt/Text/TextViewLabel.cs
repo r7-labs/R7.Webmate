@@ -44,13 +44,20 @@ namespace R7.Webmate.Xwt.Text
             }
         }
 
+        Color DefaultTextColor = Color.FromName ("black");
+
+        public Color TextColor {
+            get { return lblPreview.TextColor; }
+            set { lblPreview.TextColor = value; }
+        }
+
         protected void UpdateView ()
         {
             if (!string.IsNullOrEmpty (Text)) {
                 lblPreview.Text = FormatLabel (Text);
                 // TODO: Shorten tooltip text
                 lblPreview.TooltipText = Text;
-                lblPreview.TextColor = Color.FromName ("black");
+                lblPreview.TextColor = DefaultTextColor;
                 btnOpenFullView.Visible = true;
                 btnCopy.Visible = AllowQuickCopy;
             }
@@ -65,6 +72,8 @@ namespace R7.Webmate.Xwt.Text
 
         public TextViewLabel ()
         {
+            TextColor = DefaultTextColor;
+
             lblPreview.Font = Config.Instance.MonospaceFont;
             lblPreview.Ellipsize = EllipsizeMode.End;
             lblPreview.Selectable = true;

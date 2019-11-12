@@ -1,6 +1,7 @@
 using NGettext;
 using R7.Webmate.Core.Text.Models;
 using Xwt;
+using Xwt.Drawing;
 
 namespace R7.Webmate.Xwt.Text
 {
@@ -25,6 +26,10 @@ namespace R7.Webmate.Xwt.Text
         {
             var lblResult = new TextViewLabel ();
             lblResult.Text = result.Text;
+
+            if (!string.IsNullOrEmpty (result.TextColor)) {
+                lblResult.TextColor = Color.FromName (result.TextColor);
+            }
 
             var vboxResult = new VBox ();
             vboxResult.MarginLeft = 5;

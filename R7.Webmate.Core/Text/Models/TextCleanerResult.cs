@@ -6,6 +6,8 @@ namespace R7.Webmate.Core.Text.Models
 
         public string Label { get; set; }
 
+        public string TextColor { get; set; }
+
         public TextCleanerResultFormat Format { get; set; }
     }
 }

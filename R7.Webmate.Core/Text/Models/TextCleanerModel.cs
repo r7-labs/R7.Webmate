@@ -29,6 +29,7 @@ namespace R7.Webmate.Core.Text.Models
                     Results.Add (new TextCleanerResult {
                         Text = HtmlToHtmlProcessing.Process (Source),
                         Label = "HTML",
+                        TextColor = "blue",
                         Format = TextCleanerResultFormat.HTML
                     });
 
@@ -50,12 +51,14 @@ namespace R7.Webmate.Core.Text.Models
                     Results.Add (new TextCleanerResult {
                         Text = TextSimplifyProcessing.Process (textResult.Text),
                         Label = "Simplified text",
+                        TextColor = "red",
                         Format = TextCleanerResultFormat.Text
                     });
 
                     Results.Add (new TextCleanerResult {
                         Text = TextToHtmlProcessing.Process (textResult.Text),
                         Label = "HTML",
+                        TextColor = "blue",
                         Format = TextCleanerResultFormat.HTML
                     });
                 }

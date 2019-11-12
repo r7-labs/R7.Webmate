@@ -1,6 +1,9 @@
 ---
 # Processing sequence: text-to-text --> text-to-html
 # TODO: Move some commands to text-to-text
+# TODO: More dash rules https://en.wikipedia.org/wiki/Dash
+# TODO: replace URLs with links
+# TODO: emphasize names
 options:
   remove-endlines: false
 commands:
@@ -77,6 +80,3 @@ commands:
   pattern: "(?i)\\b[A-Z0-9\\._%\\+-]+@[A-Z0-9\\.-]+\\.[A-Z]{2,4}\\b"
   replacement: "<a href=\"mailto:$&\">$&</a>"
 
-# TODO: More dash rules https://en.wikipedia.org/wiki/Dash
-# TODO: replace URLs with links
-# TODO: emphasize names

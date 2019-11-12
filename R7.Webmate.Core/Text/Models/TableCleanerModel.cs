@@ -31,7 +31,7 @@ namespace R7.Webmate.Core.Text.Models
                     Results.Add (new TextCleanerResult {
                         Text = resultText,
                         Label = "HTML table",
-                        TextColor = "blue",
+                        TextColor = "darkblue",
                         Format = TextCleanerResultFormat.HTML
                     });
 
@@ -46,7 +46,7 @@ namespace R7.Webmate.Core.Text.Models
                             Results.Add (new TextCleanerResult {
                                 Text = resultText,
                                 Label = "Bootstrap table",
-                                TextColor = "blue",
+                                TextColor = "darkblue",
                                 Format = TextCleanerResultFormat.HTML
                             });
                         }

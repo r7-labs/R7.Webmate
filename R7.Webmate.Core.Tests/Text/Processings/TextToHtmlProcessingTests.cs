@@ -17,5 +17,17 @@ namespace R7.Webmate.Core.Tests.Text.Processings
             Assert.Equal ("<p>foo@bar</p>", TP.Process ("foo@bar"));
             Assert.Equal ("<p>foo@bar.common</p>", TP.Process ("foo@bar.common"));
         }
+
+        [Fact]
+        public void DetectOrderedList ()
+        {
+            Assert.Equal ("<ol>\n<li>Hello,</li>\n<li>world!</li>\n</ol>", TP.Process ("1. Hello,\n2.world!"));
+        }
+
+        [Fact]
+        public void DetectUnorderedList ()
+        {
+            Assert.Equal ("<ul>\n<li>Hello,</li>\n<li>world!</li>\n</ul>", TP.Process (X ("&bull; Hello,\n&bull;world!")));
+        }
     }
 }

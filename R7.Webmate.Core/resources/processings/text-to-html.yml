@@ -7,27 +7,31 @@
 options:
   remove-endlines: false
 commands:
-# placed all text inside P tag
-- !!prepend
-  text: "<p>"
-- !!append
-  text: "</p>"
-# replace endlines with P tags
-- !!replace
-  pattern: "\n"
-  replacement: "</p>\n<p>"
-- !!if-option
-  option: remove-endlines
-  then-commands:
-  - !!replace
-    pattern: "\n"
-    replacement: ""
- # remove space before and after P tags (trim content)
+# starts with bullet - potential unordered list
 - !!regex-replace
-  pattern: "<p> +"
+  pattern: "(?m)^\u2022\\s*(.+)$"
+  replacement: "<ul>\n<li>$1</li>\n</ul>"
+# starts with digits - potential ordered list
+- !!regex-replace
+  pattern: "(?m)^\\d+\\.\\s*(.*)$"
+  replacement: "<ol>\n<li>$1</li>\n</ol>"
+# squash lists
+- !!regex-replace
+  pattern: "</ul>\\s*<ul>\\s*"
+  replacement: ""
+- !!regex-replace
+  pattern: "</ol>\\s*<ol>\\s*"
+  replacement: ""
+# wrap other lines into P tags
+- !!regex-replace
+  pattern: "(?m)(^[^<].*[^>])$"
+  replacement: "<p>$1</p>"
+# trim space inside P tags
+- !!regex-replace
+  pattern: "<p>\\s*"
   replacement: "<p>"
 - !!regex-replace
-  pattern: " +</p>"
+  pattern: "\\s*</p>"
   replacement: "</p>"
 # remove duplicate spaces
 - !!regex-replace
@@ -79,4 +83,10 @@ commands:
 - !!regex-replace
   pattern: "(?i)\\b[A-Z0-9\\._%\\+-]+@[A-Z0-9\\.-]+\\.[A-Z]{2,4}\\b"
   replacement: "<a href=\"mailto:$&\">$&</a>"
+- !!if-option
+  option: remove-endlines
+  then-commands:
+  - !!replace
+    pattern: "\n"
+    replacement: ""
 

@@ -39,5 +39,13 @@ namespace R7.Webmate.Core.Text
 
             return string.Empty;
         }
+
+        public static string DecodeSpecialEntities (string html)
+        {
+            return html.Replace ("&quot;", "\"")
+                   .Replace ("&amp;", "&")
+                   .Replace ("&laquo;", "<")
+                   .Replace ("&raquo;", ">");
+        }
     }
 }

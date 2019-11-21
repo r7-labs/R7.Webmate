@@ -4,6 +4,10 @@ options:
   remove-colgroup-tags: true
   remove-col-tags: true
 commands:
+# remove comments
+- !!regex-replace
+  pattern: "(?s)<!--.*-->"
+  replacement: " "
 # shrink whitespace, effectively remove line breaks and tabs
 - !!regex-replace
   pattern: "\\s+"

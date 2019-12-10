@@ -108,6 +108,9 @@
     <None Include="resources\icons\solid\ellipsis-v.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="R7.Webmate.Xwt.sh">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">

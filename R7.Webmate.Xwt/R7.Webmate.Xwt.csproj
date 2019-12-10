@@ -111,7 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">
-      <HintPath>..\packages\Xwt.0.2.212\lib\net40\Xwt.dll</HintPath>
+      <HintPath>..\packages\Xwt.0.2.214\lib\net40\Xwt.dll</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System" />

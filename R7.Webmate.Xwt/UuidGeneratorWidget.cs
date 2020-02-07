@@ -16,9 +16,13 @@ namespace R7.Webmate.Xwt
 
         protected VBox vboxResults = new VBox ();
 
-        protected Table tblOptions = new Table ();
+        protected HBox hboxGenerate = new HBox ();
+
+        protected Box boxOptions = new HBox ();
 
         protected CheckBox chkUppercase;
+
+        protected CheckBox chkNoDashes;
 
         protected SpinButton spnNumberOfEntries = new SpinButton ();
 
@@ -31,21 +35,22 @@ namespace R7.Webmate.Xwt
             spnNumberOfEntries.IncrementValue = 1;
             spnNumberOfEntries.Digits = 0;
             spnNumberOfEntries.Value = 4;
+            spnNumberOfEntries.TooltipText = T.GetString ("Number of UUIDs to generate");
 
-            chkUppercase = new CheckBox (T.GetString ("Uppercase?"));
+           chkUppercase = new CheckBox (T.GetString ("Uppercase?"));
+            chkNoDashes = new CheckBox (T.GetString ("No Dashes?"));
 
-            var lblNumberOfEntries = new Label (T.GetString ("Number of Entries:"));
-            lblNumberOfEntries.TextAlignment = Alignment.End;
-
-            tblOptions.Add (lblNumberOfEntries, 0, 0, hexpand: true);
-            tblOptions.Add (spnNumberOfEntries, 1, 0, hexpand: true);
-            tblOptions.Add (chkUppercase, 0, 1, colspan: 2);
+            boxOptions.PackStart (chkUppercase, false, true);
+            boxOptions.PackStart (chkNoDashes, false, true);
 
             btnGenerate = new Button (IconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Generate"));
             btnGenerate.Clicked += BtnGenerate_Clicked;
 
-            vbox.PackStart (tblOptions, false, true);
-            vbox.PackStart (btnGenerate, false, true);
+            hboxGenerate.PackStart (btnGenerate, true, true);
+            hboxGenerate.PackStart (spnNumberOfEntries, false, true);
+
+            vbox.PackStart (hboxGenerate, false, true);
+            vbox.PackStart (boxOptions, false, true);
             vbox.PackStart (vboxResults, false, true);
 
             vbox.Margin = Const.VBOX_MARGIN;
@@ -58,6 +63,7 @@ namespace R7.Webmate.Xwt
             vboxResults.Clear ();
 
             Model.Uppercase = chkUppercase.Active;
+            Model.NoDashes = chkNoDashes.Active;
 
             for (var i = 0; i < (int) spnNumberOfEntries.Value; i++) {
                 AddResult (i + 1, Model.GenerateUuid ());

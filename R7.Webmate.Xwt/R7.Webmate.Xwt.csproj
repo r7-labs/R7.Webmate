@@ -35,6 +35,9 @@
     <Compile Include="Icons\ImageExtensions.cs" />
     <Compile Include="TextCatalogAdditionalStrings.cs" />
     <Compile Include="Text\TextCleanerWidgetBase.cs" />
+    <Compile Include="UuidGeneratorWidget.cs" />
+    <Compile Include="Const.cs" />
+    <Compile Include="UuidGeneratorModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

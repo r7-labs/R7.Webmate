@@ -26,12 +26,14 @@ namespace R7.Webmate.Xwt
 
         protected SpinButton spnNumberOfEntries = new SpinButton ();
 
+        protected ScrollView scrResults;
+
         public UuidGeneratorWidget ()
         {
             var vbox = new VBox ();
 
             spnNumberOfEntries.MinimumValue = 1;
-            spnNumberOfEntries.MaximumValue = 1000;
+            spnNumberOfEntries.MaximumValue = 100;
             spnNumberOfEntries.IncrementValue = 1;
             spnNumberOfEntries.Digits = 0;
             spnNumberOfEntries.Value = 4;
@@ -49,9 +51,11 @@ namespace R7.Webmate.Xwt
             hboxGenerate.PackStart (btnGenerate, true, true);
             hboxGenerate.PackStart (spnNumberOfEntries, false, true);
 
+            scrResults = new ScrollView (vboxResults);
+
             vbox.PackStart (hboxGenerate, false, true);
             vbox.PackStart (boxOptions, false, true);
-            vbox.PackStart (vboxResults, false, true);
+            vbox.PackStart (scrResults, true, true);
 
             vbox.Margin = Const.VBOX_MARGIN;
             Content = vbox;

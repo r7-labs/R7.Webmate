@@ -8,4 +8,4 @@ Exec=mono R7.Webmate.Xwt.exe
 Icon={install_path}/resources/app-icons/r7-webmate-plain.svg
 Terminal=false
 Type=Application
-Categories=Network;
+Categories=Network;WebDevelopment;

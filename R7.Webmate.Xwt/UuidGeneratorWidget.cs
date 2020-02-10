@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using NGettext;
 using R7.Webmate.Xwt.Icons;
 using R7.Webmate.Xwt.Text;
@@ -24,6 +25,8 @@ namespace R7.Webmate.Xwt
 
         protected CheckBox chkNoDashes;
 
+        protected CheckBox chkJoinResults;
+
         protected SpinButton spnNumberOfEntries = new SpinButton ();
 
         protected ScrollView scrResults;
@@ -39,11 +42,13 @@ namespace R7.Webmate.Xwt
             spnNumberOfEntries.Value = 4;
             spnNumberOfEntries.TooltipText = T.GetString ("Number of UUIDs to generate");
 
-           chkUppercase = new CheckBox (T.GetString ("Uppercase?"));
+            chkUppercase = new CheckBox (T.GetString ("Uppercase?"));
             chkNoDashes = new CheckBox (T.GetString ("No Dashes?"));
+            chkJoinResults = new CheckBox(T.GetString ("Join Results?"));
 
             boxOptions.PackStart (chkUppercase, false, true);
             boxOptions.PackStart (chkNoDashes, false, true);
+            boxOptions.PackStart(chkJoinResults, false, true);
 
             btnGenerate = new Button (IconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Generate"));
             btnGenerate.Clicked += BtnGenerate_Clicked;
@@ -69,12 +74,22 @@ namespace R7.Webmate.Xwt
             Model.Uppercase = chkUppercase.Active;
             Model.NoDashes = chkNoDashes.Active;
 
-            for (var i = 0; i < (int) spnNumberOfEntries.Value; i++) {
-                AddResult (i + 1, Model.GenerateUuid ());
+            if (chkJoinResults.Active) {
+                var result = new StringBuilder ();
+                for (var i = 0; i < (int) spnNumberOfEntries.Value; i++) {
+                    result.AppendLine (Model.GenerateUuid ());
+                }
+
+                AddResult (1, (int) spnNumberOfEntries.Value, result.ToString ());
+            }
+            else {
+                for (var i = 0; i < (int) spnNumberOfEntries.Value; i++) {
+                    AddResult (i + 1, i + 1, Model.GenerateUuid ());
+                }
             }
         }
 
-        protected virtual void AddResult (int index, string result)
+        protected virtual void AddResult (int fromIndex, int toIndex, string result)
         {
             var lblResult = new TextViewLabel ();
             lblResult.Text = result;
@@ -86,7 +101,14 @@ namespace R7.Webmate.Xwt
             vboxResult.PackStart (lblResult, false, true);
 
             var frmResult = new Frame ();
-            frmResult.Label = string.Format (T.GetString ("Result #{0}"), index);
+
+            if (fromIndex == toIndex) {
+                frmResult.Label = string.Format (T.GetString ("Result #{0}"), fromIndex);
+            }
+            else {
+                frmResult.Label = string.Format (T.GetString ("Results #{0}-#{1}"), fromIndex, toIndex);
+            }
+
             frmResult.Content = vboxResult;
             vboxResults.PackStart (frmResult);
         }

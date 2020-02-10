@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2019-11-12 10:58+0400\n"
-"PO-Revision-Date: 2019-11-12 10:59+0400\n"
+"POT-Creation-Date: 2020-02-10 13:32+0400\n"
+"PO-Revision-Date: 2020-02-10 13:36+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -30,15 +30,19 @@ msgstr "Очистка текста"
 msgid "Table Cleaner"
 msgstr "Очистка таблиц"
 
-#: MainWindow.cs:46
+#: MainWindow.cs:33
+msgid "UUID Generator"
+msgstr "Генератор UUID"
+
+#: MainWindow.cs:47
 msgid "R7.Webmaster.Xwt - "
 msgstr "R7.Webmate.Xwt - "
 
-#: MainWindow.cs:64
+#: MainWindow.cs:65
 msgid "Open R7.Webmate"
 msgstr "Открыть R7.Webmate"
 
-#: MainWindow.cs:70 Text/TextViewDialog.cs:72
+#: MainWindow.cs:71 Text/TextViewDialog.cs:72
 msgid "Close"
 msgstr "Закрыть"
 
@@ -54,42 +58,42 @@ msgstr "Обработка:"
 msgid "<not selected>"
 msgstr "<не выбрано>"
 
-#: Text/TableCleanerWidget.cs:38 Text/TextCleanerWidget.cs:39
+#: Text/TableCleanerWidget.cs:32 Text/TextCleanerWidget.cs:33
 msgid "Paste"
 msgstr "Вставить"
 
-#: Text/TableCleanerWidget.cs:41 Text/TextCleanerWidget.cs:42
+#: Text/TableCleanerWidget.cs:35 Text/TextCleanerWidget.cs:36
 msgid "Paste HTML"
 msgstr "Вставить HTML"
 
-#: Text/TableCleanerWidget.cs:44 Text/TextCleanerWidget.cs:47
+#: Text/TableCleanerWidget.cs:38 Text/TextCleanerWidget.cs:41
 msgid "Process"
 msgstr "Обработать"
 
-#: Text/TableCleanerWidget.cs:51 Text/TextCleanerWidget.cs:85
+#: Text/TableCleanerWidget.cs:45 Text/TextCleanerWidget.cs:79
 msgid "Process on paste?"
 msgstr "Обрабатывать при вставке?"
 
-#: Text/TableCleanerWidget.cs:54
+#: Text/TableCleanerWidget.cs:48
 msgid "Generate Bootstrap table?"
 msgstr "Генерировать таблицу Bootstrap?"
 
-#: Text/TableCleanerWidget.cs:60
+#: Text/TableCleanerWidget.cs:54
 msgid "Generate Bootstrap responsive table?"
 msgstr "Генерировать адаптивную таблицу Bootstrap?"
 
-#: Text/TableCleanerWidget.cs:139 Text/TextCleanerWidget.cs:164
-#, csharp-format
-msgid "Result #{0} - {1}"
-msgstr "Результат №{0} - {1}"
-
-#: Text/TextCleanerWidget.cs:51
+#: Text/TextCleanerWidget.cs:45
 msgid "Text processing options"
 msgstr "Настройки обработки текста"
 
-#: Text/TextCleanerWidget.cs:76
+#: Text/TextCleanerWidget.cs:70
 msgid "Click to open text processing options."
 msgstr "Нажмите, чтобы открыть настройки обработки текста."
+
+#: Text/TextCleanerWidgetBase.cs:41
+#, csharp-format
+msgid "Result #{0} - {1}"
+msgstr "Результат №{0} - {1}"
 
 #: Text/TextViewDialog.cs:40
 msgid "View Text"
@@ -107,15 +111,15 @@ msgstr "Сохранить"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: Text/TextViewLabel.cs:58
+#: Text/TextViewLabel.cs:65
 msgid "<empty>"
 msgstr "<пусто>"
 
-#: Text/TextViewLabel.cs:72
+#: Text/TextViewLabel.cs:81
 msgid "Click to open full text."
 msgstr "Нажмите, чтобы открыть полный текст."
 
-#: Text/TextViewLabel.cs:80
+#: Text/TextViewLabel.cs:89
 msgid "Copy"
 msgstr "Копировать"
 
@@ -138,6 +142,36 @@ msgstr "Таблица HTML"
 #: TextCatalogAdditionalStrings.cs:17
 msgid "Boostrap table"
 msgstr "Таблица Bootstrap"
+
+#: UuidGeneratorWidget.cs:43
+msgid "Number of UUIDs to generate"
+msgstr "Количество генерируемых UUID "
+
+#: UuidGeneratorWidget.cs:45
+msgid "Uppercase?"
+msgstr "В верхнем регистре?"
+
+#: UuidGeneratorWidget.cs:46
+msgid "No Dashes?"
+msgstr "Без дефисов?"
+
+#: UuidGeneratorWidget.cs:47
+msgid "Join Results?"
+msgstr "Объединить результаты?"
+
+#: UuidGeneratorWidget.cs:53
+msgid "Generate"
+msgstr "Генерировать"
+
+#: UuidGeneratorWidget.cs:106
+#, csharp-format
+msgid "Result #{0}"
+msgstr "Результат №{0}"
+
+#: UuidGeneratorWidget.cs:109
+#, csharp-format
+msgid "Results #{0}-#{1}"
+msgstr "Результаты №№{0}-{1}"
 
 #~ msgid "Bootstrap table"
 #~ msgstr "Таблица Bootstrap"

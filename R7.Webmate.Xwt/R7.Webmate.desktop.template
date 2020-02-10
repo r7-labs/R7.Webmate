@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=R7.Webmate
+Comment=A webmaster's best mate - a cross-platform desktop productivity toolbox
+Comment[ru_RU]=Лучший друг вебмастера - кроссплатформенный набор инструментов для рабочего стола
+Path={install_path}
+Exec=mono R7.Webmate.Xwt.exe
+Icon={install_path}/resources/app-icons/r7-webmate-plain.svg
+Terminal=false
+Type=Application
+Categories=Network;

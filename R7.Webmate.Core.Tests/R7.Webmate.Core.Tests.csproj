@@ -11,7 +11,7 @@
   <ItemGroup>
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="YamlDotNet" Version="8.0.0" />
+    <PackageReference Include="YamlDotNet" Version="8.1.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\R7.Webmate.Core\R7.Webmate.Core.csproj" />

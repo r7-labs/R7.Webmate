@@ -19,7 +19,7 @@ namespace R7.Webmate.Xwt
         {
             Icon = IconHelper.GetAppIcon ();
 
-            if (!Program.CmdlineArgs.NoTrayIcon) {
+            if (Program.CmdlineArgs.TrayIcon) {
                 InitStatusIcon ();
             }
 

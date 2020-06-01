@@ -9,11 +9,16 @@ namespace R7.Webmate.Xwt
     {
         public bool Silent { get; protected set; }
 
+        public bool NoTrayIcon { get; protected set; }
+
         public CmdlineArgs (string [] args)
         {
             foreach (var arg in args) {
                 if (arg == "--silent") {
                     Silent = true;
+                }
+                if (arg == "--no-tray-icon") {
+                    NoTrayIcon = true;
                 }
             }
         }

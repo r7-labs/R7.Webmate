@@ -19,7 +19,9 @@ namespace R7.Webmate.Xwt
         {
             Icon = IconHelper.GetAppIcon ();
 
-            InitStatusIcon ();
+            if (!Program.CmdlineArgs.NoTrayIcon) {
+                InitStatusIcon ();
+            }
 
             Width = 500;
             Height = 400;

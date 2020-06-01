@@ -27,6 +27,7 @@ namespace R7.Webmate.Xwt
             Height = 400;
 
             CloseRequested += MainWindow_CloseRequested;
+            Closed += MainWindow_Closed;
 
             var notebook = new Notebook ();
             notebook.TabOrientation = NotebookTabOrientation.Bottom;
@@ -94,17 +95,22 @@ namespace R7.Webmate.Xwt
             }
         }
 
-        void MiRestore_Clicked (object sender, System.EventArgs e)
-        {
-            Present ();
-        }
-
-        void MiClose_Clicked (object sender, System.EventArgs e)
+        void MainWindow_Closed (object sender, EventArgs args)
         {
             Application.Exit ();
         }
 
-        void Notebook_CurrentTabChanged (object sender, System.EventArgs e)
+        void MiRestore_Clicked (object sender, EventArgs e)
+        {
+            Present ();
+        }
+
+        void MiClose_Clicked (object sender, EventArgs e)
+        {
+            Application.Exit ();
+        }
+
+        void Notebook_CurrentTabChanged (object sender, EventArgs e)
         {
             var notebook = (Notebook) sender;
             UpdateTitle (notebook.CurrentTab.Label);

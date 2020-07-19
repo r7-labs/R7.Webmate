@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using R7.Webmate.Core.Text;
-using R7.Webmate.Core.Text.Models;
+using R7.Webmate.Text;
+using R7.Webmate.Text.Models;
 using R7.Webmate.Xwt.Icons;
 using Xwt;
 

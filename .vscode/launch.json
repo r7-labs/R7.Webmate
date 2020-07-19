@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/R7.Webmate.Core.Tests/bin/Debug/netcoreapp2.2/R7.Webmate.Core.Tests.dll",
+            "program": "${workspaceFolder}/R7.Webmate.Tests/bin/Debug/netcoreapp2.2/R7.Webmate.Tests.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/R7.Webmate.Core.Tests",
+            "cwd": "${workspaceFolder}/R7.Webmate.Tests",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

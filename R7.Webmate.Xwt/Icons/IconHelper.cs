@@ -1,4 +1,4 @@
-﻿using R7.Webmate.Core;
+﻿using R7.Webmate;
 using Xwt.Drawing;
 
 namespace R7.Webmate.Xwt.Icons

@@ -1,5 +1,5 @@
 using NGettext;
-using R7.Webmate.Core.Text.Models;
+using R7.Webmate.Text.Models;
 using Xwt;
 using Xwt.Drawing;
 

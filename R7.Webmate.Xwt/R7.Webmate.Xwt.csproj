@@ -150,9 +150,9 @@
     <Folder Include="Text\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\R7.Webmate.Core\R7.Webmate.Core.csproj">
+    <ProjectReference Include="..\R7.Webmate\R7.Webmate.csproj">
       <Project>{C97EAFDF-3190-4A13-B1DC-A033C45228B8}</Project>
-      <Name>R7.Webmate.Core</Name>
+      <Name>R7.Webmate</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
@@ -161,7 +161,7 @@
         <Output TaskParameter="Result" PropertyName="XwtPackageVersion" />
     </XmlPeek>
 	<Exec Command="./CopyBackendAssemblies.ps1 -OutputPath $(OutputPath) -XwtPackageVersion $(XwtPackageVersion)" />
-  </Target>		
+  </Target>
   <Target Name="AfterBuild" DependsOnTargets="CopyBackendAssemblies" />
   <ProjectExtensions>
     <MonoDevelop>

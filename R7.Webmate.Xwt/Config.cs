@@ -4,7 +4,7 @@ using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using Xwt;
 using NLog;
-using R7.Webmate.Core;
+using R7.Webmate;
 using Xwt.Drawing;
 
 namespace R7.Webmate.Xwt

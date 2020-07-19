@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Xwt", "R7.Webmate.Xwt\R7.Webmate.Xwt.csproj", "{2505B342-AD1C-46EA-AA9F-BB232CC36CC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Core", "R7.Webmate.Core\R7.Webmate.Core.csproj", "{C97EAFDF-3190-4A13-B1DC-A033C45228B8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate", "R7.Webmate\R7.Webmate.csproj", "{C97EAFDF-3190-4A13-B1DC-A033C45228B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Core.Tests", "R7.Webmate.Core.Tests\R7.Webmate.Core.Tests.csproj", "{DA075051-D5E0-445D-8826-F683F89494E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Tests", "R7.Webmate.Tests\R7.Webmate.Tests.csproj", "{DA075051-D5E0-445D-8826-F683F89494E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Xwt.DependencyHelper", "R7.Webmate.Xwt.DependencyHelper\R7.Webmate.Xwt.DependencyHelper.csproj", "{B801B613-7219-4C07-9340-A33451516F68}"
 EndProject

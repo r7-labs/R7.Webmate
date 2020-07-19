@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using NGettext;
-using R7.Webmate.Core.Text.Processings;
+using R7.Webmate.Text.Processings;
 using Xwt;
 
 namespace R7.Webmate.Xwt.Text
@@ -32,7 +32,7 @@ namespace R7.Webmate.Xwt.Text
         public IList<LabeledTextProcessing> Processings { get; set; }
 
         public ProcessingOptionsWidget (IList<LabeledTextProcessing> processings)
-        {   
+        {
             Processings = processings;
 
             vboxOptions.Margin = 5;

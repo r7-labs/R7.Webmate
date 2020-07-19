@@ -5,6 +5,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <RootNamespace>R7.Webmate.Xwt</RootNamespace>
+    <ReleaseVersion>0.1.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -38,6 +39,8 @@
     <Compile Include="UuidGeneratorWidget.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="UuidGeneratorModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\R7.Webmate\Properties\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -148,6 +151,7 @@
     <Folder Include="resources\locale\" />
     <Folder Include="config\" />
     <Folder Include="Text\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\R7.Webmate\R7.Webmate.csproj">

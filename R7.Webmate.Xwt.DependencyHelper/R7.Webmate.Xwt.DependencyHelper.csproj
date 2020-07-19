@@ -9,6 +9,7 @@
     <RootNamespace>R7.Webmate.Xwt.DependencyHelper</RootNamespace>
     <AssemblyName>R7.Webmate.Xwt.DependencyHelper</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <ReleaseVersion>0.1.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

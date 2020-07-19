@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <ReleaseVersion>0.1.0</ReleaseVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,6 +35,7 @@
   <ItemGroup>
     <Folder Include="resources\" />
     <Folder Include="Text\Models\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

@@ -32,5 +32,6 @@ Global
 		Policies = $0
 		$0.StandardHeader = $1
 		$1.IncludeInNewFiles = False
+		version = 0.1.0
 	EndGlobalSection
 EndGlobal

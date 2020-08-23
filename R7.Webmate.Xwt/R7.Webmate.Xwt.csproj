@@ -123,7 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xwt">
-      <HintPath>..\packages\Xwt.0.2.226\lib\net472\Xwt.dll</HintPath>
+      <HintPath>..\packages\Xwt.0.2.227\lib\net472\Xwt.dll</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System" />

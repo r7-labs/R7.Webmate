@@ -1,42 +1,51 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/R7.Webmate.Tests/R7.Webmate.Tests.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "publish",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/R7.Webmate.Tests/R7.Webmate.Tests.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "watch",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "watch",
-                "run",
-                "${workspaceFolder}/R7.Webmate.Tests/R7.Webmate.Tests.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        }
-    ]
+  // see http://go.microsoft.com/fwlink/?LinkId=733558 for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "args": [
+    // enable parallel build
+    "-m"
+  ],
+  // always show output window
+  "presentation": {
+    "reveal": "always"
+  },
+  "command": "msbuild",
+  "windows": {
+    "command": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild.exe"
+  },
+  "tasks": [
+    {
+      "label": "Build (Debug)",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "args": ["/t:Build", "/p:Configuration=Debug"],
+      // use the standard MS compiler pattern to detect errors, warnings and infos
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Build (Release)",
+      "group": "build",
+      "args": ["/t:Build", "/p:Configuration=Release"],
+      // use the standard MS compiler pattern to detect errors, warnings and infos
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Clean",
+      "group": "build",
+      "args": ["/t:Clean"],
+      // use the standard MS compiler pattern to detect errors, warnings and infos
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Test",
+      "command": "dotnet",
+      "group": "test",
+      "type": "process",
+      "args": [ "test" ],
+      // use the standard MS compiler pattern to detect errors, warnings and infos
+      "problemMatcher": "$msCompile"
+    }
+  ]
 }

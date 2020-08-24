@@ -8,7 +8,7 @@
             "name": ".NET Core Launch (console)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "Build (Debug)",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/R7.Webmate.Tests/bin/Debug/netcoreapp2.2/R7.Webmate.Tests.dll",
             "args": [],

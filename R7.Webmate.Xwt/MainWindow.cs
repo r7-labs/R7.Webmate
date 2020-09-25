@@ -31,8 +31,9 @@ namespace R7.Webmate.Xwt
 
             var notebook = new Notebook ();
             notebook.TabOrientation = NotebookTabOrientation.Bottom;
-            notebook.Add (new TextCleanerWidget (), T.GetString ("Text Cleaner"));
+            notebook.Add (new HelloWorldWidget (), T.GetString ("Hello, world!"));
             notebook.Add (new TableCleanerWidget (), T.GetString ("Table Cleaner"));
+            notebook.Add (new UuidGeneratorWidget (), T.GetString ("UUID Generator"));
             notebook.Add (new UuidGeneratorWidget (), T.GetString ("UUID Generator"));
             notebook.CurrentTabChanged += Notebook_CurrentTabChanged;
 

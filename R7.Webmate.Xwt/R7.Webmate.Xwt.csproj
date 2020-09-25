@@ -37,6 +37,7 @@
     <Compile Include="TextCatalogAdditionalStrings.cs" />
     <Compile Include="Text\TextCleanerWidgetBase.cs" />
     <Compile Include="UuidGeneratorWidget.cs" />
+    <Compile Include="HelloWorldWidget.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="UuidGeneratorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

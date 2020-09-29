@@ -161,10 +161,11 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="CopyBackendAssemblies">
-	<XmlPeek XmlInputPath="packages.config" Query="/packages/package[@id='Xwt']/@version">
-        <Output TaskParameter="Result" PropertyName="XwtPackageVersion" />
+	  <XmlPeek XmlInputPath="packages.config" Query="/packages/package[@id='Xwt']/@version">
+      <Output TaskParameter="Result" PropertyName="XwtPackageVersion" />
     </XmlPeek>
-	<Exec Command="./CopyBackendAssemblies.ps1 -OutputPath $(OutputPath) -XwtPackageVersion $(XwtPackageVersion)" />
+    <Exec Condition="'$(OS)' == 'Windows_NT'" Command="powershell CopyBackendAssemblies.ps1 -OutputPath $(OutputPath) -XwtPackageVersion $(XwtPackageVersion)" />
+    <Exec Condition="'$(OS)' != 'Windows_NT'" Command="./CopyBackendAssemblies.ps1 -OutputPath $(OutputPath) -XwtPackageVersion $(XwtPackageVersion)" />
   </Target>
   <Target Name="AfterBuild" DependsOnTargets="CopyBackendAssemblies" />
   <ProjectExtensions>

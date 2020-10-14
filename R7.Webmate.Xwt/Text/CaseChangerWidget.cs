@@ -107,7 +107,7 @@ namespace R7.Webmate.Xwt
 
             var frmResult = new Frame ();
 
-            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, result.Label);
+            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, T.GetString (result.Label));
 
             frmResult.Content = vboxResult;
             vboxResults.PackStart (frmResult);

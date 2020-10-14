@@ -94,7 +94,7 @@ namespace R7.Webmate.Xwt
             }
         }
 
-        protected void AddResult (int index, TextCleanerResult result)
+        protected void AddResult (int index, TextResult result)
         {
             var lblResult = new TextViewLabel ();
             lblResult.Text = result.Text;

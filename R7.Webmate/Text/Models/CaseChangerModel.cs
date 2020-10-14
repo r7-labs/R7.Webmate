@@ -9,7 +9,7 @@ namespace R7.Webmate.Text.Models
     {
        public string Source { get; set; }
 
-        public IList<TextCleanerResult> Results = new List<TextCleanerResult> ();
+        public IList<TextResult> Results = new List<TextResult> ();
 
         public string LowerCase (string s)
         {
@@ -86,34 +86,34 @@ namespace R7.Webmate.Text.Models
         {
             Results.Clear ();
 
-            Results.Add (new TextCleanerResult {
+            Results.Add (new TextResult {
                 Text = UpperCase (Source),
                 Label = "Upper Case",
-                Format = TextCleanerResultFormat.Text
+                Format = TextResultFormat.Text
             });
 
-            Results.Add (new TextCleanerResult {
+            Results.Add (new TextResult {
                 Text = LowerCase (Source),
                 Label = "Lower Case",
-                Format = TextCleanerResultFormat.Text
+                Format = TextResultFormat.Text
             });
 
-            Results.Add (new TextCleanerResult {
+            Results.Add (new TextResult {
                 Text = SentenceCase (Source),
                 Label = "Sentence Case",
-                Format = TextCleanerResultFormat.Text
+                Format = TextResultFormat.Text
             });
 
-            Results.Add (new TextCleanerResult {
+            Results.Add (new TextResult {
                 Text = CamelCase (Source),
                 Label = "Camel Case",
-                Format = TextCleanerResultFormat.Text
+                Format = TextResultFormat.Text
             });
 
-            Results.Add (new TextCleanerResult {
+            Results.Add (new TextResult {
                 Text = InvertedCase (Source),
                 Label = "Inverted Case",
-                Format = TextCleanerResultFormat.Text
+                Format = TextResultFormat.Text
             });
         }
     }

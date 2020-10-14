@@ -26,40 +26,40 @@ namespace R7.Webmate.Text.Models
 
             if (!string.IsNullOrEmpty (Source)) {
                 if (HtmlHelper.IsHtml (Source)) {
-                    Results.Add (new TextCleanerResult {
+                    Results.Add (new TextResult {
                         Text = HtmlToHtmlProcessing.Process (Source),
                         Label = "HTML",
                         TextColor = "darkblue",
-                        Format = TextCleanerResultFormat.HTML
+                        Format = TextResultFormat.HTML
                     });
 
-                    Results.Add (new TextCleanerResult {
+                    Results.Add (new TextResult {
                         Text = TextToTextProcessing.Process (HtmlToTextProcessing.Process (Source)),
                         Label = "Text",
-                        Format = TextCleanerResultFormat.Text
+                        Format = TextResultFormat.Text
                     });
                 }
                 else {
-                    var textResult = new TextCleanerResult {
+                    var textResult = new TextResult {
                         Text = TextToTextProcessing.Process (Source),
                         Label = "Text",
-                        Format = TextCleanerResultFormat.Text
+                        Format = TextResultFormat.Text
                     };
 
                     Results.Add (textResult);
 
-                    Results.Add (new TextCleanerResult {
+                    Results.Add (new TextResult {
                         Text = TextSimplifyProcessing.Process (textResult.Text),
                         Label = "Simplified text",
                         TextColor = "darkred",
-                        Format = TextCleanerResultFormat.Text
+                        Format = TextResultFormat.Text
                     });
 
-                    Results.Add (new TextCleanerResult {
+                    Results.Add (new TextResult {
                         Text = TextToHtmlProcessing.Process (textResult.Text),
                         Label = "HTML",
                         TextColor = "darkblue",
-                        Format = TextCleanerResultFormat.HTML
+                        Format = TextResultFormat.HTML
                     });
                 }
             }

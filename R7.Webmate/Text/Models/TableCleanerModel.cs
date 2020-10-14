@@ -28,11 +28,11 @@ namespace R7.Webmate.Text.Models
                 if (HtmlHelper.IsHtml (Source)) {
                     var resultText = TP.Process (Source);
 
-                    Results.Add (new TextCleanerResult {
+                    Results.Add (new TextResult {
                         Text = resultText,
                         Label = "HTML table",
                         TextColor = "darkblue",
-                        Format = TextCleanerResultFormat.HTML
+                        Format = TextResultFormat.HTML
                     });
 
                     if (!string.IsNullOrEmpty (resultText)) {
@@ -43,11 +43,11 @@ namespace R7.Webmate.Text.Models
                             if (BootstrapResponsiveTable) {
                                 resultText = $"<div class=\"table-responsive\">{resultText}</div>";
                             }
-                            Results.Add (new TextCleanerResult {
+                            Results.Add (new TextResult {
                                 Text = resultText,
                                 Label = "Bootstrap table",
                                 TextColor = "darkblue",
-                                Format = TextCleanerResultFormat.HTML
+                                Format = TextResultFormat.HTML
                             });
                         }
                     }

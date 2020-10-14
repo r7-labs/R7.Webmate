@@ -6,7 +6,7 @@ namespace R7.Webmate.Text.Models
     {
         public string Source { get; set; }
 
-        public IList<TextCleanerResult> Results = new List<TextCleanerResult> ();
+        public IList<TextResult> Results = new List<TextResult> ();
 
         public abstract void Process ();
     }

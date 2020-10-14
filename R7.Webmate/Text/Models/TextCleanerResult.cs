@@ -1,5 +1,6 @@
 namespace R7.Webmate.Text.Models
 {
+    // TODO: Rename to TextResult
     public class TextCleanerResult
     {
         public string Text { get; set; }

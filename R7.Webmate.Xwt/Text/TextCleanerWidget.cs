@@ -39,7 +39,7 @@ namespace R7.Webmate.Xwt.Text
             var btnPasteMenu = new MenuButton ();
 
             btnProcess = new Button (IconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Process"));
-            btnProcess.Clicked += BtnProcess_Clicked;
+            btnProcess.Clicked += btnProcess_Clicked;
 
             dlgProcessOptions = new Dialog ();
             dlgProcessOptions.Title = T.GetString ("Text processing options");
@@ -101,7 +101,7 @@ namespace R7.Webmate.Xwt.Text
             lblSrc.Text = Model.Source;
 
             if (chkAutoProcess.Active) {
-                BtnProcess_Clicked (sender, e);
+                btnProcess_Clicked (sender, e);
             }
         }
 
@@ -117,7 +117,7 @@ namespace R7.Webmate.Xwt.Text
             }
         }
 
-        void BtnProcess_Clicked (object sender, EventArgs e)
+        void btnProcess_Clicked (object sender, EventArgs e)
         {
             Process ();
             ShowResults ();

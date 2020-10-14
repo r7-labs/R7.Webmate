@@ -51,7 +51,7 @@ namespace R7.Webmate.Xwt
             boxOptions.PackStart(chkJoinResults, false, true);
 
             btnGenerate = new Button (IconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Generate"));
-            btnGenerate.Clicked += BtnGenerate_Clicked;
+            btnGenerate.Clicked += btnGenerate_Clicked;
 
             hboxGenerate.PackStart (btnGenerate, true, true);
             hboxGenerate.PackStart (spnNumberOfEntries, false, true);
@@ -67,7 +67,7 @@ namespace R7.Webmate.Xwt
             Content.Show ();
         }
 
-        void BtnGenerate_Clicked (object sender, EventArgs e)
+        void btnGenerate_Clicked (object sender, EventArgs e)
         {
             vboxResults.Clear ();
 

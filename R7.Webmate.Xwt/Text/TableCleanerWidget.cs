@@ -36,7 +36,7 @@ namespace R7.Webmate.Xwt.Text
             btnPasteHtml.Clicked += BtnPasteHtml_Clicked;
 
             btnProcess = new Button (IconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Process"));
-            btnProcess.Clicked += BtnProcess_Clicked;
+            btnProcess.Clicked += btnProcess_Clicked;
 
             var hboxPaste = new HBox ();
             hboxPaste.PackStart (btnPaste, true, true);
@@ -90,7 +90,7 @@ namespace R7.Webmate.Xwt.Text
             }
         }
 
-        void BtnProcess_Clicked (object sender, EventArgs e)
+        void btnProcess_Clicked (object sender, EventArgs e)
         {
             Process ();
             ShowResults ();

@@ -9,5 +9,10 @@ namespace R7.Webmate.Text.Models
         public string TextColor { get; set; }
 
         public TextResultFormat Format { get; set; }
+
+        public TextResult ()
+        {
+            Format = TextResultFormat.Text;
+        }
     }
 }

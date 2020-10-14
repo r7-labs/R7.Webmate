@@ -88,32 +88,27 @@ namespace R7.Webmate.Text.Models
 
             Results.Add (new TextResult {
                 Text = UpperCase (Source),
-                Label = "Upper Case",
-                Format = TextResultFormat.Text
+                Label = "Upper Case"
             });
 
             Results.Add (new TextResult {
                 Text = LowerCase (Source),
-                Label = "Lower Case",
-                Format = TextResultFormat.Text
+                Label = "Lower Case"
             });
 
             Results.Add (new TextResult {
                 Text = SentenceCase (Source),
-                Label = "Sentence Case",
-                Format = TextResultFormat.Text
+                Label = "Sentence Case"
             });
 
             Results.Add (new TextResult {
                 Text = CamelCase (Source),
-                Label = "Camel Case",
-                Format = TextResultFormat.Text
+                Label = "Camel Case"
             });
 
             Results.Add (new TextResult {
                 Text = InvertedCase (Source),
-                Label = "Inverted Case",
-                Format = TextResultFormat.Text
+                Label = "Inverted Case"
             });
         }
     }

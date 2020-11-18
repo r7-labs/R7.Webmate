@@ -133,10 +133,10 @@
       <HintPath>..\packages\YamlDotNet.8.1.2\lib\net45\YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="NGettext">
-      <HintPath>..\packages\NGettext.0.6.5\lib\net46\NGettext.dll</HintPath>
+      <HintPath>..\packages\NGettext.0.6.6\lib\net46\NGettext.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
-      <HintPath>..\packages\NLog.4.7.2\lib\net45\NLog.dll</HintPath>
+      <HintPath>..\packages\NLog.4.7.5\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />

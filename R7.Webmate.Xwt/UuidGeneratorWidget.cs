@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using NGettext;
+using R7.Webmate.Text.Models;
 using R7.Webmate.Xwt.Icons;
 using R7.Webmate.Xwt.Text;
 using Xwt;

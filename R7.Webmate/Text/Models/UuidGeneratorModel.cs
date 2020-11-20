@@ -1,6 +1,6 @@
 using System;
 
-namespace R7.Webmate.Xwt
+namespace R7.Webmate.Text.Models
 {
     public class UuidGeneratorModel
     {

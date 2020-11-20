@@ -38,7 +38,6 @@
     <Compile Include="Text\TextCleanerWidgetBase.cs" />
     <Compile Include="UuidGeneratorWidget.cs" />
     <Compile Include="Const.cs" />
-    <Compile Include="UuidGeneratorModel.cs" />
     <Compile Include="Text\CaseChangerWidget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\R7.Webmate\Properties\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />

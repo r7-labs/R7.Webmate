@@ -15,6 +15,11 @@ namespace R7.Webmate.Xwt
             T.GetString ("Simplified text");
             T.GetString ("HTML table");
             T.GetString ("Boostrap table");
+            T.GetString ("UPPER CASE");
+            T.GetString ("lower case");
+            T.GetString ("Sentence case");
+            T.GetString ("Camel Case");
+            T.GetString ("iNVERTED cASE");
         }
     }
 }

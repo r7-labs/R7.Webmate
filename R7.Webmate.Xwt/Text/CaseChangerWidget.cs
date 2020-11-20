@@ -8,7 +8,6 @@ using Xwt;
 
 namespace R7.Webmate.Xwt
 {
-    // TODO: Localize me!
     public class CaseChangerWidget: Widget
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: R7.Webmate.Xwt 0.1\n"
-"POT-Creation-Date: 2020-02-10 13:32+0400\n"
-"PO-Revision-Date: 2020-02-10 13:36+0400\n"
+"POT-Creation-Date: 2020-11-20 12:16+0400\n"
+"PO-Revision-Date: 2020-11-20 12:22+0400\n"
 "Last-Translator: Roman M. Yagodin <roman.yagodin@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: GetString;GetPluralString:1,2;"
 "GetParticularString:1c,2;GetParticularPluralString:1c,2,3;_;_n:1,2;"
@@ -22,29 +22,53 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: bin\n"
 "X-Poedit-SearchPathExcluded-2: obj\n"
 
-#: MainWindow.cs:31
+#: MainWindow.cs:34
 msgid "Text Cleaner"
 msgstr "Очистка текста"
 
-#: MainWindow.cs:32
+#: MainWindow.cs:35
 msgid "Table Cleaner"
 msgstr "Очистка таблиц"
 
-#: MainWindow.cs:33
+#: MainWindow.cs:36
+msgid "Case Changer"
+msgstr "Смена регистра"
+
+#: MainWindow.cs:37
 msgid "UUID Generator"
 msgstr "Генератор UUID"
 
-#: MainWindow.cs:47
+#: MainWindow.cs:51
 msgid "R7.Webmaster.Xwt - "
 msgstr "R7.Webmate.Xwt - "
 
-#: MainWindow.cs:65
+#: MainWindow.cs:69
 msgid "Open R7.Webmate"
 msgstr "Открыть R7.Webmate"
 
-#: MainWindow.cs:71 Text/TextViewDialog.cs:72
+#: MainWindow.cs:75 Text/TextViewDialog.cs:72
 msgid "Close"
 msgstr "Закрыть"
+
+#: Text/CaseChangerWidget.cs:37 Text/TableCleanerWidget.cs:32
+#: Text/TextCleanerWidget.cs:33
+msgid "Paste"
+msgstr "Вставить"
+
+#: Text/CaseChangerWidget.cs:40 Text/TableCleanerWidget.cs:38
+#: Text/TextCleanerWidget.cs:41
+msgid "Process"
+msgstr "Обработать"
+
+#: Text/CaseChangerWidget.cs:43 Text/TableCleanerWidget.cs:45
+#: Text/TextCleanerWidget.cs:79
+msgid "Process on paste?"
+msgstr "Обрабатывать при вставке?"
+
+#: Text/CaseChangerWidget.cs:110 Text/TextCleanerWidgetBase.cs:41
+#, csharp-format
+msgid "Result #{0} - {1}"
+msgstr "Результат №{0} - {1}"
 
 #: Text/ProcessingOptionsWidget.cs:40
 msgid "Options:"
@@ -58,21 +82,9 @@ msgstr "Обработка:"
 msgid "<not selected>"
 msgstr "<не выбрано>"
 
-#: Text/TableCleanerWidget.cs:32 Text/TextCleanerWidget.cs:33
-msgid "Paste"
-msgstr "Вставить"
-
 #: Text/TableCleanerWidget.cs:35 Text/TextCleanerWidget.cs:36
 msgid "Paste HTML"
 msgstr "Вставить HTML"
-
-#: Text/TableCleanerWidget.cs:38 Text/TextCleanerWidget.cs:41
-msgid "Process"
-msgstr "Обработать"
-
-#: Text/TableCleanerWidget.cs:45 Text/TextCleanerWidget.cs:79
-msgid "Process on paste?"
-msgstr "Обрабатывать при вставке?"
 
 #: Text/TableCleanerWidget.cs:48
 msgid "Generate Bootstrap table?"
@@ -89,11 +101,6 @@ msgstr "Настройки обработки текста"
 #: Text/TextCleanerWidget.cs:70
 msgid "Click to open text processing options."
 msgstr "Нажмите, чтобы открыть настройки обработки текста."
-
-#: Text/TextCleanerWidgetBase.cs:41
-#, csharp-format
-msgid "Result #{0} - {1}"
-msgstr "Результат №{0} - {1}"
 
 #: Text/TextViewDialog.cs:40
 msgid "View Text"
@@ -123,6 +130,36 @@ msgstr "Нажмите, чтобы открыть полный текст."
 msgid "Copy"
 msgstr "Копировать"
 
+#: Text/UuidGeneratorWidget.cs:43
+msgid "Number of UUIDs to generate"
+msgstr "Количество генерируемых UUID "
+
+#: Text/UuidGeneratorWidget.cs:45
+msgid "Uppercase?"
+msgstr "В верхнем регистре?"
+
+#: Text/UuidGeneratorWidget.cs:46
+msgid "No Dashes?"
+msgstr "Без дефисов?"
+
+#: Text/UuidGeneratorWidget.cs:47
+msgid "Join Results?"
+msgstr "Объединить результаты?"
+
+#: Text/UuidGeneratorWidget.cs:53
+msgid "Generate"
+msgstr "Генерировать"
+
+#: Text/UuidGeneratorWidget.cs:106
+#, csharp-format
+msgid "Result #{0}"
+msgstr "Результат №{0}"
+
+#: Text/UuidGeneratorWidget.cs:109
+#, csharp-format
+msgid "Results #{0}-#{1}"
+msgstr "Результаты №№{0}-{1}"
+
 #: TextCatalogAdditionalStrings.cs:13
 msgid "HTML"
 msgstr "HTML"
@@ -143,35 +180,25 @@ msgstr "Таблица HTML"
 msgid "Boostrap table"
 msgstr "Таблица Bootstrap"
 
-#: UuidGeneratorWidget.cs:43
-msgid "Number of UUIDs to generate"
-msgstr "Количество генерируемых UUID "
+#: TextCatalogAdditionalStrings.cs:18
+msgid "UPPER CASE"
+msgstr "ПРОПИСНЫЕ"
 
-#: UuidGeneratorWidget.cs:45
-msgid "Uppercase?"
-msgstr "В верхнем регистре?"
+#: TextCatalogAdditionalStrings.cs:19
+msgid "lower case"
+msgstr "строчные"
 
-#: UuidGeneratorWidget.cs:46
-msgid "No Dashes?"
-msgstr "Без дефисов?"
+#: TextCatalogAdditionalStrings.cs:20
+msgid "Sentence case"
+msgstr "Как в предложениях"
 
-#: UuidGeneratorWidget.cs:47
-msgid "Join Results?"
-msgstr "Объединить результаты?"
+#: TextCatalogAdditionalStrings.cs:21
+msgid "Camel Case"
+msgstr "Каждое Слово С Прописной"
 
-#: UuidGeneratorWidget.cs:53
-msgid "Generate"
-msgstr "Генерировать"
-
-#: UuidGeneratorWidget.cs:106
-#, csharp-format
-msgid "Result #{0}"
-msgstr "Результат №{0}"
-
-#: UuidGeneratorWidget.cs:109
-#, csharp-format
-msgid "Results #{0}-#{1}"
-msgstr "Результаты №№{0}-{1}"
+#: TextCatalogAdditionalStrings.cs:22
+msgid "iNVERTED cASE"
+msgstr "пЕРЕКЛЮЧИТЬ рЕГИСТР"
 
 #~ msgid "Bootstrap table"
 #~ msgstr "Таблица Bootstrap"

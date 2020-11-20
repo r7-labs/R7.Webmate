@@ -36,11 +36,11 @@
     <Compile Include="Icons\ImageExtensions.cs" />
     <Compile Include="TextCatalogAdditionalStrings.cs" />
     <Compile Include="Text\TextCleanerWidgetBase.cs" />
-    <Compile Include="UuidGeneratorWidget.cs" />
     <Compile Include="Const.cs" />
     <Compile Include="Text\CaseChangerWidget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="..\R7.Webmate\Properties\SolutionInfo.cs" Link="Properties\SolutionInfo.cs" />
+    <Compile Include="Text\UuidGeneratorWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

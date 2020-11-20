@@ -87,6 +87,11 @@ namespace R7.Webmate.Text.Models
             Results.Clear ();
 
             Results.Add (new TextResult {
+                Text = SentenceCase (Source),
+                Label = "Sentence case"
+            });
+
+            Results.Add (new TextResult {
                 Text = UpperCase (Source),
                 Label = "UPPER CASE"
             });
@@ -94,11 +99,6 @@ namespace R7.Webmate.Text.Models
             Results.Add (new TextResult {
                 Text = LowerCase (Source),
                 Label = "lower case"
-            });
-
-            Results.Add (new TextResult {
-                Text = SentenceCase (Source),
-                Label = "Sentence case"
             });
 
             Results.Add (new TextResult {

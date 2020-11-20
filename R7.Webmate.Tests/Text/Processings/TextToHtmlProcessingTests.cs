@@ -19,12 +19,6 @@ namespace R7.Webmate.Tests.Text.Processings
         }
 
         [Fact]
-        public void DetectOrderedList ()
-        {
-            Assert.Equal ("<ol>\n<li>Hello,</li>\n<li>world!</li>\n</ol>", TP.Process ("1. Hello,\n2.world!"));
-        }
-
-        [Fact]
         public void DetectUnorderedList ()
         {
             Assert.Equal ("<ul>\n<li>Hello,</li>\n<li>world!</li>\n</ul>", TP.Process (X ("&bull; Hello,\n&bull;world!")));

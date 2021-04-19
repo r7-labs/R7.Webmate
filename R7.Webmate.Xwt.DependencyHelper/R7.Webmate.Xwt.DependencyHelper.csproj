@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Xwt.Gtk3.0.2.227\build\Xwt.Gtk3.props" Condition="Exists('..\packages\Xwt.Gtk3.0.2.227\build\Xwt.Gtk3.props')" />
+  <Import Project="..\packages\Xwt.Gtk3.0.2.234\build\Xwt.Gtk3.props" Condition="Exists('..\packages\Xwt.Gtk3.0.2.234\build\Xwt.Gtk3.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -30,9 +30,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Xwt">
-      <HintPath>..\packages\Xwt.0.2.227\lib\net472\Xwt.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -44,11 +41,17 @@
     <Reference Include="UIAutomationProvider" />
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
-    <Reference Include="Xwt.Gtk3">
-      <HintPath>..\packages\Xwt.Gtk3.0.2.227\lib\net472\Xwt.Gtk3.dll</HintPath>
+    <Reference Include="Xwt, Version=0.2.234.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <HintPath>..\packages\Xwt.0.2.234\lib\net472\Xwt.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Xwt.WPF">
-      <HintPath>..\packages\Xwt.WPF.0.2.227\lib\net472\Xwt.WPF.dll</HintPath>
+    <Reference Include="Xwt.Gtk3, Version=0.2.234.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <HintPath>..\packages\Xwt.Gtk3.0.2.234\lib\net472\Xwt.Gtk3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xwt.WPF, Version=0.2.234.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <HintPath>..\packages\Xwt.WPF.0.2.234\lib\net472\Xwt.WPF.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -56,4 +59,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Xwt.Gtk3.0.2.234\build\Xwt.Gtk3.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xwt.Gtk3.0.2.234\build\Xwt.Gtk3.props'))" />
+  </Target>
 </Project>

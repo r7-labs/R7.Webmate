@@ -73,6 +73,10 @@ commands:
 # lowercase all tags and row/colspan attributes
 - !!regex-to-lower
   pattern: "<(/?\\w+)|(row|col)span"
+# cleanup possible wrapping of each row into <TBODY> tags
+- !!regex-replace
+  pattern: "(?s)</tbody>\\s*<tbody>"
+  replacement: ""
 # shrink whitespace again
 - !!regex-replace
   pattern: "\\s+"

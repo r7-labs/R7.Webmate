@@ -10,7 +10,7 @@
     <Compile Remove="Text\Processings\TextCleanerProcessing.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="YamlDotNet" Version="8.1.2" />
+    <PackageReference Include="YamlDotNet" Version="11.2.1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="R7.Webmate.csproj" />

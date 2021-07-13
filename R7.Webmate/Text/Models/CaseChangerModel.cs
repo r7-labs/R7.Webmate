@@ -92,6 +92,11 @@ namespace R7.Webmate.Text.Models
             });
 
             Results.Add (new TextResult {
+                Text = CamelCase (Source),
+                Label = "Camel Case"
+            });
+
+            Results.Add (new TextResult {
                 Text = UpperCase (Source),
                 Label = "UPPER CASE"
             });
@@ -99,11 +104,6 @@ namespace R7.Webmate.Text.Models
             Results.Add (new TextResult {
                 Text = LowerCase (Source),
                 Label = "lower case"
-            });
-
-            Results.Add (new TextResult {
-                Text = CamelCase (Source),
-                Label = "Camel Case"
             });
 
             Results.Add (new TextResult {

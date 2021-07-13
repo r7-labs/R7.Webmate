@@ -35,6 +35,7 @@ namespace R7.Webmate.Xwt
             notebook.Add (new TableCleanerWidget (), T.GetString ("Table Cleaner"));
             notebook.Add (new CaseChangerWidget (), T.GetString ("Case Changer"));
             notebook.Add (new UuidGeneratorWidget (), T.GetString ("UUID Generator"));
+            notebook.Add (new ExternalToolsWidget (), T.GetString ("External Tools"));
             notebook.CurrentTabChanged += Notebook_CurrentTabChanged;
 
             UpdateTitle (notebook.CurrentTab.Label);

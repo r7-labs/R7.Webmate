@@ -1,5 +1,4 @@
 using System;
-using System.Text;
 using NGettext;
 using R7.Webmate.Text.Models;
 using R7.Webmate.Xwt.Icons;
@@ -19,14 +18,6 @@ namespace R7.Webmate.Xwt.Text
 
         protected HBox hboxGenerate = new HBox ();
 
-        protected Box boxOptions = new HBox ();
-
-        protected CheckBox chkUppercase;
-
-        protected CheckBox chkNoDashes;
-
-        protected CheckBox chkJoinResults;
-
         protected SpinButton spnNumberOfEntries = new SpinButton ();
 
         protected ScrollView scrResults;
@@ -39,16 +30,8 @@ namespace R7.Webmate.Xwt.Text
             spnNumberOfEntries.MaximumValue = 100;
             spnNumberOfEntries.IncrementValue = 1;
             spnNumberOfEntries.Digits = 0;
-            spnNumberOfEntries.Value = 4;
+            spnNumberOfEntries.Value = 1;
             spnNumberOfEntries.TooltipText = T.GetString ("Number of UUIDs to generate");
-
-            chkUppercase = new CheckBox (T.GetString ("Uppercase?"));
-            chkNoDashes = new CheckBox (T.GetString ("No Dashes?"));
-            chkJoinResults = new CheckBox(T.GetString ("Join Results?"));
-
-            boxOptions.PackStart (chkUppercase, false, true);
-            boxOptions.PackStart (chkNoDashes, false, true);
-            boxOptions.PackStart(chkJoinResults, false, true);
 
             btnGenerate = new Button (IconHelper.GetIcon ("play-circle").WithSize (IconSize.Medium), T.GetString ("Generate"));
             btnGenerate.Clicked += btnGenerate_Clicked;
@@ -59,7 +42,6 @@ namespace R7.Webmate.Xwt.Text
             scrResults = new ScrollView (vboxResults);
 
             vbox.PackStart (hboxGenerate, false, true);
-            vbox.PackStart (boxOptions, false, true);
             vbox.PackStart (scrResults, true, true);
 
             vbox.Margin = Const.VBOX_MARGIN;
@@ -71,28 +53,20 @@ namespace R7.Webmate.Xwt.Text
         {
             vboxResults.Clear ();
 
-            Model.Uppercase = chkUppercase.Active;
-            Model.NoDashes = chkNoDashes.Active;
+            Model.NumOfEntries = (int) spnNumberOfEntries.Value;
+            Model.Process ();
 
-            if (chkJoinResults.Active) {
-                var result = new StringBuilder ();
-                for (var i = 0; i < (int) spnNumberOfEntries.Value; i++) {
-                    result.AppendLine (Model.GenerateUuid ());
-                }
-
-                AddResult (1, (int) spnNumberOfEntries.Value, result.ToString ());
-            }
-            else {
-                for (var i = 0; i < (int) spnNumberOfEntries.Value; i++) {
-                    AddResult (i + 1, i + 1, Model.GenerateUuid ());
-                }
+            var i = 1;
+            foreach (var result in Model.Results) {
+                AddResult (i, result);
+                i++;
             }
         }
 
-        protected virtual void AddResult (int fromIndex, int toIndex, string result)
+        protected void AddResult (int index, TextResult result)
         {
             var lblResult = new TextViewLabel ();
-            lblResult.Text = result;
+            lblResult.Text = result.Text;
 
             var vboxResult = new VBox ();
             vboxResult.MarginLeft = Const.VBOX_MARGIN;
@@ -102,15 +76,11 @@ namespace R7.Webmate.Xwt.Text
 
             var frmResult = new Frame ();
 
-            if (fromIndex == toIndex) {
-                frmResult.Label = string.Format (T.GetString ("Result #{0}"), fromIndex);
-            }
-            else {
-                frmResult.Label = string.Format (T.GetString ("Results #{0}-#{1}"), fromIndex, toIndex);
-            }
+            frmResult.Label = string.Format (T.GetString ("Result #{0} - {1}"), index, T.GetString (result.Label));
 
             frmResult.Content = vboxResult;
             vboxResults.PackStart (frmResult);
         }
+
     }
 }

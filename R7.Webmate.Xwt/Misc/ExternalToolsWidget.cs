@@ -1,4 +1,3 @@
-using System;
 using NGettext;
 using Xwt;
 using System.Diagnostics;
@@ -9,30 +8,28 @@ namespace R7.Webmate.Xwt
     {
         protected ICatalog T = TextCatalogKeeper.GetDefault ();
 
-        #region Controls
-
-        #endregion
-
         public ExternalToolsWidget ()
         {
+            var browserCommand = PlatformHelper.GetBrowserCommand();
+
             var btnMergePdf = new Button ("Merge PDF");
             btnMergePdf.Clicked += (sender, e) => {
-                Process.Start ("x-www-browser", "https://www.ilovepdf.com/merge_pdf");
+                Process.Start (browserCommand, "https://www.ilovepdf.com/merge_pdf");
             };
 
             var btnSplitPdf = new Button ("Split PDF");
             btnSplitPdf.Clicked += (sender, e) => {
-                Process.Start ("x-www-browser", "https://www.ilovepdf.com/split_pdf");
+                Process.Start (browserCommand, "https://www.ilovepdf.com/split_pdf");
             };
 
             var btnCompressPdf = new Button ("Compress PDF");
             btnCompressPdf.Clicked += (sender, e) => {
-                Process.Start ("x-www-browser", "https://www.ilovepdf.com/compress_pdf");
+                Process.Start (browserCommand, "https://www.ilovepdf.com/compress_pdf");
             };
 
             var btnILovePdf = new Button ("More Tools...");
             btnILovePdf.Clicked += (sender, e) => {
-                Process.Start ("x-www-browser", "https://www.ilovepdf.com");
+                Process.Start (browserCommand, "https://www.ilovepdf.com");
             };
 
             var btnCharmap = new Button ("Character Map");

@@ -23,5 +23,16 @@ namespace R7.Webmate
             }
             return "unknown";
         }
+
+        public static string GetBrowserCommand()
+        {
+            if (IsWindows ()) {
+                return "explorer";
+            }
+            if (IsUnix ()) {
+                return "x-www-browser";
+            }
+            return "unknown";
+        }
     }
 }

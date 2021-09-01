@@ -44,6 +44,9 @@
     <Compile Include="Misc\ExternalToolsWidget.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="config\R7.Webmate.Xwt.windows.yml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="resources\app-icons\r7-webmate-128px.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -141,8 +144,8 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
-    <Reference Include="Xwt, Version=0.2.246.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
-      <HintPath>..\packages\Xwt.0.2.246\lib\net472\Xwt.dll</HintPath>
+    <Reference Include="Xwt, Version=0.2.247.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <HintPath>..\packages\Xwt.0.2.247\lib\net472\Xwt.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e">

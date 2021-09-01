@@ -23,14 +23,14 @@ namespace R7.Webmate.Xwt
                 InitStatusIcon ();
             }
 
-            Width = 500;
+            Width = 600;
             Height = 400;
 
             CloseRequested += MainWindow_CloseRequested;
             Closed += MainWindow_Closed;
 
             var notebook = new Notebook ();
-            notebook.TabOrientation = NotebookTabOrientation.Bottom;
+            notebook.TabOrientation = NotebookTabOrientation.Right;
             notebook.Add (new TextCleanerWidget (), T.GetString ("Text Cleaner"));
             notebook.Add (new TableCleanerWidget (), T.GetString ("Table Cleaner"));
             notebook.Add (new CaseChangerWidget (), T.GetString ("Case Changer"));

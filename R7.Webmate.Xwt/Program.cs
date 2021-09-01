@@ -30,28 +30,38 @@ namespace R7.Webmate.Xwt
 
         static internal MainWindow MainWindow;
 
+        static internal Logger Logger = LogManager.GetCurrentClassLogger ();
+
         static void Initialize ()
         {
             Config.DefaultConfigPath = "./config/R7.Webmate.Xwt.yml";
             Application.Initialize (Config.Instance.ToolkitType ?? XwtHelper.GetDefaultXwtToolkitType ());
             TextCatalogKeeper.SetDefault (new Catalog ("R7.Webmate.Xwt", "./resources/locale"));
-            LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration ("./config/R7.Webmate.Xwt.NLog.config");
         }
 
         [STAThread]
         static void Main (string [] args)
         {
-            Initialize ();
+            LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration ("./config/R7.Webmate.Xwt.NLog.config");
+            try
+            {
+                Initialize();
 
-            CmdlineArgs = new CmdlineArgs (args);
+                CmdlineArgs = new CmdlineArgs(args);
 
-            MainWindow = new MainWindow ();
-            if (!CmdlineArgs.Silent || MainWindow.StatusIcon == null) {
-                MainWindow.Show ();
+                MainWindow = new MainWindow();
+                if (!CmdlineArgs.Silent || MainWindow.StatusIcon == null)
+                {
+                    MainWindow.Show();
+                }
+
+                Application.Run();
+                MainWindow.Dispose();
             }
-
-            Application.Run ();
-            MainWindow.Dispose ();
+            catch (Exception ex)
+            {
+                Logger.Error (ex);
+            }
         }
     }
 }

@@ -126,6 +126,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="NGettext, Version=0.6.1.0, Culture=neutral, PublicKeyToken=08d3d1c89dfd2985">
+      <HintPath>..\packages\NGettext.0.6.7\lib\net46\NGettext.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c">
       <HintPath>..\packages\NLog.4.7.10\lib\net45\NLog.dll</HintPath>
       <Private>True</Private>
@@ -133,9 +137,6 @@
     <Reference Include="System.Xaml" />
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NGettext">
-      <HintPath>..\packages\NGettext.0.6.6\lib\net46\NGettext.dll</HintPath>
-    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -144,8 +145,8 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
-    <Reference Include="Xwt, Version=0.2.247.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
-      <HintPath>..\packages\Xwt.0.2.247\lib\net472\Xwt.dll</HintPath>
+    <Reference Include="Xwt, Version=0.2.250.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <HintPath>..\packages\Xwt.0.2.250\lib\net472\Xwt.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="YamlDotNet, Version=11.0.0.0, Culture=neutral, PublicKeyToken=ec19458f3c15af5e">

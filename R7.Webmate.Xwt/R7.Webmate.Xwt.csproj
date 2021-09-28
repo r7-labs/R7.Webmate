@@ -45,16 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="resources\app-icons\r7-webmate-128px.png">
+    <Content Include="resources\app-icons\r7-webmate-128px.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="resources\app-icons\r7-webmate-512px.png">
+    </Content>
+    <Content Include="resources\app-icons\r7-webmate-32px.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="resources\app-icons\r7-webmate-plain.svg">
+    </Content>
+    <Content Include="resources\app-icons\r7-webmate.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="resources\app-icons\r7-webmate-v1.svg" />
+    </Content>
     <None Include="resources\locale\ru\LC_MESSAGES\R7.Webmate.Xwt.mo">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -164,6 +163,12 @@
       <Project>{C97EAFDF-3190-4A13-B1DC-A033C45228B8}</Project>
       <Name>R7.Webmate</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\app-icons\r7-webmate-64px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="resources\app-icons\r7-webmate-src.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="CopyBackendAssemblies">

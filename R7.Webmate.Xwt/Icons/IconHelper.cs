@@ -21,9 +21,9 @@ namespace R7.Webmate.Xwt.Icons
         {
             // TODO: Handle possible exceptions
             if (PlatformHelper.IsWindows ()) {
-                return Image.FromFile ("./resources/app-icons/r7-webmate-128px.png");
+                return Image.FromFile ("./resources/app-icons/r7-webmate-32px.png");
             }
-            return Image.FromFile ("./resources/app-icons/r7-webmate-plain.svg");
+            return Image.FromFile ("./resources/app-icons/r7-webmate.svg");
         }
 
         public static string GetIconExtension ()

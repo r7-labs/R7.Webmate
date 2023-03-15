@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>net7</TargetFramework>
     <IsPackable>false</IsPackable>
     <!-- Fix for CS0017 Program has more than one entry point defined... https://andrewlock.net/fixing-the-error-program-has-more-than-one-entry-point-defined-for-console-apps-containing-xunit-tests/ -->
     <GenerateProgramFile>false</GenerateProgramFile>

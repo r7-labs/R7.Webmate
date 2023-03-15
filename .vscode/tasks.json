@@ -1,51 +1,24 @@
 {
-  // see http://go.microsoft.com/fwlink/?LinkId=733558 for the documentation about the tasks.json format
-  "version": "2.0.0",
-  "args": [
-    // enable parallel build
-    "-m"
-  ],
-  // always show output window
-  "presentation": {
-    "reveal": "always"
-  },
-  "command": "msbuild",
-  "windows": {
-    "command": "C:\\Windows\\Microsoft.NET\\Framework\\v4.0.30319\\MSBuild.exe"
-  },
-  "tasks": [
-    {
-      "label": "Build (Debug)",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "args": ["/t:Build", "/p:Configuration=Debug"],
-      // use the standard MS compiler pattern to detect errors, warnings and infos
-      "problemMatcher": "$msCompile"
-    },
-    {
-      "label": "Build (Release)",
-      "group": "build",
-      "args": ["/t:Build", "/p:Configuration=Release"],
-      // use the standard MS compiler pattern to detect errors, warnings and infos
-      "problemMatcher": "$msCompile"
-    },
-    {
-      "label": "Clean",
-      "group": "build",
-      "args": ["/t:Clean"],
-      // use the standard MS compiler pattern to detect errors, warnings and infos
-      "problemMatcher": "$msCompile"
-    },
-    {
-      "label": "Test",
-      "command": "dotnet",
-      "group": "test",
-      "type": "process",
-      "args": [ "test" ],
-      // use the standard MS compiler pattern to detect errors, warnings and infos
-      "problemMatcher": "$msCompile"
-    }
-  ]
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
+                // Ask dotnet build to generate full paths for file names.
+                "/property:GenerateFullPaths=true",
+                // Do not generate summary otherwise it leads to duplicate errors in Problems panel
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
 }

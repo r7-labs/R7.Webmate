@@ -163,6 +163,10 @@
       <Project>{C97EAFDF-3190-4A13-B1DC-A033C45228B8}</Project>
       <Name>R7.Webmate</Name>
     </ProjectReference>
+    <ProjectReference Include="..\R7.Webmate.Fs\R7.Webmate.Fs.fsproj">
+      <Project>{73C8C014-A9CB-44C0-8C38-32B7FDBF9FCC}</Project>
+      <Name>R7.Webmate.Fs</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="resources\app-icons\r7-webmate-64px.png">

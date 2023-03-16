@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectGuid>{2505B342-AD1C-46EA-AA9F-BB232CC36CC8}</ProjectGuid>
@@ -29,6 +29,7 @@
     <Compile Include="XwtHelper.cs" />
     <Compile Include="Text\TableCleanerWidget.cs" />
     <Compile Include="Text\TextCleanerWidget.cs" />
+    <Compile Include="Text\DecodeHexStringWidget.cs" />
     <Compile Include="Text\TextViewDialog.cs" />
     <Compile Include="Text\TextViewLabel.cs" />
     <Compile Include="TextCatalogKeeper.cs" />
@@ -122,6 +123,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="FSharp.Core, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Core.7.0.200\lib\netstandard2.0\FSharp.Core.dll</HintPath>
+    </Reference>
     <Reference Include="NGettext, Version=0.6.1.0, Culture=neutral, PublicKeyToken=08d3d1c89dfd2985">
       <HintPath>..\packages\NGettext.0.6.7\lib\net46\NGettext.dll</HintPath>
       <Private>True</Private>
@@ -150,22 +154,15 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Icons\" />
-    <Folder Include="resources\locale\" />
-    <Folder Include="config\" />
-    <Folder Include="Text\" />
-    <Folder Include="Properties\" />
-    <Folder Include="Misc\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\R7.Webmate.Fs\R7.Webmate.Fs.fsproj">
+      <Project>{c9e616ea-f142-4c31-8e97-fee8bb39b7b5}</Project>
+      <Name>R7.Webmate.Fs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\R7.Webmate\R7.Webmate.csproj">
       <Project>{C97EAFDF-3190-4A13-B1DC-A033C45228B8}</Project>
       <Name>R7.Webmate</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\R7.Webmate.Fs\R7.Webmate.Fs.fsproj">
-      <Project>{73C8C014-A9CB-44C0-8C38-32B7FDBF9FCC}</Project>
-      <Name>R7.Webmate.Fs</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -176,7 +173,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="CopyBackendAssemblies">
-	  <XmlPeek XmlInputPath="packages.config" Query="/packages/package[@id='Xwt']/@version">
+    <XmlPeek XmlInputPath="packages.config" Query="/packages/package[@id='Xwt']/@version">
       <Output TaskParameter="Result" PropertyName="XwtPackageVersion" />
     </XmlPeek>
     <Exec Condition="'$(OS)' == 'Windows_NT'" Command="powershell ./CopyBackendAssemblies.ps1 -OutputPath $(OutputPath) -XwtPackageVersion $(XwtPackageVersion)" />

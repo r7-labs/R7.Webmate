@@ -1,15 +1,16 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Xwt", "R7.Webmate.Xwt\R7.Webmate.Xwt.csproj", "{2505B342-AD1C-46EA-AA9F-BB232CC36CC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate", "R7.Webmate\R7.Webmate.csproj", "{C97EAFDF-3190-4A13-B1DC-A033C45228B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R7.Webmate", "R7.Webmate\R7.Webmate.csproj", "{C97EAFDF-3190-4A13-B1DC-A033C45228B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Fs", "R7.Webmate.Fs\R7.Webmate.Fs.fsproj", "{73C8C014-A9CB-44C0-8C38-32B7FDBF9FCC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Tests", "R7.Webmate.Tests\R7.Webmate.Tests.csproj", "{DA075051-D5E0-445D-8826-F683F89494E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R7.Webmate.Tests", "R7.Webmate.Tests\R7.Webmate.Tests.csproj", "{DA075051-D5E0-445D-8826-F683F89494E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Webmate.Xwt.DependencyHelper", "R7.Webmate.Xwt.DependencyHelper\R7.Webmate.Xwt.DependencyHelper.csproj", "{B801B613-7219-4C07-9340-A33451516F68}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "R7.Webmate.Fs", "R7.Webmate.Fs\R7.Webmate.Fs.fsproj", "{C9E616EA-F142-4C31-8E97-FEE8BB39B7B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +30,20 @@ Global
 		{DA075051-D5E0-445D-8826-F683F89494E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA075051-D5E0-445D-8826-F683F89494E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA075051-D5E0-445D-8826-F683F89494E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73C8C014-A9CB-44C0-8C38-32B7FDBF9FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73C8C014-A9CB-44C0-8C38-32B7FDBF9FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73C8C014-A9CB-44C0-8C38-32B7FDBF9FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73C8C014-A9CB-44C0-8C38-32B7FDBF9FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B801B613-7219-4C07-9340-A33451516F68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B801B613-7219-4C07-9340-A33451516F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B801B613-7219-4C07-9340-A33451516F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B801B613-7219-4C07-9340-A33451516F68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9E616EA-F142-4C31-8E97-FEE8BB39B7B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9E616EA-F142-4C31-8E97-FEE8BB39B7B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9E616EA-F142-4C31-8E97-FEE8BB39B7B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9E616EA-F142-4C31-8E97-FEE8BB39B7B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A2F1E7C-FC47-4090-8766-F467092DD3B3}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
